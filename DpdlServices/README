@@ -1,0 +1,9 @@
+
+IMPORTANT NOTICE:
+
+This folder contains the DpdlEngine record store db files and the generated DpdlPackets (*.dpdl).
+
+To avoid loss of data it's highly recommended to backup the "db" folder regularly, and
+
+in any case before executing untested code.
+

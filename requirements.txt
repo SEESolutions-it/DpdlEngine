@@ -1,0 +1,6 @@
+Dpdl - Dynamic Packet Definition Language
+
+			www.dpdl.biz
+
+
+DpdlEngine V1.0 requires a compatible Java Runtime Environment (JRE) >= version 1.5
