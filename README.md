@@ -7,7 +7,7 @@
  (c)opyright 2003 all rights reserved
  
  
- Dpdl is a small framework and library to encode, store, control
+ Dpdl is a constraint device framework and library to encode, store, control
  and query data efficiently in small memory footprint applications
  on embedded systems, mobile devices and small microcontroller chips.
  Dpdl supports common IoT protocol stacks such as Bluetooth(tm)
