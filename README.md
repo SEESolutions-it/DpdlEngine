@@ -493,7 +493,7 @@ To run the example
 on Linux/MacOS
 ```
 ./run_DpdlClient.sh
-``
+```
 
 on Windows
 ```
