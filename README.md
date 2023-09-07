@@ -56,7 +56,7 @@ Sample Dpdl script (Bluetooth discovery):
      fi
 ```
 
-## Why use Dpdl?
+## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
 memory footprint devices. The DpdlPacket data container is a highly optimized way to store 
@@ -65,7 +65,7 @@ and access data on devices that have limited memory and storage capabilities.
 Features:
 
 * DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE, and)
-* Packing data in a DpdlPacket can very convenient to optimize and speedup access to data.
+* Packing data in a DpdlPacket is very convenient to optimize and speedup access to data.
   The speedup is x 25 times faster compared to a standard record store access.
 * Dpdl scripting API provides access to the complete underlying Java platform API and to
   other external libraries via the loadObj(..) and getClass(..) methods
@@ -84,12 +84,12 @@ an ANSI C compiler is available.
 
 Dpdl is compatible with:
 
-	- J2ME MIDP (Mobile Information Device Profile) -> MIDP 1.0 and MIDP 2.0 (CLDC 1.0, CLDC 2.0)
-	- Java ME CLDC & GCF (JSR 360)
-	- Java ME Embedded Profile (JSR 361)
-	- Java versions >= 1.4 and later
-	- Java > 1.1 (but without 'loadObj' and 'getClass' methods)
-	- Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
+* J2ME MIDP (Mobile Information Device Profile) -> MIDP 1.0 and MIDP 2.0 (CLDC 1.0, CLDC 2.0)
+* Java ME CLDC & GCF (JSR 360)
+* Java ME Embedded Profile (JSR 361)
+* Java versions >= 1.4 and later
+* Java > 1.1 (but without 'loadObj' and 'getClass' methods)
+* Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
 	
 	
 	
@@ -109,15 +109,15 @@ execute and perform queries on a DpdlPacket.
 
 
 
-## What does the Demo release of Dpdl provide?
+## What does the DpdlEngine lite version provide?
 
 
-The Demo release of DpdlEngine is freely available with some limitations,
+The lite release of DpdlEngine is freely available with some limitations,
 and can be used to experiment the features of Dpdl and to develop small applications
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
-The Dpdl Demo release Dpdl software package includes:
+DpdlEgine lite includes:
 
 	- The 'DpdlClient' console application that allows to execute a set of commands
 	  for interacting with the core DpdlEngine
@@ -209,7 +209,7 @@ Dpdl scripting API methods.
 In this way Dpdl can access the classes or api of every external java library.
 
 Example (using String java class with method 'contains(..)':
-```c++
+```python
 object str = loadObj("String", "This is my Java object string")
 bool contains = str.contains("Java")
 if(contains)
@@ -225,8 +225,8 @@ The class references resolved in the methods 'loadObj' and 'getClass' are define
 NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
 
 This is a Dpdl scripting language example: Discovery of bluetooth devices and save them to record store
-```c++
-# File: dpdlLibExamples.h
+```python
+# File: bluetoothDiscoverySave.h
 #
 # Example: Discovery of bluetooth devices and save in record store
 #
@@ -551,10 +551,10 @@ on Windows
 		
 		
 
-## The DEMO release limitations/restrictions
+## DpdlEngine lite release limitations/restrictions
 
 	
-The Demo release software package has the following limitations/restrictions:
+The DpdlEngine lite release software package has the following limitations/restrictions:
 
 	- At startup, the DpdlEngine requires the execution of a validation script.
 	  The script simply accesses a html website at www.seesolutions.it for validation.
@@ -578,6 +578,4 @@ The Demo release software package has the following limitations/restrictions:
 	- The compilation of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only
 	  in the registered version of Dpdl
 	
-	- The Dpdl API function DPDLAPI_createThread only allows 2 thread instances
-	
-	- The Dpdl API function DPDLAPI_execCode and DPDLAPI_execScriptCode only allows 2 scripting engine instances
+
