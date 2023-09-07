@@ -1,46 +1,60 @@
-#---------------------------------------------------------------------#
-                   Dpdl - Dynamic Packet Definition Language
-                                www.dpdl.biz                              
- 
- 
- SEE Solutions                                   
- (c)opyright 2003 all rights reserved
- 
- 
- Dpdl is a constraint device framework and library to encode, store, control
- and query data efficiently in small memory footprint applications
- on embedded systems, mobile devices and small microcontroller chips.
- Dpdl supports common IoT protocol stacks such as Bluetooth(tm)
- and CoAP and provides a compact scripting engine with an extensible
- API interface.
-
- Dpdl is available as a small, cross platform java library
-
- For info and support visit:        
- 
- www.seesolutions.it
-
-#---------------------------------------------------------------------#
-
 
 # Dpdl - Dynamic Packet Definition Language
 
+				www.dpdl.biz
+
+
+developed by
+SEESolutions.it
+
+
 ## What is Dpdl?
 
-Dpdl is a small framework and java library that can be used to encode,
+Dpdl is a constraint device framework and library that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices. Dpdl provides a very efficient way to encode, allocate and
-query data from a DpdlPacket that is encoded based on a defined Dpdl code
-definition file. Dpdl includes also a compact scripting engine and 
-an extensible API interface to facilitate fast prototyping and development
-of custom extensions by using the Dpdl scripting language. 
+devices. Dpdl provides an efficient way to encode, allocate and query data from
+a 'DpdlPacket', a highly compressed executable data container with built-in
+database technology, that is encoded with a defined Dpdl code definition file.
 
-Dpdl supports also common IoT protocol stacks such as bluetooth and
-CoAP (Constraint Device Application Protocol) and can be easily extended
+Dpdl includes also a compact scripting engine and an extensible API interface
+to facilitate the development of custom API extensions by using the Dpdl scripting
+language. 
+
+Dpdl supports also common IoT protocol stacks such as Bluetooth(tm) and
+CoAP (Constraint Device Application Protocol) and can be extended
 with other protocols. Dpdl development has been started back in year 2003,
-where mobile phones had very limited memory and storage capacity, and where
-every kb of RAM and mb or storage was precious.
+where mobile phones had very limited computer, memory and storage capacity.
 
+![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
+
+Sample Dpdl script (Bluetooth discovery):
+```python
+     int status = DPDLAPI_searchClientsOnServer()
+     int status_discovery = dpdlFalse
+     int service_discovery = dpdlFalse
+     int counter = 0
+     if(status == dpdlTrue)
+	     while (status_discovery != dpdlTrue) && (service_discovery != dpdlTrue)
+	         status_discovery = DPDLAPI_discoveryServerFinished()
+	         service_discovery = DPDLAPI_serviceDiscoveryServerFinished()
+	         print(".")
+	         counter = counter+1
+	         sleep(3000)
+	     endwhile
+		 string dev = "n"
+		 int dev_found = 0
+	     while(dev != "null")
+	          dev = DPDLAPI_getServerVisibleBTAddr()
+	          if(dev != "null")
+	              println("bluetooth device visible: " + dev)
+	              saveData(dev)
+				  dev_found = dev_found + 1
+	          fi
+	     endwhile
+     else
+     	println("No working Bluetooth stack found")
+     fi
+```
 
 ## Why use Dpdl?
 
@@ -48,43 +62,45 @@ Dpdl can be used to implement applications in various domains, in particular for
 memory footprint devices. The DpdlPacket data container is a highly optimized way to store 
 and access data on devices that have limited memory and storage capabilities. 
 
-Advantages:
+Features:
 
-	- DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE, and)
-	- Packing data in a DpdlPacket can very convenient to optimize and speedup access to data,
-	  with a speedup of x 25 on a record store access.
-	- Dpdl scripting language is simple and easy to learn
-	- Dpdl scripting API provides access to the complete underlying Java platform API and to
-	  other external libraries via the loadObj(..) and getClass(..) methods
-	- The Dpdl scripting API can be easily extended with custom API extensions (via the DpdlExtension interface)
-	- Supports common IoT open source protocol stacks
-	- Enables fast prototyping
+* DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE, and)
+* Packing data in a DpdlPacket can very convenient to optimize and speedup access to data.
+  The speedup is x 25 times faster compared to a standard record store access.
+* Dpdl scripting API provides access to the complete underlying Java platform API and to
+  other external libraries via the loadObj(..) and getClass(..) methods
+* The Dpdl scripting API can be easily extended with custom API extensions (via the DpdlExtension interface)
+* Supports common IoT open source protocol stacks such as Bluetooth(tm) and CoAP
+* Virtual filesystem for record stores
+* Dpdl scripting language is simple and easy to learn
+* Enables fast prototyping
 
 
-## Which are the supported Platforms?
+## Which platforms are supported?
 
-Dpdl runs on a wide range of platforms and provides also a small java virtual machine,
-released as open-source, that can  be compiled for almost every platform.
+Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
+released as open-source, that can  be compiled for almost every platform as soon as
+an ANSI C compiler is available.
 
-By default Dpdl is compatible with:
+Dpdl is compatible with:
 
 	- J2ME MIDP (Mobile Information Device Profile) -> MIDP 1.0 and MIDP 2.0 (CLDC 1.0, CLDC 2.0)
 	- Java ME CLDC & GCF (JSR 360)
 	- Java ME Embedded Profile (JSR 361)
-	- Java versions >= 1.1 and later
-	- Platforms where the included open source virtual machine (DpdlVM) can be compiled (written in C )
+	- Java versions >= 1.4 and later
+	- Java > 1.1 (but without 'loadObj' and 'getClass' methods)
+	- Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
 	
 	
 	
 ## What is a DpdlPacket?
 
-A DpdlPacket is a compact, compressed executable packet of data that
-can be created starting from a defined Dpdl code definition. 
+A DpdlPacket is a compact, compressed executable packet of data with built-in
+database technology that can be created starting from a defined Dpdl code definition. 
 A DpdlPacket can than be allocated and queried efficiently via API
 interfaces available for Java and for the built-in Dpdl scripting language.
 In particular Dpdl is very efficient on J2ME and JavaME platforms and
-has a high degree of backward compatibility. The access time to a record store
-dataset is 25 times faster with Dpdl than using the available record store access.
+has a high degree of backward compatibility.
 
 The Demo release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
@@ -96,30 +112,30 @@ execute and perform queries on a DpdlPacket.
 ## What does the Demo release of Dpdl provide?
 
 
-The Demo release of Dpdl is freely available and can be used to experiment the features
-of Dpdl and to develop small applications or utility tools.
+The Demo release of DpdlEngine is freely available with some limitations,
+and can be used to experiment the features of Dpdl and to develop small applications
+or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
+license.
 
-The Demo release Dpdl software package includes:
+The Dpdl Demo release Dpdl software package includes:
 
 	- The 'DpdlClient' console application that allows to execute a set of commands
 	  for interacting with the core DpdlEngine
 	  
-	- Java API interface to interact with the core DpdlEngine and subsystem
+	- Dpdl scripting engine with API libraries
 	
-	- Dpdl scripting language API
+	- Example scripts (located in ./DpdlScripts/ and ./DpdlLibs/ folder)
 	
-	- Example scripts located in ./DpdlScripts/ and ./DpdlLibs/ folder
-	
-	- Example DpdlPacket ./DpdlServices/data/dpdl_PHONEBOOK.dpdl with corresponding
+	- Example DpdlPacket (dpdl_PHONEBOOK.dpdl) with corresponding
 	  Dpdl code definition file
 	
 
 
-
 ## What is the DpdlClient console application?
 
-The DpdlClient console application included in the DpdlEngine Demo release exposes some functionalities of Dpdl
-via a command line console. The same functionalities can be accessed via the java or Dpdl scripting API.
+The DpdlClient console application included in the DpdlEngine Demo release is a small application
+that exposes some functionalities of Dpdl via a command line console. Dpdl scripting code can be
+executed and DpdlPacket The same functionalities can be accessed via the java or Dpdl scripting API.
 
 These are the console commands available:
 ```
