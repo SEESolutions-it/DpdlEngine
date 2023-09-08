@@ -190,7 +190,7 @@ arraylistExample.h
 ```
 
 with 'exec' command:
-```c++
+```python
 -exec
 <script>
 string str = "this is a test"
@@ -274,7 +274,7 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 * Compresses and de-compresses a string of data using java.util.zip.GZIP* classes
 
-	dataCompress.h
+	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
 	
 * Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
   
