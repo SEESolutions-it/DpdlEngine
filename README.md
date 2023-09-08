@@ -26,6 +26,7 @@ with other protocols. Dpdl development has been started back in year 2003,
 where mobile phones had very limited computer, memory and storage capacity.
 
 **DpdlEngine stack**
+
 ![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
 Sample Dpdl script (Bluetooth discovery):
