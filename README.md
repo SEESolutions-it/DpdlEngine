@@ -278,43 +278,45 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 * Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
   
-	bluetoothDiscoverySave.h
+	[bluetoothDiscoverySave.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/bluetoothDiscoverySave.h)
   	
 * Executes the bluetoothDiscoverySave.h script continuously in a dedicated Thread instance
 	
-	dpdl_startup.h:
+	[dpdl_startup.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdl_startup.h)
 	
 * Array definition, population and access
 	
-	arraylistExample.h
+	[arraylistExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/arraylistExample.h)
 	
 
 * Downloads a html website from a URL and saves the content in a local file
 
-	downloadWebURL.h
+	[downloadWebURL.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/downloadWebURL.h)
 	
 
 * Inline execution of Dpdl scripting code
 
-	dpdlCodeExecExample.h
+	[dpdlCodeExecExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlCodeExecExample.h)
 	
 
 * Accepts connections from a bluetooth server application and intercepts commands
 
-	DpdlConsoleBT_client.h
+	[DpdlConsoleBT_client.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DpdlConsoleBT_client.h)
+	
+	[DpdlConsoleBT_client.h_static](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DpdlConsoleBT_client.h_static)
 	
 * Uses the Dpdl API library DoubleEmul and FloatEmul to emulate floating point and double precision math operations
 	
-	dpdlFloatDoubleEmul.h
+	[dpdlFloatDoubleEmul.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlFloatDoubleEmul.h)
 	
 * Creates a graphical user interface with some UI components (Button, Panel, Checkbox, List, draw Panel) using Java Swing classes. The list is updated, the button command is intercepted with the
   'actionPerformed' function, the checkbox status is printed, and a text and rectangle is drawn at random location on the draw panel.
 	
-	dpdlGUIExample.h
+	[dpdlGUIExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlGUIExample.h)
 	
 * Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each individual example.
 	
-	dpdlLibExamples.h
+	[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 	
 	```
 	-load
@@ -328,32 +330,40 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 * Drawing functions on a UI Canvas on J2ME devices
 	
-	J2MEDrawDemo.h
+	[J2MEDrawDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/J2MEDrawDemo.h)
 	
 * Save and access data from a record store
 
-	recordStoreExample.h
+	[recordStoreExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/recordStoreExample.h)
 		
 
-* Test access on record stores
+* Test read and write access to record stores
 
-	testRSConcurrency.h
+	[testRSConcurrency.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/testRSConcurrency.h)
 	
 
 * Simple console application to allocate and perform queries on the supplied DpdlPacket dpdl_PHONEBOOK. The script allows to perform single queries, or n sequential or random queries, and measures the execution
 	time. Comment or uncomment the following line of code in the script -> i #abs(search_rand_int) 
 	
-	testDpdlDB2.h
+	[testDpdlDB2.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/testDpdlDB2.h)
 	
 * BTObexServer (client/server)
 
   Sample application that implements sending of SMS via bluetooth to discovered devices. The messages to be sent are
   read from a record store. An auxiliary script (ImportantMsgWriter.h) can be used to store messages to be delivered
   in the record store
+  
+	[BTObexServer/BTObexServer.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/BTObexServer/BTObexServer.h)
+	
+	[BTObexServer/BTObexServer.h_static](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/BTObexServer/BTObexServer.h_static)
 	
 * HTTPServer:
   
   Simple client server application to send and receive broadcasted messages via HTTP protocol.
+	
+	[HTTPServer/HTTPServer.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/HTTPServer/HTTPServer.h)
+	
+	[HTTPClient/HTTPServer.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/HTTPServer/HTTPClient.h)
 	
 	How to run:
 		1) start the server: HTTPServer/HTTPServer.h
@@ -365,12 +375,19 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	Client server application that implements PUT, GET, OBSERVE requests via CoAP (Constraint Device Application Protocol).
 	Once the dpdlCoAPServer.h is started, the observe client (dpdlCoAPClient.h) can be initialized in a 2nd console,
 	and a second client (dpdlCoAPClient2.h) that performs PUT requests can be initialized in a 3rd console by starting
-	it in a dedicatd thread via the script 'startClientThread.h'
+	it in a dedicated thread via the script 'startClientThread.h'
+	
+	[CoAP/dpdlCoAPServer.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/dpdlCoAPServer.h)
+	
+	[CoAP/dpdlCoAPClient.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/dpdlCoAPClient.h)
+	
+	[CoAP/startClientThread.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/startClientThread.h)
 	
 	How to run:
 		1) start the server: CoAP/dpdlCoAPServer.h
 		2) start the 1st client: CoAP/dpdlCoAPClient.h
 		3) start the 2nd client in a thread instance: CoAP/startClientThread.h
+
 
 
 A set of useful examples can be found in the Dpdl script 'dpdlLibExamples.h', where different Tests/examples
