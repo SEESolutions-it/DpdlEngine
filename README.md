@@ -201,7 +201,8 @@ Note: the closing **</script>** tag
 
 
 Here you can find all methods available for the Dpdl scripting API: 
-[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/doc/Dpdl_API.md)
+
+[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
 Dpdl allows to access all java classes of the underlying JRE environment,
 providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
