@@ -227,6 +227,9 @@ NOTE: This file can be edited or complemented only in the registered, Licensed v
 
 **Example:** (Compress and de-compress a string of data)
 ```python
+
+#main
+
 object str = loadObj("String", "my data for Dpdl")
 println("string to compress: " + str)
 
