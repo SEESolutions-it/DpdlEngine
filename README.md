@@ -381,6 +381,8 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 	[CoAP/dpdlCoAPClient.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/dpdlCoAPClient.h)
 	
+	[CoAP/dpdlCoAPClient2.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/dpdlCoAPClient2.h)
+	
 	[CoAP/startClientThread.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/CoAP/startClientThread.h)
 	
 	How to run:
