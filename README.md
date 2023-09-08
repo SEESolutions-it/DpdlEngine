@@ -569,8 +569,9 @@ The DpdlEngine lite release software package has the following limitations/restr
 * At startup, the DpdlEngine requires the execution of a validation script.
 The script simply accesses a html website at www.seesolutions.it for validation.
 	  
-The validation script can be inspected here: ./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h
-	  
+The validation script can be inspected here: 
+[./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h)
+
 * The DpdlEngine parameters and configuration file 'DpdlEngine.ini' cannot be customized
 	
 * The class reference file (classes.txt), used for dynamic loading of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
