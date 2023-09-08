@@ -197,7 +197,7 @@ string str = "this is a test"
 println(str)
 </script>
 ```
-Note: the closing </script> tag
+Note: the closing **</script>** tag
 
 
 Here you can find the Dpdl scripting API doc
@@ -226,26 +226,19 @@ NOTE: This file can be edited or complemented only in the registered, Licensed v
 
 This is a Dpdl scripting language example: Discovery of bluetooth devices and save them to record store
 ```python
-# File: bluetoothDiscoverySave.h
-#
-# Example: Discovery of bluetooth devices and save in record store
-#
-# Author: A.Costa
-# e-mail: info@seesolutions.it
-#
-#
 include("dpdllib.h")
 include("dpdlBT.h")
 include("dpdlRS.h")
+
 func runDiscovery()
-     int s1 = searchServerDevices()
-     int status_discovery = 0
-     int service_discovery = 0
+     int status = DPDLAPI_searchClientsOnServer()
+     int status_discovery = dpdlFalse
+     int service_discovery = dpdlFalse
      int counter = 0
-     if(s1 == dpdlTrue)
-	     while (status_discovery != 1) && (service_discovery != 1)
-	         status_discovery = discoveryFinished(BT_SERVER_MODE)
-	         service_discovery = serviceDiscoveryFinished(BT_SERVER_MODE)
+     if(status == dpdlTrue)
+	     while (status_discovery != dpdlTrue) && (service_discovery != dpdlTrue)
+	         status_discovery = DPDLAPI_discoveryServerFinished()
+	         service_discovery = DPDLAPI_serviceDiscoveryServerFinished()
 	         print(".")
 	         counter = counter+1
 	         sleep(3000)
@@ -276,7 +269,7 @@ func saveData(string data)
      fi
 end
 
-#entry
+#main
 println("BT device discovery inited")
 int x = DPDLAPI_createObexServer(BT_GIAC_MODE)
 println("opening record store 'BluetoohDevices'...")
@@ -291,48 +284,59 @@ println("closing record store")
 closeRS(BT_DEV_RS)
 println("done")
 
+
 ```
 
 
 
-**Dpdl scripting Examples:** 
+**Examples:** 
 
-The script files are located in the folder ./DpdlLibs/
+The Dpdl script examples files are located in the folder ./DpdlLibs/
 
-- dataCompress.h:
-	Compresses and de-compresses a string of data using java.util.zip.GZIP* classes
+
+* Compresses and de-compresses a string of data using java.util.zip.GZIP* classes
+
+	dataCompress.h
 	
-- bluetoothDiscoverySave.h:
-  	Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
+* Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
+  
+	bluetoothDiscoverySave.h
   	
-- dpdl_startup.h:
-	executes the bluetoothDiscoverySave.h script continuously in a dedicated Thread instance
+* Executes the bluetoothDiscoverySave.h script continuously in a dedicated Thread instance
 	
-- arraylistExample.h:
-	Array definition, population and access
+	dpdl_startup.h:
 	
-- downloadWebURL.h:
-	Downloads a html website from a URL and saves the content in a local file
+* Array definition, population and access
 	
-- dpdlCodeExecExample.h:
-	Inline execution of Dpdl scripting code
+	arraylistExample.h
 	
-- DpdlConsoleBT_client.h:
-	Accepts connections from a bluetooth server application and intercepts commands.
+
+* Downloads a html website from a URL and saves the content in a local file
+
+	downloadWebURL.h
 	
-- dpdlFloatDoubleEmul.h:
-	Uses the Dpdl API library DoubleEmul and FloatEmul to emulate floating point and
-	double precision math operations
+
+* Inline execution of Dpdl scripting code
+
+	dpdlCodeExecExample.h
 	
-- dpdlGUIExample.h:
-	Creates a graphical user interface with some UI components (Button, Panel, Checkbox, List, draw Panel)
-	using Java Swing classes. The list is updated, the button command is intercepted with the
-	'actionPerformed' function, the checkbox status is printed, and a text and rectangle is
-	drawn at random location on the draw panel.
+
+* Accepts connections from a bluetooth server application and intercepts commands
+
+	DpdlConsoleBT_client.h
 	
-- dpdlLibExamples.h:
-	Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each
-	individual example.
+* Uses the Dpdl API library DoubleEmul and FloatEmul to emulate floating point and double precision math operations
+	
+	dpdlFloatDoubleEmul.h
+	
+* Creates a graphical user interface with some UI components (Button, Panel, Checkbox, List, draw Panel) using Java Swing classes. The list is updated, the button command is intercepted with the
+  'actionPerformed' function, the checkbox status is printed, and a text and rectangle is drawn at random location on the draw panel.
+	
+	dpdlGUIExample.h
+	
+* Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each individual example.
+	
+	dpdlLibExamples.h
 	
 	```
 	-load
@@ -343,34 +347,43 @@ The script files are located in the folder ./DpdlLibs/
 	
 	....
 	
-- J2MEDrawDemo.h:
-	Drawing functions on a UI Canvas on J2ME devices
+
+* Drawing functions on a UI Canvas on J2ME devices
 	
-- recordStoreExample.h:
-	Save and access data from a record store
+	J2MEDrawDemo.h
 	
-- testRSConcurrency.h:
-	Test access on record stores
+* Save and access data from a record store
+
+	recordStoreExample.h
+		
+
+* Test access on record stores
+
+	testRSConcurrency.h
 	
-- testDpdlDB2.h:
-	Simple console application to allocate and perform queries on the supplied DpdlPacket dpdl_PHONEBOOK.
-	The script allows to perform single queries, or n sequential or random queries, and measures the execution
+
+* Simple console application to allocate and perform queries on the supplied DpdlPacket dpdl_PHONEBOOK. The script allows to perform single queries, or n sequential or random queries, and measures the execution
 	time. Comment or uncomment the following line of code in the script -> i #abs(search_rand_int) 
 	
-- BTObexServer
-	Sample application that implements sending of SMS via bluetooth to discovered devices. The messages to be sent are
-	read from a record store. An auxiliary script (ImportantMsgWriter.h) can be used to store messages to be delivered
-	in the record store
+	testDpdlDB2.h
 	
-- HTTPServer:
-	Simple client server application to send and receive broadcasted messages via HTTP protocol.
+* BTObexServer (client/server)
+
+  Sample application that implements sending of SMS via bluetooth to discovered devices. The messages to be sent are
+  read from a record store. An auxiliary script (ImportantMsgWriter.h) can be used to store messages to be delivered
+  in the record store
+	
+* HTTPServer:
+  
+  Simple client server application to send and receive broadcasted messages via HTTP protocol.
 	
 	How to run:
 		1) start the server: HTTPServer/HTTPServer.h
 		2) start the 1st client: HTTPServer/HTTPClient.h
 		3) start the 2nd client, but first change the CLIENT_ID in the HTTPClient.h script
 	
-- CoAP: 
+* CoAP (client/server):
+
 	Client server application that implements PUT, GET, OBSERVE requests via CoAP (Constraint Device Application Protocol).
 	Once the dpdlCoAPServer.h is started, the observe client (dpdlCoAPClient.h) can be initialized in a 2nd console,
 	and a second client (dpdlCoAPClient2.h) that performs PUT requests can be initialized in a 3rd console by starting
@@ -556,26 +569,22 @@ on Windows
 	
 The DpdlEngine lite release software package has the following limitations/restrictions:
 
-	- At startup, the DpdlEngine requires the execution of a validation script.
-	  The script simply accesses a html website at www.seesolutions.it for validation.
+* At startup, the DpdlEngine requires the execution of a validation script.
+The script simply accesses a html website at www.seesolutions.it for validation.
 	  
-	  The validation script can be inspected here:
-	  ./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h
+The validation script can be inspected here: ./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h
 	  
-	- The DpdlEngine parameters and configuration file 'DpdlEngine.ini' cannot be customized
+* The DpdlEngine parameters and configuration file 'DpdlEngine.ini' cannot be customized
 	
-	- The class reference file (classes.txt), used for dynamic loading of library classes
-	  via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
+* The class reference file (classes.txt), used for dynamic loading of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
 	
-	- The execution of Dpdl scripts is limited to 500 lines of code
+* The execution of Dpdl scripts is limited to 500 lines of code
 	
-	- The Dpdl scripting API function 'systemExec' only executes the system commands in the
-	  registered version of Dpdl
+* The Dpdl scripting API function 'systemExec' only executes the system commands in the registered version of Dpdl
 	
-	- The interface to develop custom API extensions (DpdlExtension) is available only in the
-	  registered version of Dpdl
+* The interface to develop custom API extensions (DpdlExtension) is available only in the registered version of Dpdl
 	
-	- The compilation of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only
-	  in the registered version of Dpdl
+* The compilation of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
+* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
 
