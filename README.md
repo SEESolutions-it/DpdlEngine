@@ -224,66 +224,41 @@ The class references resolved in the methods 'loadObj' and 'getClass' are define
 
 NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
 
-This is a Dpdl scripting language example: Discovery of bluetooth devices and save them to record store
+
+**Example:** (Compress and de-compress a string of data)
 ```python
-include("dpdllib.h")
-include("dpdlBT.h")
-include("dpdlRS.h")
+object str = loadObj("String", "my data for Dpdl")
+println("string to compress: " + str)
 
-func runDiscovery()
-     int status = DPDLAPI_searchClientsOnServer()
-     int status_discovery = dpdlFalse
-     int service_discovery = dpdlFalse
-     int counter = 0
-     if(status == dpdlTrue)
-	     while (status_discovery != dpdlTrue) && (service_discovery != dpdlTrue)
-	         status_discovery = DPDLAPI_discoveryServerFinished()
-	         service_discovery = DPDLAPI_serviceDiscoveryServerFinished()
-	         print(".")
-	         counter = counter+1
-	         sleep(3000)
-	     endwhile
-     else
-     	println("No working Bluetooth stack found")
-     fi
-end
+object byte_out = loadObj("ByteArrayOutputStream")
+object zip_out = loadObj("GZIPOutputStream", byte_out)
 
-func showDevicesFound()
-	 string dev = "n"
-	 int dev_found = 0
-     while(dev != "null")
-          dev = DPDLAPI_getServerVisibleBTAddr()
-          if(dev != "null")
-              println("dev visible: " + dev)
-              saveData(dev)
-			  dev_found = dev_found + 1
-          fi
-     endwhile
-end
+println("compressing...")
+zip_out.write(str.getBytes())
+zip_out.close()
+println("data compressed successfully")
 
-func saveData(string data)
-     if(BT_DEV_RS != -1)
-         int id = addRecord(BT_DEV_RS, data)
-         println("rec ID:" + id)
-         println("data saved")
-     fi
-end
+object compressed_str = byte_out.toString()
+println("compressed string: " + compressed_str)
 
-#main
-println("BT device discovery inited")
-int x = DPDLAPI_createObexServer(BT_GIAC_MODE)
-println("opening record store 'BluetoohDevices'...")
-int BT_DEV_RS = createRS("BluetoohDevices", AUTHMODE_ANY, dpdlTrue, dpdlTrue)
-enumRecords(BT_DEV_RS, dpdlTrue)
-println("discovering BT devices...")
-runDiscovery()
-showDevicesFound()
-int total_btdevices  =  getNrRecords(BT_DEV_RS)
-println("Total Bluetooth devices discovered: " + total_btdevices)
-println("closing record store")
-closeRS(BT_DEV_RS)
-println("done")
+println("decompressing...")
+object byte_in = compressed_str.getBytes()
 
+object byte_arr_in = loadObj("ByteArrayInputStream", byte_in)
+object zip_in = loadObj("GZIPInputStream", byte_arr_in)
+
+object in_reader = loadObj("InputStreamReader", zip_in)
+object buf_reader = loadObj("BufferedReader", in_reader)
+
+string decompressed_str = ""
+string line = ""
+while(line != null)
+	line = buf_reader.readLine()
+	if(line != null)
+		decompressed_str = decompressed_str + line
+	fi
+endwhile
+println("decompressed: " + decompressed_str)
 
 ```
 
