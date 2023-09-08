@@ -272,7 +272,7 @@ println("decompressed: " + decompressed_str)
 The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 
-* Compresses and de-compresses a string of data using java.util.zip.GZIP* classes
+* Compresses and de-compresses a string of data with zip
 
 	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
 	
