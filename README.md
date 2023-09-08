@@ -29,7 +29,7 @@ where mobile phones had very limited computer, memory and storage capacity.
 
 ![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
-Sample Dpdl script (Bluetooth discovery):
+Sample Dpdl script (Bluetooth device discovery):
 ```python
      int status = DPDLAPI_searchClientsOnServer()
      int status_discovery = dpdlFalse
@@ -57,6 +57,9 @@ Sample Dpdl script (Bluetooth discovery):
      	println("No working Bluetooth stack found")
      fi
 ```
+
+[Dpdl API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+
 
 ## Why Dpdl?
 

@@ -1,5 +1,13 @@
+# Dpdl - Dynamic Packet Definition Language
 
-DpdlEngine 1.0 API Doc
+This is the Dpdl scripting API documentation. 
+
+The DpdlEngine Java API documentation will follow soon.
+
+
+## Dpdl scripting API Documentation
+
+DpdlEngine V1.0
 
 
 ```python
