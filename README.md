@@ -20,7 +20,7 @@ Dpdl includes also a compact scripting engine and an extensible API interface
 to facilitate the development of custom API extensions by using the Dpdl scripting
 language. 
 
-Dpdl supports also common IoT protocol stacks such as Bluetooth(tm) and
+Dpdl supports common IoT protocol stacks such as Bluetooth(tm) and
 CoAP (Constraint Device Application Protocol) and can be extended
 with other protocols. Dpdl development has been started back in year 2003,
 where mobile phones had very limited computer, memory and storage capacity.
@@ -64,7 +64,7 @@ and access data on devices that have limited memory and storage capabilities.
 
 Features:
 
-* DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE, and)
+* DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE)
 * Packing data in a DpdlPacket is very convenient to optimize and speedup access to data.
   The speedup is x 25 times faster compared to a standard record store access.
 * Dpdl scripting API provides access to the complete underlying Java platform API and to
@@ -112,7 +112,7 @@ execute and perform queries on a DpdlPacket.
 ## What does the DpdlEngine lite version provide?
 
 
-The lite release of DpdlEngine is freely available with some limitations,
+The DpdlEngine lite release is freely available with some limitations,
 and can be used to experiment the features of Dpdl and to develop small applications
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
@@ -134,8 +134,8 @@ DpdlEgine lite includes:
 ## What is the DpdlClient console application?
 
 The DpdlClient console application included in the DpdlEngine Demo release is a small application
-that exposes some functionalities of Dpdl via a command line console. Dpdl scripting code can be
-executed and DpdlPacket The same functionalities can be accessed via the java or Dpdl scripting API.
+that exposes some functionalities of Dpdl via a simple command line console. Dpdl scripting code can be
+executed and DpdlPacket handled. The same functionalities can be accessed via the java or Dpdl scripting API.
 
 These are the console commands available:
 ```
