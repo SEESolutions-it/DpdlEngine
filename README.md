@@ -58,7 +58,7 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
-[Dpdl API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
 
 ## Why Dpdl?

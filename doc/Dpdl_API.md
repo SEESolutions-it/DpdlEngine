@@ -57,7 +57,7 @@ loadObj(string name, object params, ....) return object
 Thread(string func) return int status
 
 
-[DPDLAPI]
+**DpdlEngine**
 DPDLAPI_getVersion()  return string
 DPDLAPI_getEngineVersion() return string
 DPDLAPI_getResultSet(int pos, string variableName) return string
@@ -78,7 +78,7 @@ DPDLAPI_threadRunning(int instance) return int status
 DPDLAPI_execScript(string script) return int status
 DPDLAPI_execCode(string file) return int status
 
-[DPDLAPI Bluetooth]
+**Bluetooth**
 DPDLAPI_discoverBTDevices() return status
 DPDLAPI_discoverBTFinished() return int status
 DPDLAPI_createBTServer(int inquiryCode, int authentication, int authorization, int encryption)  return int status
@@ -104,7 +104,7 @@ DPDLAPI_sendObex(string device, int useAuth, string data) return int status
 DPDLAPI_sendObexFile(string device, int useAuth, string file_name) return int status
 DPDLAPI_sendObexImage(string img_name) return int status
 
-[DPDLRS]
+**Record Store**
 DPDLLIB_openRS(string name, int auth_mode, int writable, int create) return int rs_id
 DPDLLIB_closeRS(int rs_id) return int status
 DPDLLIB_deleteRS(string rs_name) return int status
@@ -128,13 +128,13 @@ DPDLLIB_writeFS(int fs_id, int f_id, string data) return int status
 DPDLLIB_readFS(int fs_id, int f_id) return string data
 DPDLLIB_printdirFS(int fs_id) return int status
 
-[DPDLNET]
+**Http**
 DPDLLIB_createServer(int server_id, int port) return int status
 DPDLLIB_createClient(int client_id, string host, int port) return int status
 DPDLLIB_sendClientData(string data) return int status
 DPDLLIB_readClientData() return string data
 
-[MIDP]
+**MIDP**
 MIDPLIB_Alert(string title, string msg, int type) return int command
 MIDPLIB_Form(int instance, string title) return int component
 MIDPLIB_FormAppend(int component, string msg) return int status
