@@ -124,6 +124,8 @@ and can be used to experiment the features of Dpdl and to develop small applicat
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
+[DpdlEngine line Download](www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+
 DpdlEgine lite includes:
 
 	- The 'DpdlClient' console application that allows to execute a set of commands
