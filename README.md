@@ -72,14 +72,15 @@ and access data on devices that have limited memory and storage capabilities.
 Features:
 
 * DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE)
-* Packing data in a DpdlPacket is very convenient to optimize and speedup access to data.
-  The speedup is x 25 times faster compared to a standard record store access.
+* Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data.
+  The speedup is x 25 times faster compared to a standard record store access
+* Build-in Dpdl scripting engine with support for custom function extensions (DpdlExtension interface)
 * Dpdl scripting API provides access to the complete underlying Java platform API and to
-  other external libraries via the loadObj(..) and getClass(..) methods
-* The Dpdl scripting API can be easily extended with custom API extensions (via the DpdlExtension interface)
-* Supports common IoT open source protocol stacks such as Bluetooth(tm) and CoAP
+  external libraries via the loadObj(..) and getClass(..) methods
+* Support for common IoT open source protocol stacks such as Bluetooth(tm) (JSR-82)
+  and CoAP (Constraint Device Application Protocol) (IETF standard RFC 7252)
 * Virtual filesystem for record stores
-* Dpdl scripting language is simple and easy to learn
+* Double precision floating point emulation
 * Enables fast prototyping
 
 
@@ -109,7 +110,7 @@ interfaces available for Java and for the built-in Dpdl scripting language.
 In particular Dpdl is very efficient on J2ME and JavaME platforms and
 has a high degree of backward compatibility.
 
-The Demo release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
+The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
 the DpdlPacket.The next section 'How to run the examples' will describe how to 
 execute and perform queries on a DpdlPacket.
@@ -120,11 +121,12 @@ execute and perform queries on a DpdlPacket.
 
 
 The DpdlEngine lite release is freely available with some limitations,
-and can be used to experiment the features of Dpdl and to develop small applications
+and can be used to exploit the features of Dpdl and to develop small applications
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
 [DpdlEngine line Download](www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+
 
 DpdlEgine lite includes:
 
