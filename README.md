@@ -129,7 +129,7 @@ and can be used to exploit the features of Dpdl and to develop small application
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
-[DpdlEngine line Download](www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+[DpdlEngine line Download](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
 
 
 DpdlEgine lite includes:
@@ -144,6 +144,13 @@ DpdlEgine lite includes:
 	- Example DpdlPacket (dpdl_PHONEBOOK.dpdl) with corresponding
 	  Dpdl code definition file
 	
+
+**Next roadmap:**
+* OpenAI integration
+* Nostr
+* Twitter API
+* Blockchains
+
 
 
 ## What is the DpdlClient console application?
