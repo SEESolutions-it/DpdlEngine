@@ -110,6 +110,10 @@ interfaces available for Java and for the built-in Dpdl scripting language.
 In particular Dpdl is very efficient on J2ME and JavaME platforms and
 has a high degree of backward compatibility.
 
+**DpdlPacket**
+
+![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
+
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
 the DpdlPacket.The next section 'How to run the examples' will describe how to 
