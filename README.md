@@ -23,7 +23,7 @@ language.
 Dpdl supports common IoT protocol stacks such as Bluetooth(tm) and
 CoAP (Constraint Device Application Protocol) and can be extended
 with other protocols. Dpdl development has been started back in year 2003,
-where mobile phones had very limited computer, memory and storage capacity.
+where mobile devices had very limited computer, memory and storage capacity.
 
 **DpdlEngine stack**
 
