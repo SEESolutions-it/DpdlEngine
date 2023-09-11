@@ -114,6 +114,10 @@ has a high degree of backward compatibility.
 
 ![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
 
+The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis by A.Costa
+
+[Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
+
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
 the DpdlPacket.The next section 'How to run the examples' will describe how to 
