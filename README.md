@@ -84,6 +84,15 @@ Features:
 * Enables fast prototyping
 
 
+**Roadmap:**
+
+* OpenAI integration
+* Blockchain transactions
+* Nostr client API
+* Twitter API
+
+
+
 ## Which platforms are supported?
 
 Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
