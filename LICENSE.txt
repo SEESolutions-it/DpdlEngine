@@ -22,9 +22,9 @@
 
 #---------------------------------------------------------------------#
 
- DpdlEngine DEMO version License agreement:
+ DpdlEngine lite version License agreement:
 
- This DEMO software is distributed freely with some functionality limitations.
+ This lite software is distributed freely with some functionality limitations.
 
  To access the full and advanced functionalities a valid DpdlLicenseKey
  is required.
@@ -34,9 +34,9 @@
  info@seesolutions.it
 
 
-DpdlEngine V1.0 DEMO LICENSE
+DpdlEngine V1.0 lite LICENSE
 
-Copyright ©2003 SEE Solutions
+Copyright ï¿½2003 SEE Solutions
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
