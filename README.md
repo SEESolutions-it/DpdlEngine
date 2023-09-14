@@ -66,8 +66,8 @@ See the Dpdl scripting API doc for available methods:
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
-memory footprint devices. The DpdlPacket data container is a highly optimized way to store 
-and access data on devices that have limited memory and storage capabilities. 
+memory footprint devices. The DpdlPacket data container is a highly optimized way to store,
+search and access data on devices that have limited memory and storage capabilities. 
 
 Features:
 
@@ -119,6 +119,9 @@ interfaces available for Java and for the built-in Dpdl scripting language.
 In particular Dpdl is very efficient on J2ME and JavaME platforms and
 has a high degree of backward compatibility.
 
+A DpdlPacket contains 1 - n chunks of compressed data that can be allocated, queried and
+deallocated when data is not used.
+
 **DpdlPacket**
 
 ![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
@@ -168,7 +171,7 @@ DpdlEgine lite includes:
 
 ## What is the DpdlClient console application?
 
-The DpdlClient console application included in the DpdlEngine Demo release is a small application
+The DpdlClient console application included in the DpdlEngine lite release is a small application
 that exposes some functionalities of Dpdl via a simple command line console. Dpdl scripting code can be
 executed and DpdlPacket handled. The same functionalities can be accessed via the java or Dpdl scripting API.
 
@@ -217,14 +220,14 @@ or input the script directly in the command console with the -exec command, and 
 
 the </script> tag
 
-with 'load' command:
+1) using 'load' command:
 ```
 -load
 enter the Dpdl script file to execute:
 arraylistExample.h
 ```
 
-with 'exec' command:
+2) using 'exec' command:
 ```python
 -exec
 <script>
@@ -404,7 +407,9 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 	How to run:
 		1) start the server: HTTPServer/HTTPServer.h
+		
 		2) start the 1st client: HTTPServer/HTTPClient.h
+		
 		3) start the 2nd client, but first change the CLIENT_ID in the HTTPClient.h script
 	
 * CoAP (client/server):
@@ -424,7 +429,9 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 	How to run:
 		1) start the server: CoAP/dpdlCoAPServer.h
+		
 		2) start the 1st client: CoAP/dpdlCoAPClient.h
+		
 		3) start the 2nd client in a thread instance: CoAP/startClientThread.h
 
 
@@ -622,4 +629,12 @@ The validation script can be inspected here:
 * The compilation of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
+
+
+## How to buy a full DpdlEngine license?
+
+If you want full DpdlEngine license with no restrictions, regular updates and support. 
+
+Write to the following e-mail address: info@seesolutions.it
+
 
