@@ -81,6 +81,8 @@ Features:
   and CoAP (Constraint Device Application Protocol) (IETF standard RFC 7252)
 * Virtual filesystem for record stores
 * Double precision floating point emulation
+* XML xpath
+* JSON
 * Enables fast prototyping
 
 
