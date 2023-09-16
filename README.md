@@ -4,8 +4,9 @@
 				www.dpdl.biz
 
 
+
 developed by
-SEESolutions.it
+SEE Solutions
 
 
 ## What is Dpdl?
@@ -89,9 +90,9 @@ Features:
 **Roadmap:**
 
 * OpenAI integration
+* Twitter API
 * Blockchain transactions
 * Nostr client API
-* Twitter API
 
 
 
