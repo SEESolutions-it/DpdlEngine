@@ -20,8 +20,8 @@ Dpdl includes also a compact scripting engine and an extensible API interface
 to facilitate the development of custom API extensions by using the Dpdl scripting
 language. 
 
-Dpdl supports common IoT protocol stacks such as Bluetooth(tm) and
-CoAP (Constraint Device Application Protocol) and can be extended
+Dpdl supports common IoT protocol stacks such as **Bluetooth(tm)** and
+**CoAP** (Constraint Device Application Protocol) and can be extended
 with other protocols. Dpdl development has been started back in year 2003,
 where mobile devices had very limited computer, memory and storage capacity.
 
@@ -311,7 +311,19 @@ println("decompressed: " + decompressed_str)
 
 The Dpdl script examples files are located in the folder ./DpdlLibs/
 
-
+* Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each individual example.
+	
+	[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
+	
+	```
+	-load
+	dpdlLibExamples.h @TEST1
+	```
+	
+	dpdlLibExamples.h @TEST2 etc..
+	
+	....
+	
 * Compresses and de-compresses a string of data with zip
 
 	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
@@ -354,20 +366,6 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 	[dpdlGUIExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlGUIExample.h)
 	
-* Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each individual example.
-	
-	[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
-	
-	```
-	-load
-	dpdlLibExamples.h @TEST1
-	```
-	
-	dpdlLibExamples.h @TEST2 etc..
-	
-	....
-	
-
 * Drawing functions on a UI Canvas on J2ME devices
 	
 	[J2MEDrawDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/J2MEDrawDemo.h)
