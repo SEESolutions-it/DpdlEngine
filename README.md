@@ -68,7 +68,7 @@ any other external libraries via the **loadObj(..)** and **getClass(..)** method
 to the definitions defined in ./DpdlLibs/libs/classes.txt
 
 Example: Using a HashMap
-```pyhton
+```python
 object map, s
 
 map=loadObj("HashMap")
