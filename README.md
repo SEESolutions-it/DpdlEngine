@@ -78,10 +78,9 @@ map.put("3","Definition")
 map.put("4","Language")
 
 s=map.get("1")
-out.println(s)
+println(s)
 s=map.get("4")
-out.println(s)
-println("")
+println(s)
 
 ```
 
