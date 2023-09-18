@@ -84,6 +84,11 @@ println(s)
 
 ```
 
+A list of 14 examples can be found in this script, as explained later:
+
+[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
+
+
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
