@@ -63,6 +63,27 @@ See the Dpdl scripting API doc for available methods:
 
 [Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
+The Dpdl scripting lagnuage API allows to access all classes of the underlying java platform implementation (JRE) or 
+any other external libraries via the **loadObj(..)** and **getClass(..)** methods. The class names are resolved according
+to the definitions defined in ./DpdlLibs/libs/classes.txt
+
+Example: Using a HashMap
+```pyhton
+object map, s
+
+map=loadObj("HashMap")
+map.put("1","Dpdl")
+map.put("2","Packet")
+map.put("3","Definition")
+map.put("4","Language")
+
+s=map.get("1")
+out.println(s)
+s=map.get("4")
+out.println(s)
+println("")
+
+```
 
 ## Why Dpdl?
 
