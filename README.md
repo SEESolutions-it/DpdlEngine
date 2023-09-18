@@ -107,7 +107,7 @@ Features:
   and CoAP (Constraint Device Application Protocol) (IETF standard RFC 7252)
 * Virtual filesystem for record stores
 * Double precision floating point emulation
-* XML xpath
+* XML with xpath parser
 * JSON
 * Enables fast prototyping
 
@@ -154,7 +154,7 @@ deallocated when data is not used.
 
 ![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
 
-The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis by A.Costa
+The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis:
 
 [Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
 
