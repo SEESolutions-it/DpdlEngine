@@ -11,7 +11,7 @@ SEE Solutions
 
 ## What is Dpdl?
 
-Dpdl is a constraint device framework and library that can be used to encode,
+Dpdl is a constrained device framework and library that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
 devices. Dpdl provides an efficient way to encode, allocate and query data from
 a 'DpdlPacket', a highly compressed executable data container with built-in
@@ -22,8 +22,7 @@ to facilitate the development of custom API extensions by using the Dpdl scripti
 language. 
 
 Dpdl supports common IoT protocol stacks such as **Bluetooth(tm)** and
-**CoAP** (Constraint Device Application Protocol) and can be extended
-with other protocols. Dpdl development has been started back in year 2003,
+**CoAP** (Constrained Application Protocol) .Dpdl development has been started back in year 2003,
 where mobile devices had very limited computer, memory and storage capacity.
 
 **DpdlEngine stack**
@@ -104,7 +103,7 @@ Features:
 * Dpdl scripting API provides access to the complete underlying Java platform API and to
   external libraries via the loadObj(..) and getClass(..) methods
 * Support for common IoT open source protocol stacks such as Bluetooth(tm) (JSR-82)
-  and CoAP (Constraint Device Application Protocol) (IETF standard RFC 7252)
+  and CoAP (Constrained Application Protocol) (IETF standard RFC 7252)
 * Virtual filesystem for record stores
 * Double precision floating point emulation
 * XML with xpath parser
@@ -441,7 +440,7 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 * CoAP (client/server):
 
-	Client server application that implements PUT, GET, OBSERVE requests via CoAP (Constraint Device Application Protocol).
+	Client server application that implements PUT, GET, OBSERVE requests via CoAP (Constrained Application Protocol).
 	Once the dpdlCoAPServer.h is started, the observe client (dpdlCoAPClient.h) can be initialized in a 2nd console,
 	and a second client (dpdlCoAPClient2.h) that performs PUT requests can be initialized in a 3rd console by starting
 	it in a dedicated thread via the script 'startClientThread.h'
@@ -495,7 +494,7 @@ The packet is approximately 1,2 MB in size and has been encoded with the followi
   
   The script is compiled into an executable DpdlPacket
   that can be installed, allocated and queried efficiently
-  on memory constraint devices.
+  on memory constrained devices.
 
   (c)opyright 2003
   SEE Solutions
