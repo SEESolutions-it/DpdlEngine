@@ -22,7 +22,7 @@ to facilitate the development of custom API extensions by using the Dpdl scripti
 language. 
 
 Dpdl supports common IoT protocol stacks such as **Bluetooth(tm)** and
-**CoAP** (Constrained Application Protocol) .Dpdl development has been started back in year 2003,
+**CoAP** (Constrained Application Protocol). Dpdl development has been started back in year 2003,
 where mobile devices had very limited computer, memory and storage capacity.
 
 **DpdlEngine stack**

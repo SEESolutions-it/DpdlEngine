@@ -1,34 +1,6 @@
-# Dpdl (Dynamic Packet Definition Language) Documentation
+# Dpdl Documentation
 
-The Dpdl scripting language is implemented within the DpdlEngine, a cross platform, constraint device
-framework and library to encode, decode, control and visualize data using an efficient
-data allocation paradigm with build-in database technology and scripting engine. Dpdl has been
-developed since year 2003 targeting in first place the development of applications on small
-memory footprint devices and mobile applications, that's why Dpdl was foreseen to run on a very
-small memory heap (Kb range). Dpdl is particularly useful for fast prototyping.
-
-
-**Features:**
-	- Encoding of DpdlPackets as defined by the Dpdl Packet definition language
-	- Decoding and querying of DpdlPackets
-	- Build-in Dpdl scripting engine with support for custom function extensions
-	- Small footprint Java Virtual Machine included (open source)
-	- Support for Bluetooth(tm) with JSR-82 implementation
-	- Support for CoAP (Constrained Application Protocol) compliant to the current IETF standard RFC 7252
-	- Support for emulated double precision floating point numbers types (Float and Double)
-
-Dpdl supports a wide range of platforms and a small footprint open-source virtual machine written in C
-is available so that it can be compiled and run on almost every platform.
-
-**Supported platforms:**
-	
-* J2ME MIDP (Mobile Information Device Profile) -> MIDP 1.0 and MIDP 2.0 (CLDC 1.0, CLDC 2.0)
-* Java ME CLDC & GCF (JSR 360)
-* Java ME Embedded Profile (JSR 361)
-* Java versions >= 1.4 and later
-* Java > 1.1 (but without 'loadObj' and 'getClass' methods)
-* Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
-	
+				www.dpdl.biz
 	
 ## Dpdl definition language
 
@@ -47,7 +19,7 @@ is available so that it can be compiled and run on almost every platform.
 
 ### Variable Type definition
 
-```
+```python
 int i = 1
 byte b = 0x01 
 double d = 1.0
@@ -61,21 +33,21 @@ object myobj = getClass(..)
 ### Function and Control flow
 
 function definition
-```
+```python
 func myFunction(string param, object param....)
 
 end
 ```
 
 if statement
-```
+```python
 if(<expression>)
 
 fi
 ```
 
 if else statement
-```
+```python
 if(<expression>)
 
 else
@@ -84,7 +56,7 @@ fi
 ```
 
 while statement
-```
+```python
 while(<expression>)
 
 endwhile
@@ -96,20 +68,22 @@ endwhile
 
 ### Dpdl reflection
 
-Dpdl can access the underlying classes of a give JRE implementation or other external libraries.
+Dpdl can access the underlying classes of a give JRE implementation or any other external libraries.
 
-Static classes can be accessed via getClass(..) method and instance classes via loadObj(..) method.
+Static classes can be accessed via **getClass(..)** method and instance classes via **loadObj(..)** method.
+
+The class names are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/. NOTE: Only the full registered version of Dpdl allows editing of this file.
 
 Example:
 ```python
 # static class loading
-object calendar = getClass("java.util.Calendar")
+object calendar = getClass("Calendar")
 object cal_inst = calendar.getInstance()
 int day_ = cal_inst.get(calendar.DATE)
 println("day: " + day_)
 
 # instance class loading
-object str = loadObj("java.lang.String", "Test MyString")
+object str = loadObj("String", "Test MyString")
 int idx = str.indexOf(" ")
 string substr = str.substring(idx)
 println(substr)
@@ -125,7 +99,7 @@ The implemented extensions can be registered via settings in the "Extensions" se
 defined in the DpdlEngine.ini configuration file.
 
 Example of a custom print function, myprintln(..):
-```
+```java
 import dpdl.dpdlDpdlEngine.scripting.BasicDpdlExtension;
 
 public class MyTestDpdlExtension extends BasicDpdlExtension{
