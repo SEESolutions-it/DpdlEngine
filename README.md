@@ -658,10 +658,15 @@ The validation script can be inspected here:
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
 
 
+## Further Documentation
+
+[Dpdl Specification](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
+
 ## How to buy a full DpdlEngine license?
 
-If you want full DpdlEngine license with no restrictions, regular updates and support. 
+To buy a full DpdlEngine license with no restrictions, regular updates included and support,
+please write to the following e-mail address: 
 
-Write to the following e-mail address: info@seesolutions.it
+info@seesolutions.it
 
 
