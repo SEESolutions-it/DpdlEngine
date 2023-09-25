@@ -172,7 +172,7 @@ and can be used to exploit the features of Dpdl and to develop small application
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
-[DpdlEngine line Download](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
 
 
 DpdlEgine lite includes:

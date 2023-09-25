@@ -83,23 +83,24 @@ fi
 ```
 
 The first time a DpdlPacket is allocated (swapped), data is decompressed in a temporary storage. This process takes some time for the 1st allocation,
-but is immediate i subsequent allocations, as long as the DpdlPacket is not explicitly deallocated.
+but is immediate for subsequent allocations, as long as the DpdlPacket is not explicitly deallocated.
 
 
 ## Dpdl scripting language
 
 **Features:**
-	- Basic types supported (int, byte, double, long, string, bool, array[], object)
-	- Native threads
-	- Full featured API: native API, Dpdl API, MIDP API
-	- Record Store creation and access
-	- Static script execution: static code declarations (*.h_static) are executed only once in a Thread
-	- Functions that allow to access the full underlying JRE API or other external libraries
-	- Support for custom function extensions
+* Basic types supported (int, byte, double, long, string, bool, array[], object)
+* Native threads
+* Full featured API: native API, Dpdl API, MIDP API
+* Record Store creation and access
+* Static script execution: static code declarations (*.h_static) are executed only once in a Thread
+* Functions that allow to access the full underlying JRE API or other external libraries
+* Support for custom function extensions
 
 
 ### Variable Type definition
 
+Dpdl support the following type definitions:
 ```python
 int i = 1
 byte b = 0x01 
@@ -109,6 +110,21 @@ string s = "mystr"
 bool t = true | false
 array[] = "1 1.0 0x01 test"
 object myobj = getClass(..)
+```
+
+Arrays support multiple types and can be accessed via a ArrayList object
+
+Example:
+```python
+myarray[] = "1 1.0 0x01 test Dpdl Dynamic Packet Definition Language"
+
+myarray2[0]  = myarray.getObj()
+
+object myarrayobj = myarray2[0]
+
+bool b = myarrayobj.contains("Dpdl")
+
+println("array contains Dpdl: " + b) 
 ```
 
 ### Function and Control flow
