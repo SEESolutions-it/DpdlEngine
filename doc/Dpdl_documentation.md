@@ -248,8 +248,9 @@ java -jar DpdlEngine_V1.0_release.jar
 ```
 
 NOTE: The newer release of Java (Java20) has introduced the concepts of 'modules'. A compliant 
-version of DpdlEngine will be released soon. In the meantime, if you need to run the DpdlClient on the latest version
-of Java, use the following command and add the modules you want to access via Dpdl scripting:
+version of DpdlEngine will be released soon.
+
+If you need to run the DpdlClient on the latest version of Java, use the following command and add the modules you want to access via Dpdl scripting:
 
 ```
 java --add-opens java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED -cp ./lib/mjcoap.jar -jar DpdlEngine_V1.0_release.jar
