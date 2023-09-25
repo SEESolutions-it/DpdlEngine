@@ -112,7 +112,7 @@ array[] = "1 1.0 0x01 test"
 object myobj = getClass(..)
 ```
 
-Arrays support multiple types and can be accessed via a ArrayList object
+Arrays support multiple types and can be accessed via a [ArrayList])(https://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html) object
 
 Example:
 ```python
@@ -254,4 +254,6 @@ of Java, use the following command and add the modules you want to access via Dp
 ```
 java --add-opens java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED -cp ./lib/mjcoap.jar -jar DpdlEngine_V1.0_release.jar
 ```
+
+
  
