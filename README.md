@@ -88,6 +88,9 @@ A list of 14 examples can be found in this script, as explained later:
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
 
+[Dpdl Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
+
+
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
@@ -188,7 +191,7 @@ DpdlEgine lite includes:
 	  Dpdl code definition file
 	
 
-**Next roadmap:**
+**Roadmap:**
 * OpenAI integration
 * Nostr
 * Twitter API
@@ -657,10 +660,6 @@ The validation script can be inspected here:
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
 
-
-## Further Documentation
-
-[Dpdl Specification](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
 
 ## How to buy a full DpdlEngine license?
 

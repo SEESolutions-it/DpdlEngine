@@ -163,13 +163,15 @@ endwhile
 ### Dpdl native functions
 
 
-### Dpdl reflection
+### DpdlObject
 
 Dpdl can access the underlying classes of a give JRE implementation or any other external libraries.
 
 Static classes can be accessed via **getClass(..)** method and instance classes via **loadObj(..)** method.
 
-The class names are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/. NOTE: Only the full registered version of Dpdl allows editing of this file.
+The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/.
+NOTE: Only the full registered version of Dpdl allows editing of this file. The default DpdlEngine lite configuration contains
+the class references of JRE 1.5
 
 Example:
 ```python
