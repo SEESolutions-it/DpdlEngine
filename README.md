@@ -192,10 +192,11 @@ DpdlEgine lite includes:
 	
 
 **Roadmap:**
+
 * OpenAI integration
-* Nostr
 * Twitter API
-* Blockchains
+* Blockchain transactions
+* Nostr client API
 
 
 

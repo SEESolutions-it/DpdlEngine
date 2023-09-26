@@ -6,9 +6,12 @@
 ## Dpdl definition language
 
 Dpdl allows to create compressed packets of data via a DpdlPacket code definition. The data in a DpdlPacket can be organized
-in chunks of compressed data, along with database indexes. Data chunks can be allocated, queried and deallocated when not
+in chunks of highly compressed data, along with database indexes. Data chunks can be allocated, queried and deallocated when not
 needed anymore. This allows a very efficient method of accessing and searching big amounts of data in memory constrained 
 devices.
+
+Dpdl scripting can be embedded in the DpdlPacket code definition and allows to trigger its execution on predefined callbacks.
+This makes a DpdlPacket an executable packet of data.
 
 This is an example DpdlPacket code definition (a phonebook database):
 ```c++
@@ -84,6 +87,25 @@ fi
 
 The first time a DpdlPacket is allocated (swapped), data is decompressed in a temporary storage. This process takes some time for the 1st allocation,
 but is immediate for subsequent allocations, as long as the DpdlPacket is not explicitly deallocated.
+
+### Data Types
+
+A DpdlPacket chunk allocation supports the following types:
+
+```c++
+int
+string
+char
+double
+float
+long
+byte
+Image
+class
+xml
+dpdlpacket
+```
+
 
 
 ## Dpdl scripting language
