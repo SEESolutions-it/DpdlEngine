@@ -112,7 +112,7 @@ array[] = "1 1.0 0x01 test"
 object myobj = getClass(..)
 ```
 
-Arrays support multiple types and can be accessed via a [ArrayList])(https://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html) object
+Arrays support multiple types and can be accessed via a [ArrayList](https://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html) object
 
 Example:
 ```python
