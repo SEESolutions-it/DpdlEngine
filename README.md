@@ -58,9 +58,6 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
-See the Dpdl scripting API doc for available methods:
-
-[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
 The Dpdl scripting lagnuage API allows to access all classes of the underlying java platform implementation (JRE) or 
 any other external libraries via the **loadObj(..)** and **getClass(..)** methods. The class names are resolved according
@@ -87,6 +84,12 @@ A list of 14 examples can be found in this script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
+
+### Documentation
+
+The framework and API documentation are available via the following links:
+ 
+[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
 [Dpdl Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
 
