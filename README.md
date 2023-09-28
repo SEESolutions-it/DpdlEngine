@@ -86,15 +86,13 @@ The class names are resolved according to the definitions defined in ./DpdlLibs/
 Dpdl allows also to embed and execute C or C++ code (interpreted) directly into Dpdl scripts. The C/C++ code is interpreted via a native Dpdl library that has
 a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
-Particularly interesting is embeddable Ch code from softintegration.com. It's a very powerful C/C++ compatible interactive platform for scientific computing and scripting
-with a lot of library functions available. 
+
 
 Dpdl + C + C++ = a very powerful Tool
 
 Two types of C code can be executed:
-* compliant C code (subset of C90) (default configuration picoc)
-* Ch C/C++ (https://www.softintegration.com)-> Ch is a cross-platform C/C++ interpreter for scripting. It supports many industry standards such as TCP/IP socket, POSIX, OpenGL, GTK+, CGI, ODBC,
-	 X/Motif, Windows toolkit over 8,000 C functions with the following features. 
+* Default configuration: C code (subset of C90)
+* Ch C/C++ (https://www.softintegration.com)
 
 Example embedded C code:
 ```c
@@ -109,7 +107,7 @@ string a = "test"
 
 dpdl_stack_push(n, x, a)
 
->>picoc
+>>c
 	#include <stdio.h>
 	
 	int main(int argc, char **argv){
