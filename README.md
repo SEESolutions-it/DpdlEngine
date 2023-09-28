@@ -58,12 +58,12 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
+### Access to JRE Java API and any external java library
 
-The Dpdl scripting lagnuage API allows to access all classes of the underlying java platform implementation (JRE) or 
-any other external libraries via the **loadObj(..)** and **getClass(..)** methods. The class names are resolved according
-to the definitions defined in ./DpdlLibs/libs/classes.txt
+The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java platform implementation (JRE) or 
+any other external libraries via the **loadObj(..)** and **getClass(..)** methods.
 
-**Example:** using a HashMap
+**Example:** using a JRE HashMap
 ```python
 object map, s
 
@@ -79,7 +79,48 @@ s=map.get(4)
 println(s)
 
 ```
+The class names are resolved according to the definitions defined in ./DpdlLibs/libs/classes.txt
 
+### Embedded C interpreter
+
+Dpdl allows also to embed and execute C code (interpreted) directly into Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+a very small footprint but with all essential C libraries and constructs (subset of ISO standard C90). Custom libraries can be integrated and linked via a straight
+forward implementation configuration.
+
+Two types of C code can be executed:
+* picoc compliant C code (subset of C90) (default configuration)
+* Ch C/C++ (https://www.softintegration.com)-> Ch is a cross-platform C/C++ interpreter for scripting. It supports many industry standards such as TCP/IP socket, POSIX, OpenGL, GTK+, CGI, ODBC,
+	 X/Motif, Windows toolkit over 8,000 C functions with the following features. 
+
+Example embedded C code:
+```c
+# main
+println("testing embedded C code from Dpdl")
+
+int n = 6
+double x = 10.0
+string a = "test"
+
+dpdl_params(n, x, a)
+
+>>picoc
+	#include <stdio.h>
+	
+	int main(int argc, char **argv){
+		printf("num params: %d\n", argc);
+		int cnt;
+	    for (cnt = 0; cnt < argc; cnt++){
+	        printf("	param %d: %s\n", cnt, argv[cnt]);
+	    }
+	    printf("Finished!!!\n");
+	    return 0;
+	}
+<<
+
+object str = loadObj("String", "Dpdl embedded C")
+bool b = str.contains("C")
+println("Dpdl contains C: " + b)
+```
 A list of 14 examples can be found in this script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
@@ -488,7 +529,7 @@ The Demo release of Dpdl includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl) th
 
 The packet is approximately 1,2 MB in size and has been encoded with the following Dpdl source script (dpdl_PHONEBOOK.c):
 
-```c++
+```cpp
 /*######################################################
                     Dpdl
                     
