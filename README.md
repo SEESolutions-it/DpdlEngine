@@ -81,21 +81,25 @@ println(s)
 ```
 The class names are resolved according to the definitions defined in ./DpdlLibs/libs/classes.txt
 
-### Embedded C interpreter
+### Embedded C/C++ code
 
-Dpdl allows also to embed and execute C code (interpreted) directly into Dpdl scripts. The C code is interpreted via a native Dpdl library that has
-a very small footprint but with all essential C libraries and constructs (subset of ISO standard C90). Custom libraries can be integrated and linked via a straight
-forward implementation configuration.
+Dpdl allows also to embed and execute C or C++ code (interpreted) directly into Dpdl scripts. The C/C++ code is interpreted via a native Dpdl library that has
+a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
+Custom libraries can be integrated and linked via a straight forward implementation configuration.
+Particularly interesting is embeddable Ch code from softintegration.com. It's a very powerful C/C++ compatible interactive platform for scientific computing and scripting
+with a lot of library functions available. 
+
+Dpdl + C + C++ = a very powerful Tool
 
 Two types of C code can be executed:
-* compliant C code (subset of C90) (picoc default configuration)
+* compliant C code (subset of C90) (default configuration picoc)
 * Ch C/C++ (https://www.softintegration.com)-> Ch is a cross-platform C/C++ interpreter for scripting. It supports many industry standards such as TCP/IP socket, POSIX, OpenGL, GTK+, CGI, ODBC,
 	 X/Motif, Windows toolkit over 8,000 C functions with the following features. 
 
 Example embedded C code:
 ```c
 # main
-# starting with Dpdl, and embedding C
+# starting with Dpdl, pushing parameters on the stack and embedding C
 
 println("testing embedded C code in Dpdl")
 
