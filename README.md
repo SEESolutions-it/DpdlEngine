@@ -133,6 +133,8 @@ object str = loadObj("String", "Dpdl embedded C")
 bool b = str.contains("C")
 println("Dpdl contains C: " + b)
 ```
+
+
 A list of 14 examples can be found in this script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
