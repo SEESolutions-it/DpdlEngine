@@ -323,6 +323,10 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
 	
+* Embedded C code execution within Dpdl scripts
+	
+	[dpdlEmbeddedC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbeddedC.h)
+	
 * Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
   
 	[bluetoothDiscoverySave.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/bluetoothDiscoverySave.h)
@@ -431,7 +435,7 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 
 
-### Run Dpdl Scripting code
+### How to run Dpdl scripting code?
 
 To run the Dpdl scripting examples start the DpdlClient by executing the following script:
 
