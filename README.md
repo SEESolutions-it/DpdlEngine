@@ -58,7 +58,7 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
-### Access to JRE Java API and any external java library
+### Bridge to the complete JRE Java platform API and other external java library
 
 The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java platform implementation (JRE) or 
 any other external libraries via the **loadObj(..)** and **getClass(..)** methods.
@@ -152,25 +152,30 @@ The framework and API documentation are available via the following links:
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
-memory footprint devices. The DpdlPacket data container is a highly optimized way to store,
-search and access data on devices that have limited memory and storage capabilities. 
+memory footprint devices, and is very suitable for rapid applications development, teaching and research.
+
+
+The DpdlPacket data container is a highly optimized way to store, search and access data
+on devices that have limited memory and storage capabilities. 
 
 Features:
 
-* DpdlEngine is optimized to run on a wide range of platforms (J2ME, JavaME, J2SE)
-* Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data.
+* DpdlEngine is optimized to run on a **vast range of platforms** (J2ME, JavaME, J2SE)
+* Packing data in a DpdlPacket is a convenient way to **optimize and speedup access** to data.
   The speedup is x 25 times faster compared to a standard record store access
-* Build-in Dpdl scripting engine with support for custom function extensions (DpdlExtension interface)
-* Dpdl scripting API provides access to the complete underlying Java JRE platform API and to
-  external libraries via the loadObj(..) and getClass(..) methods
-* C/C++ code can also be embedded and executed directly in Dpdl scripts (interpreted code)
-* Support for common IoT open source protocol stacks such as Bluetooth(tm) (JSR-82)
-  and CoAP (Constrained Application Protocol) (IETF standard RFC 7252)
-* Virtual filesystem for record stores
-* Double precision floating point emulation
-* XML with xpath parser
-* JSON
-* Enables fast prototyping
+* Built-in **Dpdl scripting engine** with support for **custom function extensions** (DpdlExtension interface)
+* Dpdl scripting API provides **access to the complete underlying Java JRE platform** API and to
+  **external libraries** via the loadObj(..) and getClass(..) methods
+* **C/C++ code can be embedded and executed** directly in Dpdl scripts (interpreted code)
+* Support for common IoT protocol stacks such as **Bluetooth(tm)** (JSR-82) and 
+  **CoAP** (Constrained Application Protocol) (IETF standard RFC 7252)
+* **Virtual filesystem** for record stores
+* Double precision **floating point emulation** layer
+* **XML** with xpath parser
+* **JSON**
+* enables **Fast Prototyping**
+* Dpdl language is simple and intuitive
+* The power of Java
 
 
 **Roadmap:**
@@ -284,118 +289,20 @@ Usage:
  -q  quit
 ```
 
-## How to run the Dpdl examples?
+
+## Dpdl Scripting
 
 
-### Run Dpdl Scripting code
+A set of examples implemented with Dpdl scripting language can be found in the script './DpdlLibs/dpdlLibExamples.h',
+where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
+i.e. @TEST1 .....@TEST14
 
-To run the Dpdl scripting examples start the DpdlClient by executing the following script:
-
-on Linux/MacOS
-```
-./run_DpdlClient.sh
-```
-
-on Windows
-```
-./run_DpdlClient.bat
-```
-
-
-You can execute the Dpdl scripts, either loading them from a source file with the -load command,
-
-or input the script directly in the command console with the -exec command, and closing with
-
-the </script> tag
-
-1) using 'load' command:
+DpdlClient console:
 ```
 -load
-enter the Dpdl script file to execute:
-arraylistExample.h
+enter the Dpdl script name to execute:
+dpdlLibExamples.h @TEST1
 ```
-
-2) using 'exec' command:
-```python
--exec
-<script>
-string str = "this is a test"
-println(str)
-</script>
-```
-Note: the closing **</script>** tag
-
-
-Here you can find all methods available for the Dpdl scripting API: 
-
-[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
-
-Dpdl allows to access all java classes of the underlying JRE environment,
-providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
-Dpdl scripting API methods.
-
-In this way Dpdl can access the classes or api of every external java library.
-
-Example (using String java class with method 'contains(..)':
-```python
-object str = loadObj("String", "This is my Java object string")
-bool contains = str.contains("Java")
-if(contains)
-	println("The string contains the word 'Java'")
-else
-	println("The string does NOT contain the word 'Java'")
-fi
-```
-
-The class references resolved in the methods 'loadObj' and 'getClass' are defined via the class reference file:
-./DpdlLibs/libs/classes.txt
-
-NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
-
-
-**Example:** (Compress and de-compress a string of data)
-```python
-
-#main
-
-object str = loadObj("String", "my data for Dpdl")
-println("string to compress: " + str)
-
-object byte_out = loadObj("ByteArrayOutputStream")
-object zip_out = loadObj("GZIPOutputStream", byte_out)
-
-println("compressing...")
-zip_out.write(str.getBytes())
-zip_out.close()
-println("data compressed successfully")
-
-object compressed_str = byte_out.toString()
-println("compressed string: " + compressed_str)
-
-println("decompressing...")
-object byte_in = compressed_str.getBytes()
-
-object byte_arr_in = loadObj("ByteArrayInputStream", byte_in)
-object zip_in = loadObj("GZIPInputStream", byte_arr_in)
-
-object in_reader = loadObj("InputStreamReader", zip_in)
-object buf_reader = loadObj("BufferedReader", in_reader)
-
-string decompressed_str = ""
-string line = ""
-while(line != null)
-	line = buf_reader.readLine()
-	if(line != null)
-		decompressed_str = decompressed_str + line
-	fi
-endwhile
-println("decompressed: " + decompressed_str)
-
-```
-
-
-
-**Examples:** 
 
 The Dpdl script examples files are located in the folder ./DpdlLibs/
 
@@ -524,19 +431,114 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 
 
-A set of useful examples can be found in the Dpdl script 'dpdlLibExamples.h', where different Tests/examples
-can be executed individually by supplying the @TAG attribute along with the filename,
-i.e. @TEST1 .....@TEST14
+### Run Dpdl Scripting code
 
-with load command:
+To run the Dpdl scripting examples start the DpdlClient by executing the following script:
+
+on Linux/MacOS
+```
+./run_DpdlClient.sh
+```
+
+on Windows
+```
+./run_DpdlClient.bat
+```
+
+
+You can execute the Dpdl scripts, either loading them from a source file with the -load command,
+
+or input the script directly in the command console with the -exec command, and closing with
+
+the </script> tag
+
+1) using 'load' command:
 ```
 -load
-enter the Dpdl script name to execute:
-dpdlLibExamples.h @TEST1
+enter the Dpdl script file to execute:
+arraylistExample.h
+```
+
+2) using 'exec' command:
+```python
+-exec
+<script>
+string str = "this is a test"
+println(str)
+</script>
+```
+Note: the closing **</script>** tag
+
+
+Here you can find all methods available for the Dpdl scripting API: 
+
+[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+
+Dpdl allows to access all java classes of the underlying JRE environment,
+providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
+Dpdl scripting API methods.
+
+In this way Dpdl can access the classes or api of every external java library.
+
+Example (using String java class with method 'contains(..)':
+```python
+object str = loadObj("String", "This is my Java object string")
+bool contains = str.contains("Java")
+if(contains)
+	println("The string contains the word 'Java'")
+else
+	println("The string does NOT contain the word 'Java'")
+fi
+```
+
+The class references resolved in the methods 'loadObj' and 'getClass' are defined via the class reference file:
+./DpdlLibs/libs/classes.txt
+
+NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
+
+
+**Example:** (Compress and de-compress a string of data)
+```python
+
+#main
+
+object str = loadObj("String", "my data for Dpdl")
+println("string to compress: " + str)
+
+object byte_out = loadObj("ByteArrayOutputStream")
+object zip_out = loadObj("GZIPOutputStream", byte_out)
+
+println("compressing...")
+zip_out.write(str.getBytes())
+zip_out.close()
+println("data compressed successfully")
+
+object compressed_str = byte_out.toString()
+println("compressed string: " + compressed_str)
+
+println("decompressing...")
+object byte_in = compressed_str.getBytes()
+
+object byte_arr_in = loadObj("ByteArrayInputStream", byte_in)
+object zip_in = loadObj("GZIPInputStream", byte_arr_in)
+
+object in_reader = loadObj("InputStreamReader", zip_in)
+object buf_reader = loadObj("BufferedReader", in_reader)
+
+string decompressed_str = ""
+string line = ""
+while(line != null)
+	line = buf_reader.readLine()
+	if(line != null)
+		decompressed_str = decompressed_str + line
+	fi
+endwhile
+println("decompressed: " + decompressed_str)
+
 ```
 
 
-### DpdlPacket installation, allocation and query
+## DpdlPacket installation, allocation and query
 
 The Demo release of Dpdl includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl) that has 48877 data entries (name, phoneNR, e-email).
 
@@ -719,7 +721,7 @@ The validation script can be inspected here:
 	
 * The class reference file (classes.txt), used for dynamic loading of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
 	
-* The execution of Dpdl scripts is limited to 500 lines of code
+* The execution of Dpdl scripts is limited to 500 lines of code, embeddec C code limited to 100 lines of code
 	
 * The Dpdl scripting API function 'systemExec' only executes the system commands in the registered version of Dpdl
 	
