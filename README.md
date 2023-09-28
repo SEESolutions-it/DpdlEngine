@@ -88,7 +88,7 @@ a very small footprint but with all essential C libraries and constructs (subset
 forward implementation configuration.
 
 Two types of C code can be executed:
-* picoc compliant C code (subset of C90) (default configuration)
+* compliant C code (subset of C90) (picoc default configuration)
 * Ch C/C++ (https://www.softintegration.com)-> Ch is a cross-platform C/C++ interpreter for scripting. It supports many industry standards such as TCP/IP socket, POSIX, OpenGL, GTK+, CGI, ODBC,
 	 X/Motif, Windows toolkit over 8,000 C functions with the following features. 
 
@@ -155,8 +155,9 @@ Features:
 * Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data.
   The speedup is x 25 times faster compared to a standard record store access
 * Build-in Dpdl scripting engine with support for custom function extensions (DpdlExtension interface)
-* Dpdl scripting API provides access to the complete underlying Java platform API and to
+* Dpdl scripting API provides access to the complete underlying Java JRE platform API and to
   external libraries via the loadObj(..) and getClass(..) methods
+* C/C++ code can also be embedded and executed directly in Dpdl scripts (interpreted code)
 * Support for common IoT open source protocol stacks such as Bluetooth(tm) (JSR-82)
   and CoAP (Constrained Application Protocol) (IETF standard RFC 7252)
 * Virtual filesystem for record stores
@@ -214,8 +215,8 @@ The database technology in Dpdl has been developed since year 2003 and started w
 
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
-the DpdlPacket.The next section 'How to run the examples' will describe how to 
-execute and perform queries on a DpdlPacket.
+the DpdlPacket. The next section 'How to run the examples' will describe how to 
+allocate, execute and perform queries on a DpdlPacket.
 
 
 
@@ -226,8 +227,6 @@ The DpdlEngine lite release is freely available with some limitations,
 and can be used to exploit the features of Dpdl and to develop small applications
 or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
 license.
-
-[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
 
 
 DpdlEgine lite includes:
@@ -687,6 +686,17 @@ on Windows
 		   -> i #abs(search_rand_int) 
 		
 		
+
+## Where to Download the DpdlEngine lite release package?
+
+The DpdlEngine line release (V1.0) can be downloaded and used for free (with some limitations and conformant to the License agreement)
+from the following download link:
+
+[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+
+The distributed package is also available and updated regularly on the official Git repository:
+[DpdlEngine Git](https://github.com/SEESolutions-it/DpdlEngine)
+
 
 ## DpdlEngine lite release limitations/restrictions
 
