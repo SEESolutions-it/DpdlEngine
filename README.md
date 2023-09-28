@@ -91,8 +91,8 @@ Custom libraries can be integrated and linked via a straight forward implementat
 Dpdl + C + C++ = a very powerful Tool
 
 Two types of C code can be executed:
-* Default configuration: C code (subset of C90)
-* Ch C/C++ (https://www.softintegration.com)
+* Default configuration: ANSI C code (subset of C90) (included in DpdlEngine lite release)
+* Custom configuration: Ch C/C++ (https://www.softintegration.com)
 
 Example embedded C code:
 ```c
