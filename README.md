@@ -31,7 +31,7 @@ Dpdl is a powerful environment for development, education and research.
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
-### Dpdl(Java API + Embedded C) = Powerful and Versatile programming language
+### Dpdl ( Java API + Embedded C ) = Powerful and Versatile programming language
 
 **DpdlEngine stack**
 
@@ -66,12 +66,13 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
-### Access to the complete JRE Java platform API or other external java library
+### Access to the complete JRE Java platform API and external java libraries
 
-The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java platform implementation (JRE) or 
-any other external libraries via the **loadObj(..)** and **getClass(..)** methods.
+  
+The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
+via the **loadObj(..)** and **getClass(..)** methods.
 
-**Example:** using a JRE HashMap
+**Example:** using a java HashMap
 ```python
 object map, s
 
@@ -95,8 +96,8 @@ a very small footprint but includes all essential C libraries and language const
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
 #### Two types of C code can be executed within Dpdl scripts:
-* **Default configuration:** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
-* **Optional configuration:** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
+* **Default configuration (included):** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
+* **Optional configuration (third party):** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
 
 Example Dpdl script with embedded C code:
 ```c
@@ -137,7 +138,7 @@ println("Dpdl contains C: " + b)
 ```
 
 
-A list of 14 examples can be found in this script, as explained later:
+A list of 14 examples can be found in the following script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
@@ -162,22 +163,20 @@ on devices that have limited memory and storage capabilities.
 
 ### Features
 
-* DpdlEngine is optimized to run on a **vast range of platforms** (J2ME, JavaME, J2SE, any other > JRE 1.4 JVM, compiled DpdlVM for target platform)
-* Packing data in a DpdlPacket is a convenient way to **optimize and speedup access** to data.
-  The speedup is x 25 times faster compared to a standard record store access
-* Built-in **Dpdl scripting engine** with support for **custom function extensions** (DpdlExtension interface)
-* Dpdl scripting API provides **access to the complete underlying Java JRE platform** API and to
-  **external libraries** via the loadObj(..) and getClass(..) methods
-* **ANSI C code can be embedded and executed** directly within Dpdl scripts (interpreted code)(subset of C90)
-* Support for common IoT protocol stacks such as **Bluetooth(tm)** (JSR-82) and 
-  **CoAP** (Constrained Application Protocol) (IETF standard RFC 7252)
+
+* **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
+* **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
+The speedup is x 25 times faster compared to a standard record store access
+* **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
+* **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries** via the loadObj(..) and getClass(..) methods
+* **ANSI C code can be embedded and executed** directly within Dpdl scripts (interpreted code), a subset of C90 standard
+* **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
+**CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
 * **Virtual filesystem** for record stores
-* Double precision **floating point emulation** layer
-* **XML** with xpath parser
+* **Double precision floating point emulation** layer
+* **XML** with XPath parser
 * **JSON**
-* enables **Fast Prototyping**
-* Dpdl language is simple and intuitive
-* The power of Java
+* **Fast Prototyping**
 
 
 ## Supported Platforms
@@ -234,7 +233,7 @@ The database technology in Dpdl has been developed since year 2003 and started w
 
 ## What is the DpdlClient console application?
 
-The DpdlClient console application included in the DpdlEngine lite release is a small application
+The DpdlClient console application included in the 'DpdlEngine lite' release is a small application
 that exposes some functionalities of Dpdl via a simple command line console. Dpdl scripting code can be
 executed and DpdlPacket handled. The same functionalities can be accessed via the java or Dpdl scripting API.
 
@@ -260,16 +259,16 @@ Usage:
 ```
 
 
-## What does the free DpdlEngine lite version provide?
+## What does the free 'DpdlEngine lite' version provide?
 
 
-The DpdlEngine lite release is freely available with some limitations,
+The 'DpdlEngine lite' release is freely available with some limitations,
 and can be used to exploit the features of Dpdl and to develop small applications
-or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
+or utility tools. Some auxiliary Dpdl libraries are released under the open-source GNU
 license.
 
 
-DpdlEgine lite includes:
+'DpdlEgine lite' includes:
 
 	- The 'DpdlClient' console application that allows to execute a set of commands
 	  for interacting with the core DpdlEngine
@@ -289,7 +288,7 @@ A set of examples implemented with Dpdl scripting language can be found in the s
 where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
 i.e. @TEST1 .....@TEST14
 
-DpdlClient console:
+enter DpdlClient console:
 ```
 -load
 enter the Dpdl script name to execute:
@@ -478,7 +477,7 @@ Dpdl allows to access all java classes of the underlying JRE environment,
 providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
 Dpdl scripting API methods.
 
-In this way Dpdl can access the classes or api of every external java library.
+In this way Dpdl can access the classes and api of external java libraries.
 
 Example (using String java class with method 'contains(..)':
 ```python
@@ -491,7 +490,7 @@ else
 fi
 ```
 
-The class references resolved in the methods 'loadObj' and 'getClass' are defined via the class reference file:
+The class references resolved by the methods 'loadObj' and 'getClass' are defined via the class reference file:
 ./DpdlLibs/libs/classes.txt
 
 NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
@@ -686,8 +685,8 @@ on Windows
 	
 		1) To perform a single query (press 'q')
 		
-		2) To execute senquential or random queries, for each of the data entries (press ENTER)
-		   and than enter 'armin' as constraint base name, wich is part of the key of each data entry:
+		2) To execute sequential or random queries, for each of the data entries (press ENTER)
+		   and than enter **'armin'** as constraint base name, which is part of the key of each data entry:
 		   i.e. "armin 1, armin 2, ..."
 		   
 		   For random vs. sequential queries comment or uncomment the following line of code in the script
@@ -697,19 +696,19 @@ on Windows
 
 ## Download 'DpdlEngine lite' release package
 
-The DpdlEngine line release (V1.0) can be downloaded and used for free (with some limitations and conformant to the License agreement)
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for free (with some limitations and conform to the License agreement)
 from the following download link:
 
 [DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
 
-The distributed package is also available and updated regularly on the official Git repository:
-[DpdlEngine Git](https://github.com/SEESolutions-it/DpdlEngine)
+The distributed package is also available and updated regularly on the official GitHub repository:
+[DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
 
 
 ## 'DpdlEngine lite' release limitations/restrictions
 
 	
-The DpdlEngine lite release software package has the following limitations/restrictions:
+The 'DpdlEngine lite' release software package has the following limitations/restrictions:
 
 * At startup, the DpdlEngine requires the execution of a validation script.
 The script simply accesses a html website at www.seesolutions.it for validation.
