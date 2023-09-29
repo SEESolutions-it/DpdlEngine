@@ -28,6 +28,7 @@ within Dpdl scripts (interpreted code). This makes it ideal also for hardware pr
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
+### Dpdl(Java API + C) = Powerful and Versatile
 
 **DpdlEngine stack**
 
@@ -92,8 +93,6 @@ Dpdl allows also to embed and execute ANSI C code directly into Dpdl scripts. Th
 a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
-
-### Dpdl + Java API + C = Powerful and Versatile
 
 Two types of C code can be executed:
 * Default configuration: ANSI C code (subset of C90) (included in DpdlEngine lite release)
