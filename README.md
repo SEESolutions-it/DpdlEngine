@@ -12,10 +12,10 @@ SEE Solutions
 ## What is Dpdl?
 
 
-Dpdl is a constrained device framework and programming language that can be used to encode,
+Dpdl is a **constrained device framework and programming language** that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices and for rapid application development. Dpdl comes with a very compact scripting engine
-and an extensible API interface to facilitate the development of custom API extensions. 
+devices and for rapid application development. Dpdl comes with a very compact **Scripting Engine**
+and an **extensible API interface** to facilitate the development of custom API extensions. 
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
@@ -28,7 +28,7 @@ within Dpdl scripts** (interpreted code). This makes it ideal also for hardware 
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
-### Dpdl(Java API + Embedded C) = Powerful and Versatile programming
+### Dpdl(Java API + Embedded C) = Powerful and Versatile programming language
 
 **DpdlEngine stack**
 
@@ -159,7 +159,7 @@ on devices that have limited memory and storage capabilities.
 
 ### Features
 
-* DpdlEngine is optimized to run on a **vast range of platforms** (J2ME, JavaME, J2SE)
+* DpdlEngine is optimized to run on a **vast range of platforms** (J2ME, JavaME, J2SE, any other > JRE 1.4 JVM, compiled DpdlVM for target platform)
 * Packing data in a DpdlPacket is a convenient way to **optimize and speedup access** to data.
   The speedup is x 25 times faster compared to a standard record store access
 * Built-in **Dpdl scripting engine** with support for **custom function extensions** (DpdlExtension interface)
