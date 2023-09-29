@@ -157,7 +157,7 @@ memory footprint devices, and is very suitable for rapid applications developmen
 The DpdlPacket data container is a highly optimized way to store, search and access data
 on devices that have limited memory and storage capabilities. 
 
-Features:
+### Features
 
 * DpdlEngine is optimized to run on a **vast range of platforms** (J2ME, JavaME, J2SE)
 * Packing data in a DpdlPacket is a convenient way to **optimize and speedup access** to data.
@@ -229,29 +229,6 @@ The database technology in Dpdl has been developed since year 2003 and started w
 [Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
 
 
-
-## What does the DpdlEngine lite version provide?
-
-
-The DpdlEngine lite release is freely available with some limitations,
-and can be used to exploit the features of Dpdl and to develop small applications
-or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
-license.
-
-
-DpdlEgine lite includes:
-
-	- The 'DpdlClient' console application that allows to execute a set of commands
-	  for interacting with the core DpdlEngine
-	  
-	- Dpdl scripting engine with API libraries
-	
-	- Example scripts (located in ./DpdlScripts/ and ./DpdlLibs/ folder)
-	
-	- Example DpdlPacket (dpdl_PHONEBOOK.dpdl) with corresponding
-	  Dpdl code definition file
-	
-
 ## What is the DpdlClient console application?
 
 The DpdlClient console application included in the DpdlEngine lite release is a small application
@@ -278,6 +255,29 @@ Usage:
  -h  Help
  -q  quit
 ```
+
+
+## What does the DpdlEngine lite version provide?
+
+
+The DpdlEngine lite release is freely available with some limitations,
+and can be used to exploit the features of Dpdl and to develop small applications
+or utility tools. All auxiliary Dpdl libraries are released under the open-source GNU
+license.
+
+
+DpdlEgine lite includes:
+
+	- The 'DpdlClient' console application that allows to execute a set of commands
+	  for interacting with the core DpdlEngine
+	  
+	- Dpdl scripting engine with API libraries
+	
+	- Example scripts (located in ./DpdlScripts/ and ./DpdlLibs/ folder)
+	
+	- Example DpdlPacket (dpdl_PHONEBOOK.dpdl) with corresponding
+	  Dpdl code definition file
+	
 
 
 ## Dpdl Scripting examples
@@ -692,7 +692,7 @@ on Windows
 		
 		
 
-## Where to Download the 'DpdlEngine lite' release package?
+## Download 'DpdlEngine lite' release package
 
 The DpdlEngine line release (V1.0) can be downloaded and used for free (with some limitations and conformant to the License agreement)
 from the following download link:
@@ -720,20 +720,22 @@ The validation script can be inspected here:
 	
 * The execution of Dpdl scripts is limited to 500 lines of code, embeddec C code limited to 100 lines of code
 	
-* The Dpdl scripting API function 'systemExec' only executes the system commands in the registered version of Dpdl
+* The Dpdl scripting API function 'systemExec' is available only in the registered version of Dpdl
 	
-* The interface to develop custom API extensions (DpdlExtension) is available only in the registered version of Dpdl
+* The interface API to develop custom API extensions (DpdlExtension) is available only in the registered version of Dpdl
 	
-* The compilation of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
+* The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
 
 
 ## How to buy a full DpdlEngine license?
 
-To buy a full DpdlEngine license with no restrictions, regular updates included and support,
+To buy a full DpdlEngine license with no restrictions, regular updates and support,
 please write to the following e-mail address: 
 
 info@seesolutions.it
+
+We will discuss and propose an appropriate license plan tailored on your needs
 
 
