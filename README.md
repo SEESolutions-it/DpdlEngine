@@ -84,24 +84,21 @@ s=map.get(4)
 println(s)
 ```
 
-The class names are resolved according to the definitions defined in ./DpdlLibs/libs/classes.txt
-
 
 ### Embedded C code
 
-Dpdl allows also to embed and execute ANSI C code directly into Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+Dpdl allows also to embed and execute ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
 a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
-
-Two types of C code can be executed:
-* Default configuration: ANSI C code (subset of C90) (included in DpdlEngine lite release)
-* Optional configuration: Ch C/C++ (https://www.softintegration.com)
+Two types of C code can be executed within Dpdl scripts:
+* **Default configuration:** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
+* **Optional configuration:** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
 
 Example embedded C code:
 ```c
 # main
-# starting with Dpdl, pushing parameters on the stack and embedding C
+# starting with Dpdl, pushing parameters on the stack and embedding C code
 
 println("testing embedded C code in Dpdl")
 
@@ -141,13 +138,8 @@ A list of 14 examples can be found in this script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
-### DpdlPacket
 
-Dpdl provides an efficient way to encode, allocate and query data from a 'DpdlPacket', a highly compressed executable data container
-with built-in database technology, that is encoded with a defined Dpdl code definition file.
-
-
-### Documentation
+## Documentation
 
 The framework and API documentation are available via the following links:
  
@@ -185,16 +177,7 @@ Features:
 * The power of Java
 
 
-**Roadmap:**
-
-* OpenAI integration
-* Twitter API
-* Blockchain transactions
-* Nostr client API
-
-
-
-## Which platforms are supported?
+## Supported Platforms
 
 Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
 released as open-source, that can  be compiled for almost every platform as soon as
@@ -210,11 +193,20 @@ Dpdl is compatible with:
 * Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
 	
 	
-	
+## Roadmap
+
+Dpdl is constantly developed by SEE and defined the following integrations:
+
+* OpenAI integration
+* Twitter API
+* Blockchain integration
+* Nostr client API
+
+
 ## What is a DpdlPacket?
 
-A DpdlPacket is a compact, compressed executable packet of data with built-in
-database technology that can be created starting from a defined Dpdl code definition. 
+A DpdlPacket is a compact, highly compressed executable packet of data with built-in
+database technology that can be created based on a defined Dpdl code definition. 
 A DpdlPacket can than be allocated and queried efficiently via API
 interfaces available for Java and for the built-in Dpdl scripting language.
 In particular Dpdl is very efficient on J2ME and JavaME platforms and
@@ -223,18 +215,18 @@ has a high degree of backward compatibility.
 A DpdlPacket contains 1 - n chunks of compressed data that can be allocated, queried and
 deallocated when data is not used.
 
-**DpdlPacket**
+### DpdlPacket
 
 ![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
-
-The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis:
-
-[Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
 
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
 the DpdlPacket. The next section 'How to run the examples' will describe how to 
 allocate, execute and perform queries on a DpdlPacket.
+
+The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis.
+
+[Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
 
 
 
@@ -259,15 +251,6 @@ DpdlEgine lite includes:
 	- Example DpdlPacket (dpdl_PHONEBOOK.dpdl) with corresponding
 	  Dpdl code definition file
 	
-
-**Roadmap:**
-
-* OpenAI integration
-* Twitter API
-* Blockchain transactions
-* Nostr client API
-
-
 
 ## What is the DpdlClient console application?
 
@@ -297,8 +280,7 @@ Usage:
 ```
 
 
-## Dpdl Scripting
-
+## Dpdl Scripting examples
 
 A set of examples implemented with Dpdl scripting language can be found in the script './DpdlLibs/dpdlLibExamples.h',
 where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
@@ -553,7 +535,7 @@ println("decompressed: " + decompressed_str)
 ```
 
 
-## DpdlPacket installation, allocation and query
+## DpdlPacket example (installation, allocation and query)
 
 The Demo release of Dpdl includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl) that has 48877 data entries (name, phoneNR, e-email).
 
