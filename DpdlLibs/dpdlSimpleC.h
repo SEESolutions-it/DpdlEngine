@@ -20,7 +20,7 @@ string a = "test"
 
 dpdl_stack_push(n, x, a)
 
->>picoc
+>>c
 	#include <stdio.h>
 	
 	int main(int argc, char **argv){

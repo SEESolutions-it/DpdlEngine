@@ -18,7 +18,7 @@ func testEmbeddedC(int n, double x, string a)
 	println("executing interpreted C code...")
 	println("-------------------------------")
 	
-	>>picoc
+	>>c
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include <string.h>
@@ -158,7 +158,7 @@ double x = 10.0
 
 testEmbeddedC(n, x, a)
 
->>picoc
+>>c
 	#include <stdio.h>
 	
 	printf("Finished!!!\n");
