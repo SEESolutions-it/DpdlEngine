@@ -20,11 +20,14 @@ and an **extensible API interface** to facilitate the development of custom API 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
 
-The language constructs and syntax is kept simple and follows an OOP paradigm.
-Dpdl enables to access the full Java platform API directly within Dpdl scripts.
+The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm.
+Dpdl enables to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
 Further, also standard **ANSI C code** (subset of C90) can be **embedded and executed directly
 within Dpdl scripts** (interpreted code). This makes it ideal also for hardware programming.
+
+By combining the portability and API availability of java, and the power of C programming language,
+Dpdl is a powerful environment for development, education and research.
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
