@@ -1,7 +1,7 @@
 
 # Dpdl - Dynamic Packet Definition Language
 
-				www.dpdl.biz
+				www.seesolutions.it
 
 
 
@@ -18,12 +18,16 @@ a 'DpdlPacket', a highly compressed executable data container with built-in
 database technology, that is encoded with a defined Dpdl code definition file.
 
 Dpdl includes also a compact scripting engine and an extensible API interface
-to facilitate the development of custom API extensions by using the Dpdl scripting
-language. 
+to facilitate the development of custom API extensions by using the Dpdl API. 
 
-Dpdl supports common IoT protocol stacks such as **Bluetooth(tm)** and
-**CoAP** (Constrained Application Protocol). Dpdl development has been started back in year 2003,
-where mobile devices had very limited computer, memory and storage capacity.
+Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
+are supported by default and third party libraries integrated as extensions.
+
+Dpdl is designed to be simple, compact, robust, extendible and portable to every
+platform. The language constructs and syntax is kept simple and with a OOP paradigm
+in mind. Dpdl enables to access the full java platform API directly within Dpdl
+scripts. Further, also standard ANSI C code (subset of C90) can be added and executed directly
+within Dpdl scripts. This makes Dpdl an ideal candidate also for hardware programming.
 
 **DpdlEngine stack**
 
