@@ -95,7 +95,7 @@ Custom libraries can be integrated and linked via a straight forward implementat
 * **Default configuration:** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
 * **Optional configuration:** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
 
-Example embedded C code:
+Example Dpdl script with embedded C code:
 ```c
 # main
 # starting with Dpdl, pushing parameters on the stack and embedding C code
@@ -183,7 +183,7 @@ Dpdl runs on a wide range of platforms and provides also a small footprint java 
 released as open-source, that can  be compiled for almost every platform as soon as
 an ANSI C compiler is available.
 
-Dpdl is compatible with:
+### Dpdl is compatible with:
 
 * J2ME MIDP (Mobile Information Device Profile) -> MIDP 1.0 and MIDP 2.0 (CLDC 1.0, CLDC 2.0)
 * Java ME CLDC & GCF (JSR 360)
@@ -221,7 +221,7 @@ deallocated when data is not used.
 
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
-the DpdlPacket. The next section 'How to run the examples' will describe how to 
+the DpdlPacket. The next section 'DpdlPacket example' will describe how to 
 allocate, execute and perform queries on a DpdlPacket.
 
 The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis.
@@ -257,7 +257,7 @@ Usage:
 ```
 
 
-## What does the DpdlEngine lite version provide?
+## What does the free DpdlEngine lite version provide?
 
 
 The DpdlEngine lite release is freely available with some limitations,
