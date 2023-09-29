@@ -1,8 +1,9 @@
 # Dpdl - Dynamic Packet Definition Language
 
+
 This is the Dpdl scripting API documentation. 
 
-The DpdlEngine Java API documentation will follow soon.
+The DpdlEngine Java API documentation is published separately.
 
 
 ## Dpdl scripting API Documentation
@@ -55,6 +56,8 @@ gc()
 getClass(string name) return object
 loadObj(string name, object params, ....) return object
 Thread(string func) return int status
+dpdl_stack_push(object params, ...)
+dpdl_exit_code() return int exit_code
 
 
 [DpdlEngine]
