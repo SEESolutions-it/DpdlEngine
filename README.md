@@ -11,25 +11,22 @@ SEE Solutions
 
 ## What is Dpdl?
 
-### Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
-Dpdl is a constrained device framework and library that can be used to encode,
+Dpdl is a constrained device framework and programming language that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices. Dpdl provides an efficient way to encode, allocate and query data from
-a 'DpdlPacket', a highly compressed executable data container with built-in
-database technology, that is encoded with a defined Dpdl code definition file.
-
-Dpdl includes also a compact scripting engine and an extensible API interface
-to facilitate the development of custom API extensions by using the Dpdl API. 
+devices and for rapid application development. Dpdl comes with a very compact scripting engine
+and an extensible API interface to facilitate the development of custom API extensions. 
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
-are supported by default and third party libraries integrated as extensions.
+are supported by default and third party libraries can be added as extensions.
 
 The language constructs and syntax is kept simple and follows an OOP paradigm.
 Dpdl enables to access the full java platform API directly within Dpdl scripts.
 
-Further, also standard ANSI C code (subset of C90) can be added and executed directly
-within Dpdl scripts (interpreted code).
+Further, also standard ANSI C code (subset of C90) can be embedded and executed directly
+within Dpdl scripts (interpreted code). This makes it ideal also for hardware programming.
+
+Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
 
 **DpdlEngine stack**
@@ -65,7 +62,7 @@ Sample Dpdl script (Bluetooth device discovery):
      fi
 ```
 
-### Bridge to the complete JRE Java platform API and other external java library
+### Access to the complete JRE Java platform API or other external java library
 
 The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java platform implementation (JRE) or 
 any other external libraries via the **loadObj(..)** and **getClass(..)** methods.
@@ -84,22 +81,23 @@ s=map.get(1)
 println(s)
 s=map.get(4)
 println(s)
-
 ```
+
 The class names are resolved according to the definitions defined in ./DpdlLibs/libs/classes.txt
 
-### Embedded C/C++ code
 
-Dpdl allows also to embed and execute C or C++ code (interpreted) directly into Dpdl scripts. The C/C++ code is interpreted via a native Dpdl library that has
+### Embedded C code
+
+Dpdl allows also to embed and execute ANSI C code directly into Dpdl scripts. The C code is interpreted via a native Dpdl library that has
 a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
 
-Dpdl + C + C++ = a very powerful Tool
+Dpdl + Java API + C = Powerful and Versatile
 
 Two types of C code can be executed:
 * Default configuration: ANSI C code (subset of C90) (included in DpdlEngine lite release)
-* Custom configuration: Ch C/C++ (https://www.softintegration.com)
+* Optional configuration: Ch C/C++ (https://www.softintegration.com)
 
 Example embedded C code:
 ```c
@@ -144,6 +142,11 @@ A list of 14 examples can be found in this script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
+### DpdlPacket
+
+Dpdl provides an efficient way to encode, allocate and query data from a 'DpdlPacket', a highly compressed executable data container
+with built-in database technology, that is encoded with a defined Dpdl code definition file.
+
 
 ### Documentation
 
@@ -171,7 +174,7 @@ Features:
 * Built-in **Dpdl scripting engine** with support for **custom function extensions** (DpdlExtension interface)
 * Dpdl scripting API provides **access to the complete underlying Java JRE platform** API and to
   **external libraries** via the loadObj(..) and getClass(..) methods
-* **C/C++ code can be embedded and executed** directly in Dpdl scripts (interpreted code)
+* **ANSI C code can be embedded and executed** directly within Dpdl scripts (interpreted code)(subset of C90)
 * Support for common IoT protocol stacks such as **Bluetooth(tm)** (JSR-82) and 
   **CoAP** (Constrained Application Protocol) (IETF standard RFC 7252)
 * **Virtual filesystem** for record stores
