@@ -93,7 +93,7 @@ a very small footprint but includes all essential C libraries and language const
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
 
-Dpdl + Java API + C = Powerful and Versatile
+### Dpdl + Java API + C = Powerful and Versatile
 
 Two types of C code can be executed:
 * Default configuration: ANSI C code (subset of C90) (included in DpdlEngine lite release)
@@ -330,8 +330,12 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 * Compresses and de-compresses a string of data with zip
 
 	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
+
+* Embedded C code execution within Dpdl script
 	
-* Embedded C code execution within Dpdl scripts
+	[dpdlSimpleC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlSimpleC.h)
+		
+* Extended Embedded C code execution within Dpdl scripts
 	
 	[dpdlEmbeddedC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbeddedC.h)
 	
@@ -707,7 +711,7 @@ on Windows
 		
 		
 
-## Where to Download the DpdlEngine lite release package?
+## Where to Download the 'DpdlEngine lite' release package?
 
 The DpdlEngine line release (V1.0) can be downloaded and used for free (with some limitations and conformant to the License agreement)
 from the following download link:
@@ -718,7 +722,7 @@ The distributed package is also available and updated regularly on the official 
 [DpdlEngine Git](https://github.com/SEESolutions-it/DpdlEngine)
 
 
-## DpdlEngine lite release limitations/restrictions
+## 'DpdlEngine lite' release limitations/restrictions
 
 	
 The DpdlEngine lite release software package has the following limitations/restrictions:
