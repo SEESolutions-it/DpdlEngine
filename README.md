@@ -91,7 +91,7 @@ Dpdl allows also to embed and execute ANSI C code directly within Dpdl scripts. 
 a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
-Two types of C code can be executed within Dpdl scripts:
+#### Two types of C code can be executed within Dpdl scripts:
 * **Default configuration:** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
 * **Optional configuration:** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
 
