@@ -183,7 +183,7 @@ The speedup is x 25 times faster compared to a standard record store access
 
 Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
 released as open-source, that can  be compiled for almost every platform as soon as
-an ANSI C compiler is available.
+an ANSI C compiler is available for the target platform.
 
 ### Dpdl is compatible with:
 
@@ -686,7 +686,7 @@ on Windows
 		1) To perform a single query (press 'q')
 		
 		2) To execute sequential or random queries, for each of the data entries (press ENTER)
-		   and than enter **'armin'** as constraint base name, which is part of the key of each data entry:
+		   and than enter '**armin**' as constraint base name, which is part of the key of each data entry:
 		   i.e. "armin 1, armin 2, ..."
 		   
 		   For random vs. sequential queries comment or uncomment the following line of code in the script
@@ -696,12 +696,12 @@ on Windows
 
 ## Download 'DpdlEngine lite' release package
 
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for free (with some limitations and conform to the License agreement)
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations and conform to the License agreement)
 from the following download link:
 
 [DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
 
-The distributed package is also available and updated regularly on the official GitHub repository:
+The distributed package is also available and updated regularly on the official DpdlEngine GitHub repository:
 [DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
 
 
@@ -738,6 +738,6 @@ please write to the following e-mail address:
 
 info@seesolutions.it
 
-We will discuss and propose an appropriate license plan tailored on your needs
+We will propose an appropriate license plan tailored for your needs.
 
 

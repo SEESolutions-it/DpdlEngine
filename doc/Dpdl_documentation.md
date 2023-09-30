@@ -228,16 +228,7 @@ import dpdl.dpdlDpdlEngine.scripting.BasicDpdlExtension;
 public class MyTestDpdlExtension extends BasicDpdlExtension{
 
     public Object dpdlCall(String name,ArrayList param) throws DpdlException {
-        if (name.equals("myprintln")) {
-            String str = "";
-            for(int p=0;p<param.size();p++) {
-                str = str + param.get(p);
-            }
-            System.out.println("myprintln: " + str);
-            return null;
-        }else{ 
-        	throw new DpdlUnsupportedException(name);
-        } 
+			// implement you methods here
     }
 }
 ```
