@@ -8,12 +8,12 @@
 ## Dpdl scripting language
 
 **Features:**
-* Basic types supported (int, byte, double, long, string, bool, array[], object)
-* Native threads
-* Full featured API: native API, Dpdl API, MIDP API
+* Basic types supported (**int, byte, double, long, string, bool, array[], object**)
+* Native Threads
+* API: native API, Dpdl API, MIDP API, JRE
+* Access to the full underlying Java Platform API (JRE) or other external java libraries
 * Record Store creation and access
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
-* Functions that allow to access the full underlying JRE API or other external libraries
 * Support for custom function extensions
 
 
