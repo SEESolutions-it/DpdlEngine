@@ -696,10 +696,9 @@ on Windows
 
 ## Download 'DpdlEngine lite' release package
 
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations and conform to the License agreement)
-from the following download link:
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free from the following download link:
 
-[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/downloads/DpdlEngine_V1.0_release.zip)
+[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/lang_en/index_download.html)
 
 The distributed package is also available and updated regularly on the official DpdlEngine GitHub repository:
 [DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
