@@ -730,6 +730,8 @@ The validation script can be inspected here:
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
 
+**NOTE:** The native Dpdl library for embedded C within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
+More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform. Contact us if this is the case.
 
 ## How to buy a full DpdlEngine license?
 
