@@ -314,6 +314,10 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 
 	[dataCompress.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dataCompress.h)
 
+* Parse JSON and access data types
+
+	[testDpdlJSON.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/testDpdlJSON.h)
+	
 * Embedded C code execution within Dpdl script
 	
 	[dpdlSimpleC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlSimpleC.h)
