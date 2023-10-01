@@ -228,7 +228,7 @@ allocate, execute and perform queries on a DpdlPacket.
 
 The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis.
 
-[Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?vid=UNIBZ&docid=39UBZ_ALMA_DS21103210480001241&context=L&search_scope=All)
+[Advanced database techniques in Dpdl : dynamic packet definition language ; a portable data protocol for small embedded systems](https://ubz-primo.hosted.exlibrisgroup.com/permalink/f/pok0fm/39UBZ_ALMA_DS21103210480001241)
 
 
 ## What is the DpdlClient console application?
