@@ -154,12 +154,14 @@ The framework and API documentation are available via the following links:
 
 ## Download 'DpdlEngine lite' release package
 
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free from the following download link form:
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations) from the following download link form:
 
 [DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
 
 Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
 [DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
+
+Check the 'DpdlEngine lite' release limitations/restrictions (compared to the full DpdlEngine version), in the last section of this document.
 
 
 ## Why Dpdl?
