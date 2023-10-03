@@ -8,13 +8,14 @@
 ## Dpdl scripting language
 
 **Features:**
-* Basic types supported (**int, byte, double, long, string, bool, array[], object**)
+* Types supported (**int, byte, double, long, string, bool, array[], object**)
 * Native Threads
 * API: native API, Dpdl API, MIDP API, JRE
 * Access to the full underlying Java Platform API (JRE) or other external java libraries
-* Record Store creation and access
+* Record Store creation and access with virtual file system support
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
 * Support for custom function extensions
+* Embeddable ANSI C code directly within Dpdl scripts (interpreted code).
 
 
 ### Variable Type definition
@@ -37,6 +38,7 @@ Example:
 ```python
 myarray[] = "1 1.0 0x01 test Dpdl Dynamic Packet Definition Language"
 
+# this returns an arraylist
 myarray2[0]  = myarray.getObj()
 
 object myarrayobj = myarray2[0]
@@ -86,11 +88,13 @@ endwhile
 
 ### DpdlObject
 
-Dpdl can access the underlying classes of a give JRE implementation or any other external libraries.
+Dpdl can access the underlying classes of a give JRE implementation or any other external java library.
 
 Static classes can be accessed via **getClass(..)** method and instance classes via **loadObj(..)** method.
 
-The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/.
+The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/. You may add your own
+class refereces here with the syntax: $full_class_name $class
+
 NOTE: Only the full registered version of Dpdl allows editing of this file. The default DpdlEngine lite configuration contains
 the class references of JRE 1.5
 
