@@ -152,6 +152,16 @@ The framework and API documentation are available via the following links:
 [Dpdl Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
 
 
+## Download 'DpdlEngine lite' release package
+
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free from the following download link form:
+
+[DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
+
+Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
+[DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
+
+
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
@@ -697,16 +707,6 @@ on Windows
 		   -> i #abs(search_rand_int) 
 		
 		
-
-## Download 'DpdlEngine lite' release package
-
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free from the following download link:
-
-[DpdlEngine lite DOWNLOAD](http://www.seesolutions.it/lang_en/index_download.html)
-
-The distributed package is also available and updated regularly on the official DpdlEngine GitHub repository:
-[DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
-
 
 ## 'DpdlEngine lite' release limitations/restrictions
 

@@ -8,7 +8,7 @@
 ## Dpdl scripting language
 
 **Features:**
-* Types supported (**int, byte, double, long, string, bool, array[], object**)
+* Types supported (**int, byte, double, float, long, string, bool, array[], object**)
 * Native Threads
 * API: native API, Dpdl API, MIDP API, JRE
 * Access to the full underlying Java Platform API (JRE) or other external java libraries
@@ -23,9 +23,10 @@
 Dpdl support the following type definitions:
 ```python
 int i = 1
-byte b = 0x01 
-double d = 1.0
+float f = 0.1
+double d = 1.0d
 long l = 1000L
+byte b = 0x01 
 string s = "mystr"
 bool t = true | false
 array[] = "1 1.0 0x01 test"
