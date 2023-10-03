@@ -96,8 +96,8 @@ a very small footprint but includes all essential C libraries and language const
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
 #### Two types of C code can be executed within Dpdl scripts:
-* **Default configuration (included):** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: >>c
-* **Optional configuration (third party):** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: >>ch
+* **Default configuration (included):** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: **>>c**
+* **Optional configuration (third party):** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: **>>ch**
 
 Example Dpdl script with embedded C code:
 ```c

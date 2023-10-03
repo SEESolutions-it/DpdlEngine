@@ -4,3 +4,11 @@ Dpdl - Dynamic Packet Definition Language
 
 
 DpdlEngine V1.0 requires a compatible Java Runtime Environment (JRE) >= version 1.5
+
+The native dpdl api library 'libdpdlnativeapi' is available for MacOS 13.4 , Linux x86_64, and Raspberry PI
+Additional platforms can be compiled by us on request.
+
+NOTE: to run on Raspberry PI rename 'libdpdlnativeapi_rasp.so' to 'libdpdlnativeapi.so', located in the folder ./lib/native,
+and delete original libdpdlnativeapi.so.
+
+

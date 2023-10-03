@@ -84,7 +84,32 @@ endwhile
 ```
 
 
-### Dpdl native functions
+### Dpdl API functions
+
+[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+
+### Dpdl embedded C
+
+Dpdl allows to embed a subset of ANSI C code (C90) directly within Dpdl scripts.
+
+To embed C code use the keyword **>>c** to start the embedded code, and the keyword **<<** to end the embedded code
+
+Example:
+```c
+println("executing embedded C code..")
+>>c
+	#include <stdio.h>
+	
+	int main(int argc, char **argv){
+		printf("Hello C from Dpdl!\n");
+		printf("\n");
+	    return 0;
+	}
+<<
+int exit_code = dpdl_exit_code()
+
+println("ebedded C exit code: " + exit_code);
+```
 
 
 ### DpdlObject
