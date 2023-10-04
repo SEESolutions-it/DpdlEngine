@@ -90,12 +90,17 @@ endwhile
 
 ### Dpdl embedded C
 
-Dpdl allows to embed a subset of ANSI C code (C90) directly within Dpdl scripts.
+Dpdl allows to embed ANSI C code (a minimal subset of C90) directly within Dpdl scripts. The C code is interpreted at runtime.
+Data and parameters can be passed to the interpreted C code, and from C code to the calling Dpdl runtime, via dedicated API functions.
 
-To embed C code use the keyword **>>c** to start the embedded code, and the keyword **<<** to end the embedded code
+The C interpreter included by default is very compact (only ca. 400 Kb on raspberry)and and includes only a minimal subset of the C library. Custom libraries can added if needed.
+
+Alternatively, more advanced C/C++ interpreters can be added to the Dpdl runtime lib, for example the Ch C/C++ interpreter from softintegration or the C interpreter from compcert. More languages will be supported in future.
+
+To embed C code within Dpdl scripts use the keyword **>>c** to start the embedded code, and the keyword **<<** to end the embedded code.
 
 Example:
-```c
+```python
 println("executing embedded C code..")
 >>c
 	#include <stdio.h>
@@ -111,18 +116,52 @@ int exit_code = dpdl_exit_code()
 println("ebedded C exit code: " + exit_code);
 ```
 
+Parameters and data can be passed to the interpreter via **dpdl_stack_push** API function.
 
-### DpdlObject
+Examples:
+```python
+println("testing embedded C code in Dpdl")
+
+int n = 6
+double x = 10.0d
+string a = "test"
+
+dpdl_stack_push(n, x, a)
+
+>>c
+	#include <stdio.h>
+	#include <dpdl.h>
+	
+	int main(int argc, char **argv){
+		printf("Hello C from Dpdl!\n");
+		printf("\n");
+		printf("num params: %d\n", argc);
+		int cnt;
+	    for (cnt = 0; cnt < argc; cnt++){
+	        printf("	param %d: %s\n", cnt, argv[cnt]);
+	    }
+	    return 0;
+	}
+<<
+int exit_code = dpdl_exit_code()
+
+println("ebedded C exit code: " + exit_code);
+```
+
+
+### DpdlObject and JRE bindings
 
 Dpdl can access the underlying classes of a give JRE implementation or any other external java library.
 
+The classes are loaded within a DpdlObject that is handled in the Dpdl runtime.
+
 Static classes can be accessed via **getClass(..)** method and instance classes via **loadObj(..)** method.
 
-The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/. You may add your own
-class refereces here with the syntax: $full_class_name $class
+The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/.
+You may add your own class references here with the syntax: '$full_class_name $class_alias'
 
-NOTE: Only the full registered version of Dpdl allows editing of this file. The default DpdlEngine lite configuration contains
-the class references of JRE 1.5
+NOTE: Only the full registered version of Dpdl allows editing of this file. The default 'DpdlEngine lite' configuration contains
+the class references of Java JRE 1.5
 
 Example:
 ```python
@@ -168,7 +207,7 @@ The following commands are available:
 ```
  -l  List DpdlPackets installed
  -i  Install DpdlPacket
- -d  Deinstall DpdlPacket
+ -d  Uninstall DpdlPacket
  -la List DpdlPackets allocated
  -a  Allocate DpdlPacket
  -da Deallocate DpdlPacket

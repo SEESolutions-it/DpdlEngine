@@ -254,7 +254,7 @@ These are the console commands available:
 Usage: 
  -l  List DpdlPackets installed
  -i  Install DpdlPacket
- -d  Deinstall DpdlPacket
+ -d  Uninstall DpdlPacket
  -la List DpdlPackets allocated
  -a  Allocate DpdlPacket
  -da Deallocate DpdlPacket
