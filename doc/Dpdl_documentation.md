@@ -10,7 +10,7 @@
 **Features:**
 * Types supported (**int, byte, double, float, long, string, bool, array[], object**)
 * Native Threads
-* API: native API, Dpdl API, MIDP API, JRE
+* API: native API, Dpdl API, MIDP API, JRE API
 * Access to the full underlying Java Platform API (JRE) or other external java libraries
 * Record Store creation and access with virtual file system support
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
@@ -88,16 +88,17 @@ endwhile
 
 [Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
-### Dpdl embedded C
+### Dpdl embedded C code
 
-Dpdl allows to embed ANSI C code (a minimal subset of C90) directly within Dpdl scripts. The C code is interpreted at runtime.
+Dpdl allows the embedding and execution of ANSI C code (a minimal subset of C90) directly within Dpdl scripts. The C code is interpreted at runtime.
+
 Data and parameters can be passed to the interpreted C code, and from C code to the calling Dpdl runtime, via dedicated API functions.
 
-The C interpreter included by default is very compact (only ca. 400 Kb on raspberry)and and includes only a minimal subset of the C library. Custom libraries can added if needed.
+The C interpreter included  by default (in 'DpdlEngine' and DpdlEngine lite') is very compact (only ca. 400 Kb on Raspberry Pi) with no dependencies and includes only a minimal subset of the C library. Custom libraries can added if needed.
 
-Alternatively, more advanced C/C++ interpreters can be added to the Dpdl runtime lib, for example the Ch C/C++ interpreter from softintegration or the C interpreter from compcert. More languages will be supported in future.
+Alternatively, more advanced C/C++ interpreters can be invoked from the Dpdl runtime, for example the Ch C/C++ interpreter from SoftIntegration or the C interpreter from CompCert. More languages will be supported in future.
 
-To embed C code within Dpdl scripts use the keyword **>>c** to start the embedded code, and the keyword **<<** to end the embedded code.
+To embed C code within Dpdl scripts use the keyword '**>>c**' to start the embedded code, and the keyword '**<<**' to end the embedded code.
 
 Example:
 ```python
@@ -116,9 +117,13 @@ int exit_code = dpdl_exit_code()
 println("ebedded C exit code: " + exit_code);
 ```
 
-Parameters and data can be passed to the interpreter via **dpdl_stack_push** API function.
+Parameters and data can be passed to the interpreter via th '**dpdl_stack_push**' API function.
+Data can be written to and read from to the dpdl stack using the '**dpdl_stack_buf_put**' and '**dpdl_stack_buf_get**' API functions.
 
-Examples:
+By pushing a variable 'dpdlbuf_*" onto the dpdl stack, allows to later retrieve the data buffer that has been written
+in the C code via the '**dpdl_stack_buf_put**' function (for example the result of a calculation)
+
+Example:
 ```python
 println("testing embedded C code in Dpdl")
 
@@ -126,7 +131,7 @@ int n = 6
 double x = 10.0d
 string a = "test"
 
-dpdl_stack_push(n, x, a)
+dpdl_stack_push("dpdlbuf_var1",n, x, a)
 
 >>c
 	#include <stdio.h>
@@ -140,12 +145,16 @@ dpdl_stack_push(n, x, a)
 	    for (cnt = 0; cnt < argc; cnt++){
 	        printf("	param %d: %s\n", cnt, argv[cnt]);
 	    }
+	    	char *buf = "My result";
+		dpdl_stack_buf_put(buf);
 	    return 0;
 	}
 <<
 int exit_code = dpdl_exit_code()
 
 println("ebedded C exit code: " + exit_code);
+string buf = dpdl_stack_buf_get("dpdlbuf_var1")
+println("response buffer: " + buf)
 ```
 
 
@@ -155,13 +164,13 @@ Dpdl can access the underlying classes of a give JRE implementation or any other
 
 The classes are loaded within a DpdlObject that is handled in the Dpdl runtime.
 
-Static classes can be accessed via **getClass(..)** method and instance classes via **loadObj(..)** method.
+Static classes can be accessed via '**getClass(..)**' method and instance classes via '**loadObj(..)**' method.
 
 The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/.
 You may add your own class references here with the syntax: '$full_class_name $class_alias'
 
 NOTE: Only the full registered version of Dpdl allows editing of this file. The default 'DpdlEngine lite' configuration contains
-the class references of Java JRE 1.5
+the class references of Java Platform JRE 1.5
 
 Example:
 ```python

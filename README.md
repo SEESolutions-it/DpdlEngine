@@ -14,8 +14,9 @@ developed by
 
 Dpdl is a **constrained device framework and programming language** that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices and for rapid application development. Dpdl comes with a very compact **Scripting Engine**
-and an **extensible API interface** to facilitate the development of custom API extensions. 
+devices and enables rapid application development. Dpdl comes with a very compact **Scripting Engine**
+and an **extensible API interface** to facilitate the development of mobile applications and embedded software
+of custom API extensions. 
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
@@ -91,13 +92,20 @@ println(s)
 
 ### Embedded C code
 
-Dpdl allows also to embed and execute ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
-a very small footprint but includes all essential C libraries and language constructs (subset of ISO standard C90).
+Dpdl allows also the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90).
 Custom libraries can be integrated and linked via a straight forward implementation configuration.
 
-#### Two types of C code can be executed within Dpdl scripts:
-* **Default configuration (included):** ANSI C code (subset of C90) (included in DpdlEngine lite release) --> keyword: **>>c**
-* **Optional configuration (third party):** Make use of Ch C/C++ interpreter from www.softintegration.com --> keyword: **>>ch**
+#### Two types of C code interpreters can be configured for the Dpdl runtime:
+
+#### Default configuration (included)
+
+* Use the compact miminal ANSI C code interpreter (subset of C90) included in 'DpdlEngine' and 'DpdlEngine lite' release --> keyword: '**>>c**'
+
+### Optional configuration (Third party software)
+
+* Use '**Ch**' C/C++ interpreter from SoftIntegration --> keyword: '**>>ch**'
+* Use '**CompCert**' C/C++ compiler/interpreter from CompCert --> keyword: '**>>compcert**'
 
 Example Dpdl script with embedded C code:
 ```c
