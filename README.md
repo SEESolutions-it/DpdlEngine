@@ -98,11 +98,11 @@ Custom libraries can be integrated and linked via a straight forward implementat
 
 #### Two types of C code interpreters can be configured for the Dpdl runtime:
 
-#### Default configuration (included)
+##### Default configuration (included)
 
 * Use the compact miminal ANSI C code interpreter (subset of C90) included in 'DpdlEngine' and 'DpdlEngine lite' release --> keyword: '**>>c**'
 
-### Optional configuration (Third party software)
+##### Optional configuration (Third party software)
 
 * Use '**Ch**' C/C++ interpreter from SoftIntegration --> keyword: '**>>ch**'
 * Use '**CompCert**' C/C++ compiler/interpreter from CompCert --> keyword: '**>>compcert**'
