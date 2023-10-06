@@ -1,6 +1,6 @@
 # File: dpdlEmbeddedC.h
 #
-# Example: This script executes embedded ANSI C code
+# Example: This Dpdl script pushes parameters on the dpdl stack and executes embedded ANSI C code
 #
 # (c)opyright 2009
 # SEE Solutions
@@ -154,7 +154,7 @@ println("testing embedded interpreted C code from Dpdl")
 
 string a = "a1 a2 a3 a4 a5 a6"
 int n = 6
-double x = 10.0
+double x = 10.0d
 
 testEmbeddedC(n, x, a)
 

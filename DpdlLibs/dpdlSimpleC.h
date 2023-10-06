@@ -1,6 +1,6 @@
 # File: dpdlSimpleC.h
 #
-# Example: This script executes embedded ANSI C code 
+# Example: This Dpdl script pushes parameters on the dpdl stack and executes embedded ANSI C code
 #
 # (c)opyright 2009
 # SEE Solutions
@@ -15,13 +15,14 @@
 println("testing embedded C code in Dpdl")
 
 int n = 6
-double x = 10.0
+double x = 10.0d
 string a = "test"
 
 dpdl_stack_push(n, x, a)
 
 >>c
 	#include <stdio.h>
+	#include <dpdl.h>
 	
 	int main(int argc, char **argv){
 		printf("Hello C from Dpdl!\n");
@@ -43,3 +44,4 @@ println("ebedded C exit code: " + exit_code);
 object str = loadObj("String", "Dpdl embedded C")
 bool b = str.contains("C")
 println("Dpdl contains C: " + b)
+

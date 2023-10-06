@@ -1,6 +1,7 @@
 # File: dpdlLibExamples.h
 #
-# Example: Various examples using Dpdl scripting
+# Example: Various examples using Dpdl scripting. The single examples can be run individually via tagged execution by providing
+#			the appropriate @TAG (i.e @TEST1, etc...)
 #
 # Author: A.Costa
 # e-mail: info@seesolutions.it
@@ -23,7 +24,7 @@ int fh = open(fname_r, "r")
 while(str_in != dpdlNull)
 	str_in = read(fh)
 	if(str_in != dpdlNull)
-	    content = str_in
+	    content = content + str_in
 	fi
 endwhile
 close(fh)
@@ -387,7 +388,7 @@ println("-------------------------------")
 println("testing sin(..) and cos(..) method invocation on java.lang.Math")
 println("")
 object math = getClass("Math")
-double d1 = 2.8
+double d1 = 2.8d
 double d1_sin = math.sin(d1)
 double d1_cos = math.cos(d1)
 println("d1: " + d1)

@@ -14,9 +14,9 @@ developed by
 
 Dpdl is a **constrained device framework and programming language** that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices and enables rapid application development. Dpdl comes with a very compact **Scripting Engine**
-and an **extensible API interface** to facilitate the development of mobile applications and embedded software
-of custom API extensions. 
+devices to enable rapid application development. Dpdl comes with a very compact **Scripting Engine**
+and an **extensible API interface** to facilitate the development of mobile applications and embedded system
+software.
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
@@ -25,14 +25,14 @@ The Dpdl language constructs and syntax is kept simple and follows an object ori
 enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
 Also standard **ANSI C code** (subset of C90) can be **embedded and executed directly
-within Dpdl scripts** (interpreted code). This makes it ideal even for hardware programming.
+within Dpdl scripts** (interpreted code). This makes it suitable even for hardware programming.
 
 By combining the portability and API availability of java, and the power of C programming language,
 Dpdl is a powerful environment for development, education and research.
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
-### Dpdl ( Java API + Embedded C ) = Powerful and Versatile programming language
+### Dpdl ( Java API + Embedded C ) = Powerful and Versatile
 
 **DpdlEngine stack**
 
@@ -69,8 +69,8 @@ Sample Dpdl script (Bluetooth device discovery):
 
 ### Access to the complete JRE Java platform API and external java libraries
 
-  
-The Dpdl scripting lagnuage API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
+
+The Dpdl scripting language API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
 via the **loadObj(..)** and **getClass(..)** methods.
 
 **Example:** using a java HashMap
@@ -100,12 +100,15 @@ Custom libraries can be integrated and linked via a straight forward implementat
 
 ##### Default configuration (included)
 
-* Use the compact miminal ANSI C code interpreter (subset of C90) included in 'DpdlEngine' and 'DpdlEngine lite' release --> keyword: '**>>c**'
+* Compact minimal ANSI C code interpreter (subset of C90) included in 'DpdlEngine' and 'DpdlEngine lite' release
+ --> keyword: '**>>c**'
 
 ##### Optional configuration (Third party software)
 
-* Use '**Ch**' C/C++ interpreter from SoftIntegration --> keyword: '**>>ch**'
-* Use '**CompCert**' C/C++ compiler/interpreter from CompCert --> keyword: '**>>compcert**'
+* Use '**Ch**' C/C++ interpreter from SoftIntegration 
+ --> keyword: '**>>ch**'
+* Use '**CompCert**' C/C++ compiler/interpreter from CompCert
+ --> keyword: '**>>compcert**'
 
 Example Dpdl script with embedded C code:
 ```c
@@ -253,9 +256,9 @@ The database technology in Dpdl has been developed since year 2003 and started w
 
 ## What is the DpdlClient console application?
 
-The DpdlClient console application included in the 'DpdlEngine lite' release is a small application
+The DpdlClient console application included in the 'DpdlEngine lite' release is a small console application
 that exposes some functionalities of Dpdl via a simple command line console. Dpdl scripting code can be
-executed and DpdlPacket handled. The same functionalities can be accessed via the java or Dpdl scripting API.
+executed and DpdlPackets handled. The same functionalities can be accessed via the java or Dpdl scripting API.
 
 These are the console commands available:
 ```
@@ -469,9 +472,9 @@ on Windows
 ```
 
 
-You can execute the Dpdl scripts, either loading them from a source file with the -load command,
-
-or input the script directly in the command console with the -exec command, and closing with
+You can execute Dpdl scripts, either loading them from a source file with the -load command,
+input the script directly in the DpdlClient command console with the -exec command, passing the
+'-load' parameter to the startup script or by using the Dpdl API.
 
 the </script> tag
 
@@ -490,8 +493,16 @@ string str = "this is a test"
 println(str)
 </script>
 ```
-Note: the closing **</script>** tag
 
+3) using the -load command as startup parameter:
+```
+run_DpdlClientScript.sh 
+```
+
+4) using the Dpdl API
+```
+int status = DPDLAPI_execCode("sample.h", "null)
+``
 
 Here you can find all methods available for the Dpdl scripting API: 
 
