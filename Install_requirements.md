@@ -14,10 +14,12 @@ SEE Solutions
 There are many java virtual machines available, the official Java JRE from Oracle can be downloaded from java.com website:
 https://www.java.com/en/download/manual.jsp
 
+Some Dpdl API functions (ex. embedded C code) make use of the native Dpdl library.
 The native Dpdl API library 'libdpdlnativeapi' is platform dependant and is available for the following platforms:
+
 	* MacOS 13.4 (ARM)
 	* Linux x86_64 (x84 64bit)
-	* Raspberry PI (ARM
+	* Raspberry PI (ARM)
 	
 the native libraries are located in the corresponding platform/arch folder under './lib/native/'
 
