@@ -18,18 +18,18 @@ devices to enable rapid application development. Dpdl comes with a very compact 
 **Scripting Engine** and an **extensible API interface** to facilitate the development of mobile
 applications and embedded system software.
 
+The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
+enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
+
+Also standard **ANSI C code** (subset of C90) can be **embedded and executed directly
+within Dpdl scripts** (interpreted code). This makes it suitable even for hardware programming.
+
 **DpdlEngine stack**
 
 ![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
-
-The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
-enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
-
-Also standard **ANSI C code** (subset of C90) can be **embedded and executed directly
-within Dpdl scripts** (interpreted code). This makes it suitable even for hardware programming.
 
 By combining the portability and API availability of java, and the power of C programming language,
 Dpdl is a powerful development environment for industry, education and research.
