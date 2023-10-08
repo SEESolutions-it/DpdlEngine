@@ -14,9 +14,13 @@ developed by
 
 Dpdl is a **constrained device framework and programming language** that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices to enable rapid application development. Dpdl comes with a very compact **Scripting Engine**
-and an **extensible API interface** to facilitate the development of mobile applications and embedded system
-software.
+devices to enable rapid application development. Dpdl comes with a very compact and portable
+**Scripting Engine** and an **extensible API interface** to facilitate the development of mobile
+applications and embedded system software.
+
+**DpdlEngine stack**
+
+![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are supported by default and third party libraries can be added as extensions.
@@ -28,15 +32,11 @@ Also standard **ANSI C code** (subset of C90) can be **embedded and executed dir
 within Dpdl scripts** (interpreted code). This makes it suitable even for hardware programming.
 
 By combining the portability and API availability of java, and the power of C programming language,
-Dpdl is a powerful environment for development, education and research.
+Dpdl is a powerful development environment for industry, education and research.
 
 Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
 
 ### Dpdl ( Java API + Embedded C ) = Powerful and Versatile
-
-**DpdlEngine stack**
-
-![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
 Sample Dpdl script (Bluetooth device discovery):
 ```python

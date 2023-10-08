@@ -49,6 +49,14 @@ bool b = myarrayobj.contains("Dpdl")
 println("array contains Dpdl: " + b) 
 ```
 
+The array elements can be separated with blank space ' ', with comma ',' or with simicolon ';'. All are valid.
+
+```
+arr1[] = "1 2 3 4 5"
+arr2[] = "1,2,3,4,5"
+arr3[] = "1;2;3;4;5"
+```
+
 ### Function and Control flow
 
 **function** definition
@@ -117,10 +125,10 @@ int exit_code = dpdl_exit_code()
 println("ebedded C exit code: " + exit_code);
 ```
 
-Parameters and data can be passed to the interpreter via th '**dpdl_stack_push**' API function.
-Data can be written to and read from to the dpdl stack using the '**dpdl_stack_buf_put**' and '**dpdl_stack_buf_get**' API functions.
+Parameters and data can be passed to the interpreter via th '**dpdl_stack_push(..)**' API function.
+Data can be written to and read from to the dpdl stack using the '**dpdl_stack_buf_put(..)**' and '**dpdl_stack_buf_get()**' API functions.
 
-By pushing a variable 'dpdlbuf_*" onto the dpdl stack, allows to later retrieve the data buffer that has been written
+Pushing a variable 'dpdlbuf_*" onto the dpdl stack, allows to later retrieve the data buffer that has been written
 in the C code via the '**dpdl_stack_buf_put**' function (for example the result of a calculation)
 
 Example:
@@ -156,6 +164,75 @@ println("ebedded C exit code: " + exit_code);
 string buf = dpdl_stack_buf_get("dpdlbuf_var1")
 println("response buffer: " + buf)
 ```
+
+The default memory stack size for the C interpreter is kept small and is configured to be 128 Kb.
+
+The stack size can be customized by setting the environment variable 'DPDL_STACK_SIZE_C'
+
+eg. setting (increasing) to 256 Kb (256*1024)
+```
+export DPDL_STACK_SIZE_C=262144
+```
+
+#### Performance benchmark
+
+As the embedded C code is interpreted at runtime, it's obviously a bit slower than compiled C code, but offers
+the advantage of easy and fast portability and hence speed up the development process.
+
+This simple benchmark gives the following results:
+
+C code used for benchmark:
+```c
+	#include <stdio.h>
+	#include <time.h>
+	
+	int main(int argc, char **argv){
+		printf("Dpdl C Bench\n");
+		printf("\n");
+	    time_t start;
+	    time_t end;
+	    time(&start);
+	    int c;
+		for(c = 0; c < 5000000; c++){
+			printf("iter %d \n", c);
+		}
+		time(&end);
+		printf("\n");
+		double exec_time = difftime(end, start);
+		printf("Exec time: %lf", exec_time);
+	    return 0;
+	}
+```
+
+Java code used for benchmark:
+```java
+public class testCBench {
+
+	public testCBench(){
+		System.out.println("testCBench()");
+	}
+
+	void run(){
+		long start = System.currentTimeMillis();
+		for(int c = 0; c < 5000000; c++){
+			System.out.println("iter " + c);
+		}
+		long end = System.currentTimeMillis();
+		System.out.println("Exec time: " + (end-start));
+	}
+
+	public static void main(String[] args){
+		new testCBench().run();		
+	}
+}
+```
+
+**Results:**
+
+* Dpdl script embedded C code, execution time: 8.0 seconds
+* Compiled C code (gcc compiler: Apple clang version 14.0.3), execution time: 5.0 seconds
+* Compiled Java code, execution time: 5.7 seconds
+
 
 
 ### DpdlObject and JRE bindings
