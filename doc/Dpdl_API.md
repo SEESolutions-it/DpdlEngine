@@ -12,6 +12,7 @@ DpdlEngine V1.0
 
 
 ```python
+[Native]
 include(string lib_path) return int
 currentTimeMillis() return long
 cast(object o) return object
@@ -57,10 +58,14 @@ getClass(string name) return object
 loadObj(string name, object params, ....) return object
 Thread(string func) return int status
 dpdl_stack_push(object params, ...)
+dpdl_stack_buf_put(string key, string value) return int status
+dpdl_stack_buf_get(string key) return string value
+dpdl_stack_var_put(string key, string value) return int status
+dpdl_stack_var_get(string key) return string value
 dpdl_exit_code() return int exit_code
+dpdl_print_exception_table()
 
-
-[DpdlEngine]
+[DPDLAPI]
 DPDLAPI_getVersion()  return string
 DPDLAPI_getEngineVersion() return string
 DPDLAPI_getResultSet(int pos, string variableName) return string
@@ -81,7 +86,7 @@ DPDLAPI_threadRunning(int instance) return int status
 DPDLAPI_execScript(string script) return int status
 DPDLAPI_execCode(string file) return int status
 
-[Bluetooth]
+[DPDLAPI Bluetooth]
 DPDLAPI_discoverBTDevices() return status
 DPDLAPI_discoverBTFinished() return int status
 DPDLAPI_createBTServer(int inquiryCode, int authentication, int authorization, int encryption)  return int status
@@ -107,7 +112,7 @@ DPDLAPI_sendObex(string device, int useAuth, string data) return int status
 DPDLAPI_sendObexFile(string device, int useAuth, string file_name) return int status
 DPDLAPI_sendObexImage(string img_name) return int status
 
-[Record Store]
+[DPDLRS]
 DPDLLIB_openRS(string name, int auth_mode, int writable, int create) return int rs_id
 DPDLLIB_closeRS(int rs_id) return int status
 DPDLLIB_deleteRS(string rs_name) return int status
@@ -131,7 +136,7 @@ DPDLLIB_writeFS(int fs_id, int f_id, string data) return int status
 DPDLLIB_readFS(int fs_id, int f_id) return string data
 DPDLLIB_printdirFS(int fs_id) return int status
 
-[Http]
+[DPDLNET]
 DPDLLIB_createServer(int server_id, int port) return int status
 DPDLLIB_createClient(int client_id, string host, int port) return int status
 DPDLLIB_sendClientData(string data) return int status
