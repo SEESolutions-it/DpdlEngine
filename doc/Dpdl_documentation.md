@@ -174,66 +174,6 @@ eg. setting (increasing) to 256 Kb (256*1024)
 export DPDL_STACK_SIZE_C=262144
 ```
 
-#### Performance benchmark
-
-As the embedded C code is interpreted at runtime, it's obviously a bit slower than compiled C code, but offers
-the advantage of easy and fast portability and hence speed up the development process.
-
-This simple benchmark gives the following results:
-
-C code used for benchmark:
-```c
-	#include <stdio.h>
-	#include <time.h>
-	
-	int main(int argc, char **argv){
-		printf("Dpdl C Bench\n");
-		printf("\n");
-	    time_t start;
-	    time_t end;
-	    time(&start);
-	    int c;
-		for(c = 0; c < 5000000; c++){
-			printf("iter %d \n", c);
-		}
-		time(&end);
-		printf("\n");
-		double exec_time = difftime(end, start);
-		printf("Exec time: %lf", exec_time);
-	    return 0;
-	}
-```
-
-Java code used for benchmark:
-```java
-public class testCBench {
-
-	public testCBench(){
-		System.out.println("testCBench()");
-	}
-
-	void run(){
-		long start = System.currentTimeMillis();
-		for(int c = 0; c < 5000000; c++){
-			System.out.println("iter " + c);
-		}
-		long end = System.currentTimeMillis();
-		System.out.println("Exec time: " + (end-start));
-	}
-
-	public static void main(String[] args){
-		new testCBench().run();		
-	}
-}
-```
-
-**Results:**
-
-* Dpdl script embedded C code, execution time: 8.0 seconds
-* Compiled C code (gcc compiler: Apple clang version 14.0.3), execution time: 5.0 seconds
-* Compiled Java code, execution time: 5.7 seconds
-
-
 
 ### DpdlObject and JRE bindings
 
@@ -427,3 +367,81 @@ xml
 dpdlpacket
 ```
 
+## Performance Benchmarks
+
+### Embedded C
+
+As the embedded C code is interpreted at runtime, it's obviously a bit slower than compiled C code, but 
+interpreted code offers the advantage of easy and fast portability, reduces the complexity of compilation
+for different target platforms and hence speeds up the development process.
+
+This simple benchmark gives the following results:
+
+* **Dpdl script embedded C code**, execution time: 8.0 seconds
+* **Compiled C code** (gcc compiler), execution time: 5.0 seconds
+* **Compiled Java code**, execution time: 5.7 seconds
+
+C code used for benchmark:
+```c
+	#include <stdio.h>
+	#include <time.h>
+	
+	int main(int argc, char **argv){
+		printf("Dpdl C Bench\n");
+		printf("\n");
+	    time_t start;
+	    time_t end;
+	    time(&start);
+	    int c;
+		for(c = 0; c < 5000000; c++){
+			printf("iter %d \n", c);
+		}
+		time(&end);
+		printf("\n");
+		double exec_time = difftime(end, start);
+		printf("Exec time: %lf", exec_time);
+	    return 0;
+	}
+```
+
+Java code used for benchmark:
+```java
+public class testCBench {
+
+	public testCBench(){
+		System.out.println("testCBench()");
+	}
+
+	void run(){
+		long start = System.currentTimeMillis();
+		for(int c = 0; c < 5000000; c++){
+			System.out.println("iter " + c);
+		}
+		long end = System.currentTimeMillis();
+		System.out.println("Exec time: " + (end-start));
+	}
+
+	public static void main(String[] args){
+		new testCBench().run();		
+	}
+}
+```
+
+### DpdlPacket data query and access
+
+The benchmark has been performed on a data set of 48877 entries (name, phone nr, e-mail), with the 'name' numbered
+sequentially i.e 'armin 1', 'armin 2', etc.
+
+48877 queries with a random number has key constraint have been performed:
+	* With data packed in a DpdlPacket
+	* Data stored in a simple RecordStore
+	
+
+#### DpdlPacket queries
+
+Average execution time for 48877 random queries: 2 milliseconds
+
+
+#### RecordStore queries
+
+Average execution time for 48877 random queries: 

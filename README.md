@@ -12,17 +12,17 @@ developed by
 ## What is Dpdl?
 
 
-Dpdl is a **constrained device framework and programming language** that can be used to encode,
+Dpdl is a **constrained device programming language** framework that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
 devices to enable rapid application development. Dpdl comes with a very compact and portable
-**Scripting Engine** and an **extensible API interface** to facilitate the development of mobile
+**Scripting Engine** and an **extensible API interface** for the development of mobile
 applications and embedded system software.
 
 The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
 enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
-Standard **ANSI C code** (subset of C90) can be **embedded and executed directly
-within Dpdl scripts** (interpreted code). This makes Dpdl suitable even for hardware programming.
+Standard **ANSI C code** (subset of C90) can also be **embedded and executed directly
+within Dpdl scripts** (interpreted code). This makes Dpdl suitable also for hardware programming.
 
 **DpdlEngine stack**
 
@@ -38,7 +38,7 @@ Dpdl is designed to be simple, compact, robust, extendible and portable to almos
 
 ### Dpdl ( Java API + Embedded C ) = Powerful and Versatile
 
-Sample Dpdl script (Bluetooth device discovery):
+Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
 ```python
      int status = DPDLAPI_searchClientsOnServer()
      int status_discovery = dpdlFalse
@@ -73,7 +73,7 @@ Sample Dpdl script (Bluetooth device discovery):
 The Dpdl scripting language API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
 via the **loadObj(..)** and **getClass(..)** methods.
 
-**Example:** using a java HashMap
+**Example:** using a java HashMap (which is resolved to java.util.HashMap)
 ```python
 object map, s
 
@@ -89,18 +89,33 @@ s=map.get(4)
 println(s)
 ```
 
+With these two Dpdl API methods all java libraries defined in class definition file can be accessed (./DpdlLibs/libs/classes.txt)
+The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82
+
+#### Dpdl API access documentation
+
+
+[Java 5 API](http://www.seesolutions.it/apidoc/Java_Platform_API_1_5.html)
+
+[Bluetooth JSR-82 API](http://www.seesolutions.it/apidoc/Bluetooth_JSR82_API.html)
+
+
+The default configuration can be extended or updated to resolve additional java APIs (editing of class definition file)
+
 
 ### Embedded C code
 
-Dpdl allows also the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
-a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90).
-Custom libraries can be integrated and linked via a straight forward implementation configuration.
+Dpdl allows the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90) with
+no external dependencies.
+
+Custom libraries can be integrated and linked via a straight forward implementation configuration approach.
 
 #### Two types of C code interpreters can be configured for the Dpdl runtime:
 
-##### Default configuration (included)
+##### Default configuration (included in DpdlEngine)
 
-* Compact minimal ANSI C code interpreter (subset of C90) included in 'DpdlEngine' and 'DpdlEngine lite' release
+* Compact minimal ANSI C code interpreter (subset of C90)
  --> keyword: '**>>c**'
 
 ##### Optional configuration (Third party software)
@@ -148,15 +163,23 @@ bool b = str.contains("C")
 println("Dpdl contains C: " + b)
 ```
 
-
 A list of 14 examples can be found in the following script, as explained later:
 
 [dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
 
 
+### Embedding of other programming languages
+
+Other programming languages may also be embeddable in future.
+
+### Native library 'dpdlnativeapi'
+
+The native Dpdl API library comes with 
+
+
 ## Documentation
 
-The framework and API documentation are available via the following links:
+The Dpdl framework and API documentation are available via the following links:
  
 [Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
@@ -165,36 +188,45 @@ The framework and API documentation are available via the following links:
 
 ## Download 'DpdlEngine lite' release package
 
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations) from the following download link form:
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations),
+from the following download link form:
 
 [DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
 
 Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
 [DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
 
-Check the 'DpdlEngine lite' release limitations/restrictions (compared to the full DpdlEngine version), in the last section of this document.
+Check the 'DpdlEngine lite' release limitations/restrictions, compared to the full DpdlEngine version, in the last section of this document.
 
+Suggestion and contributions to enhance Dpdl are very welcome and can be submitted on the discussion section on GitHub:
+[Dpdl discussion](https://github.com/SEESolutions-it/DpdlEngine/discussions)
 
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
 memory footprint devices, and is very suitable for rapid applications development, teaching and research.
 
-
 The DpdlPacket data container is a highly optimized way to store, search and access data
 on devices that have limited memory and storage capabilities. 
 
+Dpdl can be used:
+
+	* As rapid application development environment
+	* As an embedded scripting engine for applications
+	* A library module
+	* As utility tool
+	
+	
 ### Features
 
-
 * **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
-* **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
-The speedup is x 25 times faster compared to a standard record store access
 * **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
 * **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries** via the loadObj(..) and getClass(..) methods
 * **ANSI C code can be embedded and executed** directly within Dpdl scripts (interpreted code), a subset of C90 standard
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
+* **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
+The speedup is x 25 times faster compared to a standard record store access
 * **Virtual filesystem** for record stores
 * **Double precision floating point emulation** layer
 * **XML** with XPath parser
@@ -222,10 +254,11 @@ an ANSI C compiler is available for the target platform.
 
 Dpdl is constantly developed by SEE and defined the following integrations:
 
+* Native API support for Tensorflow
 * OpenAI integration
-* Twitter API
 * Blockchain integration
 * Nostr client API
+* Twitter API
 
 
 ## What is a DpdlPacket?
@@ -285,7 +318,7 @@ Usage:
 ## What does the free 'DpdlEngine lite' version provide?
 
 
-The 'DpdlEngine lite' release is freely available with some limitations,
+The 'DpdlEngine lite' release is available for Free with some limitations,
 and can be used to exploit the features of Dpdl and to develop small applications
 or utility tools. Some auxiliary Dpdl libraries are released under the open-source GNU
 license.
@@ -311,7 +344,7 @@ A set of examples implemented with Dpdl scripting language can be found in the s
 where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
 i.e. @TEST1 .....@TEST14
 
-enter DpdlClient console:
+To execute the indivitual examples enter DpdlClient console:
 ```
 -load
 enter the Dpdl script name to execute:
@@ -472,11 +505,13 @@ on Windows
 ```
 
 
-You can execute Dpdl scripts, either loading them from a source file with the -load command,
-input the script directly in the DpdlClient command console with the -exec command, passing the
-'-load' parameter to the startup script or by using the Dpdl API.
+You can execute Dpdl scripts in the following ways:
 
-the </script> tag
+	* Load and execute the Dpdl script file with the -load command
+	* Input the script directly in the DpdlClient command console with the -exec command ( with closing </script> tag)
+	* Via '-load' parameter to the DpdlClient startup script/command
+	* Trough the Dpdl API.
+
 
 1) using 'load' command:
 ```
@@ -757,6 +792,7 @@ The validation script can be inspected here:
 **NOTE:** The native Dpdl library for embedded C within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
 More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform. Contact us if this is the case.
 
+
 ## How to buy a full DpdlEngine license?
 
 To buy a full DpdlEngine license with no restrictions, regular updates and support,
@@ -765,5 +801,7 @@ please write to the following e-mail address:
 info@seesolutions.it
 
 We will propose an appropriate license plan tailored for your needs.
+
+
 
 
