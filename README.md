@@ -14,29 +14,31 @@ developed by
 
 Dpdl is a **constrained device programming language** framework that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices to enable rapid application development. Dpdl comes with a very compact and portable
+devices to support rapid application development. Dpdl comes with a very compact and portable
 **Scripting Engine** and an **extensible API interface** for the development of mobile
 applications and embedded system software.
 
 The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
 enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
-Standard **ANSI C code** (subset of C90) can also be **embedded and executed directly
-within Dpdl scripts** (interpreted code). This makes Dpdl suitable also for hardware programming.
+Standard **ANSI C code** ( asubset of C90) and the **OCaml** functional programming language
+can be **embedded and executed directly within Dpdl scripts** (interpreted code).
+This makes Dpdl suitable for a wide variety of used cases and in particular also for hardware programming.
 
-**DpdlEngine stack**
+**DpdlEngine stack overview**
 
 ![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
-are supported by default and third party libraries can be added as extensions.
+are integrated by default and third party libraries and functions can be added as extensions.
 
-By combining the portability and API availability of java, and the power of C programming language,
-Dpdl is a powerful development platform for industry, education and research.
+By combining the portability and vast API availability of Java, the expressiveness of OCaml and
+the power of C programming language, Dpdl is provides a powerful development platform for industrial
+applications, education and research.
 
-Dpdl is designed to be simple, compact, robust, extendible and portable to almost every platform
+Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform
 
-### Dpdl ( Java API + Embedded C ) = Powerful and Versatile
+### Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
 
 Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
 ```python
@@ -66,140 +68,6 @@ Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
      	println("No working Bluetooth stack found")
      fi
 ```
-
-### Access to the complete JRE Java platform API and external java libraries
-
-
-The Dpdl scripting language API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
-via the **loadObj(..)** and **getClass(..)** methods.
-
-**Example:** using a java HashMap (which is resolved to java.util.HashMap)
-```python
-object map, s
-
-map=loadObj("HashMap")
-map.put(1,"Dpdl")
-map.put(2,"Packet")
-map.put(3,"Definition")
-map.put(4,"Language")
-
-s=map.get(1)
-println(s)
-s=map.get(4)
-println(s)
-```
-
-With these two Dpdl API methods all java libraries defined in class definition file can be accessed (./DpdlLibs/libs/classes.txt)
-The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82
-
-#### Dpdl API access documentation
-
-
-[Java 5 API](http://www.seesolutions.it/apidoc/Java_Platform_API_1_5.html)
-
-[Bluetooth JSR-82 API](http://www.seesolutions.it/apidoc/Bluetooth_JSR82_API.html)
-
-
-The default configuration can be extended or updated to resolve additional java APIs (editing of class definition file)
-
-
-### Embedded C code
-
-Dpdl allows the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
-a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90) with
-no external dependencies.
-
-Custom libraries can be integrated and linked via a straight forward implementation configuration approach.
-
-#### Two types of C code interpreters can be configured for the Dpdl runtime:
-
-##### Default configuration (included in DpdlEngine)
-
-* Compact minimal ANSI C code interpreter (subset of C90)
- --> keyword: '**>>c**'
-
-##### Optional configuration (Third party software)
-
-* Use '**Ch**' C/C++ interpreter from SoftIntegration 
- --> keyword: '**>>ch**'
-* Use '**CompCert**' C/C++ compiler/interpreter from CompCert
- --> keyword: '**>>compcert**'
-
-Example Dpdl script with embedded C code:
-```c
-# main
-# starting with Dpdl, pushing parameters on the stack and embedding C code
-
-println("testing embedded C code in Dpdl")
-
-int n = 6
-double x = 10.0
-string a = "test"
-
-dpdl_stack_push(n, x, a)
-
->>c
-	#include <stdio.h>
-	
-	int main(int argc, char **argv){
-		printf("Hello C from Dpdl!\n");
-		printf("\n");
-		printf("num params: %d\n", argc);
-		int cnt;
-	    for (cnt = 0; cnt < argc; cnt++){
-	        printf("	param %d: %s\n", cnt, argv[cnt]);
-	    }
-	    return 0;
-	}
-<<
-int exit_code = dpdl_exit_code()
-
-println("ebedded C exit code: " + exit_code);
-
-# again Dpdl...
-
-object str = loadObj("String", "Dpdl embedded C")
-bool b = str.contains("C")
-println("Dpdl contains C: " + b)
-```
-
-A list of 14 examples can be found in the following script, as explained later:
-
-[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
-
-
-### Embedding of other programming languages
-
-Other programming languages may also be embeddable in future.
-
-### Native library 'dpdlnativeapi'
-
-The native Dpdl API library comes with 
-
-
-## Documentation
-
-The Dpdl framework and API documentation are available via the following links:
- 
-[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
-
-[Dpdl Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
-
-
-## Download 'DpdlEngine lite' release package
-
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations),
-from the following download link form:
-
-[DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
-
-Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
-[DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
-
-Check the 'DpdlEngine lite' release limitations/restrictions, compared to the full DpdlEngine version, in the last section of this document.
-
-Suggestion and contributions to enhance Dpdl are very welcome and can be submitted on the discussion section on GitHub:
-[Dpdl discussion](https://github.com/SEESolutions-it/DpdlEngine/discussions)
 
 ## Why Dpdl?
 
@@ -234,10 +102,145 @@ The speedup is x 25 times faster compared to a standard record store access
 * **Fast Prototyping**
 
 
+### Access to the complete JRE Java platform API and external java libraries
+
+
+The Dpdl scripting language API allows to access all classes and methods of the underlying Java Platform (JRE) and external java libraries
+via the **loadObj(..)** and **getClass(..)** methods.
+
+**Example:** using a java HashMap (which is resolved to java.util.HashMap)
+```python
+object map, s
+
+map=loadObj("HashMap")
+map.put(1,"Dpdl")
+map.put(2,"Packet")
+map.put(3,"Definition")
+map.put(4,"Language")
+
+s=map.get(1)
+println(s)
+s=map.get(4)
+println(s)
+```
+
+With these two Dpdl API functions all java libraries defined in class definition configuration file can be accessed.
+The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82
+
+#### Dpdl API access documentation
+
+
+[Java 5 API](http://www.seesolutions.it/apidoc/Java_Platform_API_1_5.html)
+
+[Bluetooth JSR-82 API](http://www.seesolutions.it/apidoc/Bluetooth_JSR82_API.html)
+
+
+The default configuration can be extended or updated to resolve additional java APIs (editing of class definition configuration file)
+
+
+### Embedded C code
+
+Dpdl allows the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90) with
+no external dependencies.
+
+Custom libraries can be integrated and linked via a straight forward implementation configuration approach.
+
+
+Example Dpdl script with embedded C code:
+```c
+# main
+# starting with Dpdl, pushing parameters on the stack and embedding C code
+
+println("testing embedded C code in Dpdl")
+
+int n = 6
+double x = 10.0
+string a = "test"
+
+dpdl_stack_push(n, x, a)
+
+>>c
+	#include <stdio.h>
+	
+	int main(int argc, char **argv){
+		printf("Hello C from Dpdl!\n");
+		printf("\n");
+		printf("num params: %d\n", argc);
+		int cnt;
+	    for (cnt = 0; cnt < argc; cnt++){
+	        printf("	param %d: %s\n", cnt, argv[cnt]);
+	    }
+	    return 0;
+	}
+<<
+int exit_code = dpdl_exit_code()
+
+println("embedded C exit code: " + exit_code);
+
+# again Dpdl...
+
+object str = loadObj("String", "Dpdl embedded C")
+bool b = str.contains("C")
+println("Dpdl contains C: " + b)
+```
+
+A list of 14 examples/tests can be found in the following script, as explained later:
+
+[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
+
+
+### Embedding of other programming languages
+
+
+Currently OCaml (https://ocaml.org/) functional programming language is supported, and can be embedded directly within Dpdl scripts.
+
+Other programming languages may also be supported in future.
+
+
+Example Dpdl script with embedded 'OCaml' code:
+```python
+println("testing Dpdl embedded OCaml..")
+
+
+# parameter to instruct OCaml to compile the embedded code (faster). Without this option the code is interpreted
+dpdl_stack_push("compile")
+
+# we add a variable to the dpdl stack so that we can access it in the embedded OCaml
+dpdl_stack_var_put("mydpdlvar", "Dpdl interacts with OCaml")
+
+>>ocaml
+external get_binding
+
+let dpdl_var = get_binding "mydpdlvar"
+print_endline "mydpdlvar:"
+print_endline dpdl_var 
+
+let string_of_float f =
+  let s = format_float "%.12g" f in
+  let l = string_length s in
+  let rec loop i =
+    if i >= l then s ^ "."
+    else if s.[i] = '.' || s.[i] = 'e' then s
+    else loop (i + 1)
+  in
+    loop 0
+    
+    print_endline "Output:"
+    print_string f 
+    print_string "\n";
+<<
+
+int exit_code = dpdl_exit_code()
+
+println("embedded OCaml exit code: " + exit_code);
+
+```
+
 ## Supported Platforms
 
 Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
-released as open-source, that can  be compiled for almost every platform as soon as
+released as open-source that can  be compiled for almost every platform as soon as
 an ANSI C compiler is available for the target platform.
 
 ### Dpdl is compatible with:
@@ -248,17 +251,51 @@ an ANSI C compiler is available for the target platform.
 * Java versions >= 1.4 and later
 * Java > 1.1 (but without 'loadObj' and 'getClass' methods)
 * Platforms with ANSI C compiler where the included open source virtual machine (DpdlVM) can be compiled
-	
+
+DpdlEngine V1.0 has been tested on:
+
+	* MacOS arm64
+	* Linux x86_64
+	* Raspberry PI (arm)
+	* Windows 64-bit
+	* JavaME
+	* J2ME (MIDP 2.0)
+		
+		
 	
 ## Roadmap
 
-Dpdl is constantly developed by SEE and defined the following integrations:
+Dpdl is currently developed by SEE Solutions and defined the following integrations:
 
-* Native API support for Tensorflow
+* Native API support for Tensorflow and Tensorflow lite
 * OpenAI integration
 * Blockchain integration
 * Nostr client API
-* Twitter API
+
+
+## Documentation
+
+The Dpdl framework and API documentation are available via the following links:
+ 
+[Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+
+[Dpdl Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
+
+
+## Download 'DpdlEngine lite' release package (Free version)
+
+The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations),
+from the following download link form:
+
+[DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
+
+Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
+[DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)
+
+Check the 'DpdlEngine lite' release limitations/restrictions, compared to the full DpdlEngine version, in the last section of this document.
+
+Suggestion and contributions to enhance Dpdl are very welcome and can be submitted on the discussion section on GitHub:
+[Dpdl discussion](https://github.com/SEESolutions-it/DpdlEngine/discussions)
 
 
 ## What is a DpdlPacket?
@@ -281,6 +318,92 @@ The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBO
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
 the DpdlPacket. The next section 'DpdlPacket example' will describe how to 
 allocate, execute and perform queries on a DpdlPacket.
+
+Example: DpdlPacket code definiiton (dpdl_PHONEBOOK.c)
+```cpp
+/*######################################################
+                    Dpdl
+                    
+     Dynamic Packet Definition Language
+             www.seesolutions.it
+
+  This is a sample script written in Dpdl
+  (Dynamic Packet Definition Language) showing
+  how services can be implemented on the Dpdl platform.
+  
+  The script is compiled into an executable DpdlPacket
+  that can be installed, allocated and queried efficiently
+  on memory constrained devices.
+
+  (c)opyright 2003
+  SEE Solutions
+  
+  contact: info@seesolutions.it
+  
+  -----------------------------------------------------
+  Example:        Phone-Book
+  #######################################################
+**/
+call(dpdlInterpreter)
+::module dpdl_PHONEBOOK
+::module_SPEC 23452
+::model 836
+::dpdlVersion 1.0
+
+OPTIONS {
+    TARGET = CDC & CLDC
+    KVM = 1.0
+    ZIP = true
+    CHECKSUM = true
+    SIGNATURE = true
+    ENCRYPTION(RSA) = false
+}
+
+#defineDpdlEncoding UTF-8
+
+#defineDB phone_bz | ./Test/BolzanoPhone.csv | null null
+
+#defineSQL query_ SELECT name, phoneNR, e-mail FROM phone_bz end
+
+#defineProtocol-cHtml phonebook_visual phone_book.html
+
+import extern SystemData
+
+catch DPDL_Script OnInit() {
+    include("dpdllib.h") nl
+    println("OnInit()") nl
+}
+
+import virtual DATA none  {
+        class BolzanoPhone volatile phonebook_visual {
+              DATA::string const name;
+              DATA::string using phoneNR;
+              DATA::string using  e-mail;
+              #defineGUI Default <PhoneBook>  <Enter name and surname:>
+              
+              catch DPDL_Script OnDecode() {
+                 include("dpdllib.h") nl
+                 include("dpdlRS.h") nl
+                 println("OnDecode()") nl
+                 string time = getTime() nl
+                 println("storing access time..." + time) nl
+                 int rs_id = createRS("AccessStats", AUTHMODE_ANY, dpdlTrue, dpdlTrue) nl
+                 int rec_id = addRecord(rs_id, time) nl
+                 int status = closeRS(rs_id) nl
+                 println("done status: " + status) nl
+              }
+        }
+}
+#defineD BolzanoPhone source phone_bz SQL query {
+                CHUNK entry [6];
+                struct BTree DENSE_INDEX hashing *name
+                entry.content { name , phoneNR , e-mail }
+                entry.name TAG(0xef) const (string) = 20;
+                entry.phoneNR TAG(0xefe) (string) = 15;
+                entry.e-mail TAG(0xefee) (string) = 30;
+}
+```
+
 
 The database technology in Dpdl has been developed since year 2003 and started with a BsC thesis.
 
@@ -489,280 +612,6 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 		3) start the 2nd client in a thread instance: CoAP/startClientThread.h
 
 
-
-### How to run Dpdl scripting code?
-
-To run the Dpdl scripting examples start the DpdlClient by executing the following script:
-
-on Linux/MacOS
-```
-./run_DpdlClient.sh
-```
-
-on Windows
-```
-./run_DpdlClient.bat
-```
-
-
-You can execute Dpdl scripts in the following ways:
-
-	* Load and execute the Dpdl script file with the -load command
-	* Input the script directly in the DpdlClient command console with the -exec command ( with closing </script> tag)
-	* Via '-load' parameter to the DpdlClient startup script/command
-	* Trough the Dpdl API.
-
-
-1) using 'load' command:
-```
--load
-enter the Dpdl script file to execute:
-arraylistExample.h
-```
-
-2) using 'exec' command:
-```python
--exec
-<script>
-string str = "this is a test"
-println(str)
-</script>
-```
-
-3) using the -load command as startup parameter:
-```
-run_DpdlClientScript.sh 
-```
-
-4) using the Dpdl API
-```
-int status = DPDLAPI_execCode("sample.h", "null)
-``
-
-Here you can find all methods available for the Dpdl scripting API: 
-
-[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
-
-Dpdl allows to access all java classes of the underlying JRE environment,
-providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
-Dpdl scripting API methods.
-
-In this way Dpdl can access the classes and api of external java libraries.
-
-Example (using String java class with method 'contains(..)':
-```python
-object str = loadObj("String", "This is my Java object string")
-bool contains = str.contains("Java")
-if(contains)
-	println("The string contains the word 'Java'")
-else
-	println("The string does NOT contain the word 'Java'")
-fi
-```
-
-The class references resolved by the methods 'loadObj' and 'getClass' are defined via the class reference file:
-./DpdlLibs/libs/classes.txt
-
-NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
-
-
-**Example:** (Compress and de-compress a string of data)
-```python
-
-#main
-
-object str = loadObj("String", "my data for Dpdl")
-println("string to compress: " + str)
-
-object byte_out = loadObj("ByteArrayOutputStream")
-object zip_out = loadObj("GZIPOutputStream", byte_out)
-
-println("compressing...")
-zip_out.write(str.getBytes())
-zip_out.close()
-println("data compressed successfully")
-
-object compressed_str = byte_out.toString()
-println("compressed string: " + compressed_str)
-
-println("decompressing...")
-object byte_in = compressed_str.getBytes()
-
-object byte_arr_in = loadObj("ByteArrayInputStream", byte_in)
-object zip_in = loadObj("GZIPInputStream", byte_arr_in)
-
-object in_reader = loadObj("InputStreamReader", zip_in)
-object buf_reader = loadObj("BufferedReader", in_reader)
-
-string decompressed_str = ""
-string line = ""
-while(line != null)
-	line = buf_reader.readLine()
-	if(line != null)
-		decompressed_str = decompressed_str + line
-	fi
-endwhile
-println("decompressed: " + decompressed_str)
-
-```
-
-
-## DpdlPacket example (installation, allocation and query)
-
-The Demo release of Dpdl includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl) that has 48877 data entries (name, phoneNR, e-email).
-
-The packet is approximately 1,2 MB in size and has been encoded with the following Dpdl source script (dpdl_PHONEBOOK.c):
-
-```cpp
-/*######################################################
-                    Dpdl
-                    
-     Dynamic Packet Definition Language
-             www.seesolutions.it
-
-  This is a sample script written in Dpdl
-  (Dynamic Packet Definition Language) showing
-  how services can be implemented on the Dpdl platform.
-  
-  The script is compiled into an executable DpdlPacket
-  that can be installed, allocated and queried efficiently
-  on memory constrained devices.
-
-  (c)opyright 2003
-  SEE Solutions
-  
-  contact: info@seesolutions.it
-  
-  -----------------------------------------------------
-  Example:        Phone-Book
-  #######################################################
-**/
-call(dpdlInterpreter)
-::module dpdl_PHONEBOOK
-::module_SPEC 23452
-::model 836
-::dpdlVersion 1.0
-
-OPTIONS {
-    TARGET = CDC & CLDC
-    KVM = 1.0
-    ZIP = true
-    CHECKSUM = true
-    SIGNATURE = true
-    ENCRYPTION(RSA) = false
-}
-
-#defineDpdlEncoding UTF-8
-
-#defineDB phone_bz | ./Test/BolzanoPhone.csv | null null
-
-#defineSQL query_ SELECT name, phoneNR, e-mail FROM phone_bz end
-
-#defineProtocol-cHtml phonebook_visual phone_book.html
-
-import extern SystemData
-
-catch DPDL_Script OnInit() {
-    include("dpdllib.h") nl
-    println("OnInit()") nl
-}
-
-import virtual DATA none  {
-        class BolzanoPhone volatile phonebook_visual {
-              DATA::string const name;
-              DATA::string using phoneNR;
-              DATA::string using  e-mail;
-              #defineGUI Default <PhoneBook>  <Enter name and surname:>
-              
-              catch DPDL_Script OnDecode() {
-                 include("dpdllib.h") nl
-                 include("dpdlRS.h") nl
-                 println("OnDecode()") nl
-                 string time = getTime() nl
-                 println("storing access time..." + time) nl
-                 int rs_id = createRS("AccessStats", AUTHMODE_ANY, dpdlTrue, dpdlTrue) nl
-                 int rec_id = addRecord(rs_id, time) nl
-                 int status = closeRS(rs_id) nl
-                 println("done status: " + status) nl
-              }
-        }
-}
-#defineD BolzanoPhone source phone_bz SQL query {
-                CHUNK entry [6];
-                struct BTree DENSE_INDEX hashing *name
-                entry.content { name , phoneNR , e-mail }
-                entry.name TAG(0xef) const (string) = 20;
-                entry.phoneNR TAG(0xefe) (string) = 15;
-                entry.e-mail TAG(0xefee) (string) = 30;
-}
-
-```
-
-
-To run the example
-
-1. start the DpdlClient by executing the following script:
-
-on Linux/MacOS
-```
-./run_DpdlClient.sh
-```
-
-on Windows
-```
-./run_DpdlClient.bat
-```
-
-2. install the DpdlPacket (dpdl_PHONEBOOK.dpdl) which is located in the folder ./DpdlServices/data/
-
-	execute the command -i and enter the packet name: 
-	
-	```
-	-i
-	enter the DpdlPacket to install:
-	dpdl_PHONEBOOK
-	```
-	
-
-
-3. allocate the DpdlPacket and the corresponding data chunk:
-
-	execute the command -a and enter the packet name and data chunk name to allocate:
-	
-	```
-	-a
-	enter the DpdlPacket to allocate ($dpdl_packet:$chunk_name:)
-	dpdl_PHONEBOOK:BolzanoPhone
-	```
-	
-	The DpdlPacket will be de-compressed and allocated ready to query. The 1st time a packet is allocated it takes 
-	some time, subsequent allocations are immediate
-
-	
-4. run the query console example script
-
-	execute the command -load and enter the query console example script:
-	
-	```
-	-load
-	enter the Dpdl script name to execute:
-	testDpdlDB2.h
-	```
-	
-	
-	The script allows to perform either a single query, or n sequential or random queries, and measures the execution
-	time for searching and accessing data:
-	
-		1) To perform a single query (press 'q')
-		
-		2) To execute sequential or random queries, for each of the data entries (press ENTER)
-		   and than enter '**armin**' as constraint base name, which is part of the key of each data entry:
-		   i.e. "armin 1, armin 2, ..."
-		   
-		   For random vs. sequential queries comment or uncomment the following line of code in the script
-		   -> i #abs(search_rand_int) 
-		
-		
 
 ## 'DpdlEngine lite' release limitations/restrictions
 

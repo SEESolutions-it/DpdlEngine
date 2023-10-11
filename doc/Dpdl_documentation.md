@@ -367,6 +367,194 @@ xml
 dpdlpacket
 ```
 
+## Run Dpdl scripts
+
+To run the Dpdl scripting examples start the DpdlClient by executing the following script:
+
+on Linux/MacOS
+```
+./run_DpdlClient.sh
+```
+
+on Windows
+```
+./run_DpdlClient.bat
+```
+
+
+You can execute Dpdl scripts in the following ways:
+
+	* Load and execute the Dpdl script file with the -load command
+	* Input the script directly in the DpdlClient command console with the -exec command ( with closing </script> tag)
+	* Via '-load' parameter to the DpdlClient startup script/command
+	* Trough the Dpdl API.
+
+
+1) using 'load' command:
+```
+-load
+enter the Dpdl script file to execute:
+arraylistExample.h
+```
+
+2) using 'exec' command:
+```python
+-exec
+<script>
+string str = "this is a test"
+println(str)
+</script>
+```
+
+3) using the -load command as startup parameter:
+```
+run_DpdlClientScript.sh 
+```
+
+4) using the Dpdl API
+```
+int status = DPDLAPI_execCode("sample.h", "null)
+``
+
+Here you can find all methods available for the Dpdl scripting API: 
+
+[Dpdl_API](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
+
+Dpdl allows to access all java classes of the underlying JRE environment,
+providing access to the whole Java platform API via the loadObj(..) and the getClass(..)
+Dpdl scripting API methods.
+
+In this way Dpdl can access the classes and api of external java libraries.
+
+Example (using String java class with method 'contains(..)':
+```python
+object str = loadObj("String", "This is my Java object string")
+bool contains = str.contains("Java")
+if(contains)
+	println("The string contains the word 'Java'")
+else
+	println("The string does NOT contain the word 'Java'")
+fi
+```
+
+The class references resolved by the methods 'loadObj' and 'getClass' are defined via the class reference file:
+./DpdlLibs/libs/classes.txt
+
+NOTE: This file can be edited or complemented only in the registered, Licensed version of Dpdl.
+
+
+**Example:** (Compress and de-compress a string of data)
+```python
+
+#main
+
+object str = loadObj("String", "my data for Dpdl")
+println("string to compress: " + str)
+
+object byte_out = loadObj("ByteArrayOutputStream")
+object zip_out = loadObj("GZIPOutputStream", byte_out)
+
+println("compressing...")
+zip_out.write(str.getBytes())
+zip_out.close()
+println("data compressed successfully")
+
+object compressed_str = byte_out.toString()
+println("compressed string: " + compressed_str)
+
+println("decompressing...")
+object byte_in = compressed_str.getBytes()
+
+object byte_arr_in = loadObj("ByteArrayInputStream", byte_in)
+object zip_in = loadObj("GZIPInputStream", byte_arr_in)
+
+object in_reader = loadObj("InputStreamReader", zip_in)
+object buf_reader = loadObj("BufferedReader", in_reader)
+
+string decompressed_str = ""
+string line = ""
+while(line != null)
+	line = buf_reader.readLine()
+	if(line != null)
+		decompressed_str = decompressed_str + line
+	fi
+endwhile
+println("decompressed: " + decompressed_str)
+
+```
+
+
+## DpdlPacket example (installation, allocation and query)
+
+The Demo release of Dpdl includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl) that has 48877 data entries (name, phoneNR, e-email).
+
+The packet is approximately 1,2 MB in size and has been encoded with the following Dpdl source script (dpdl_PHONEBOOK.c):
+
+
+To run the example
+
+1. start the DpdlClient by executing the following script:
+
+on Linux/MacOS
+```
+./run_DpdlClient.sh
+```
+
+on Windows
+```
+./run_DpdlClient.bat
+```
+
+2. install the DpdlPacket (dpdl_PHONEBOOK.dpdl) which is located in the folder ./DpdlServices/data/
+
+	execute the command -i and enter the packet name: 
+	
+	```
+	-i
+	enter the DpdlPacket to install:
+	dpdl_PHONEBOOK
+	```
+	
+
+
+3. allocate the DpdlPacket and the corresponding data chunk:
+
+	execute the command -a and enter the packet name and data chunk name to allocate:
+	
+	```
+	-a
+	enter the DpdlPacket to allocate ($dpdl_packet:$chunk_name:)
+	dpdl_PHONEBOOK:BolzanoPhone
+	```
+	
+	The DpdlPacket will be de-compressed and allocated ready to query. The 1st time a packet is allocated it takes 
+	some time, subsequent allocations are immediate
+
+	
+4. run the query console example script
+
+	execute the command -load and enter the query console example script:
+	
+	```
+	-load
+	enter the Dpdl script name to execute:
+	testDpdlDB2.h
+	```
+	
+	
+	The script allows to perform either a single query, or n sequential or random queries, and measures the execution
+	time for searching and accessing data:
+	
+		1) To perform a single query (press 'q')
+		
+		2) To execute sequential or random queries, for each of the data entries (press ENTER)
+		   and than enter '**armin**' as constraint base name, which is part of the key of each data entry:
+		   i.e. "armin 1, armin 2, ..."
+		   
+		   For random vs. sequential queries comment or uncomment the following line of code in the script
+		   -> i #abs(search_rand_int) 
+		
+		
 ## Performance Benchmarks
 
 ### Embedded C
