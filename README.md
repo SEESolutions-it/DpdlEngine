@@ -22,7 +22,7 @@ The Dpdl language constructs and syntax is kept simple and follows an object ori
 enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
 Standard **ANSI C code** (a subset of C90) and the **OCaml** functional programming language
-can be **embedded and executed directly within Dpdl scripts** (interpreted code).
+can be **embedded and executed directly within Dpdl scripts** (interpreted and compiled code).
 This makes Dpdl suitable for a wide variety of use-cases and in particular also for hardware programming.
 
 **DpdlEngine stack overview**
@@ -36,7 +36,7 @@ By combining the portability and vast API availability of Java, the expressivene
 the power of C programming language, Dpdl is provides a powerful development platform for industrial
 applications, education and research.
 
-Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform
+Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform.
 
 ### Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
 
@@ -69,6 +69,11 @@ Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
      fi
 ```
 
+A list of 14 examples/tests can be found in the following Dpdl script, as explained later:
+
+[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
+
+
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
@@ -77,7 +82,7 @@ memory footprint devices, and is very suitable for rapid applications developmen
 The DpdlPacket data container is a highly optimized way to store, search and access data
 on devices that have limited memory and storage capabilities. 
 
-Dpdl can be used:
+**Dpdl can be used:**
 
 	* As rapid application development environment
 	* As an embedded scripting engine for applications
@@ -90,7 +95,7 @@ Dpdl can be used:
 * **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
 * **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
 * **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries** via the loadObj(..) and getClass(..) methods
-* **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted code), a subset of C90 standard
+* **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted/compiled code), a subset of C90 standard, POSIX compliant
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
 * **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
@@ -124,10 +129,10 @@ s=map.get(4)
 println(s)
 ```
 
-With these two Dpdl API functions all java libraries defined in class definition configuration file can be accessed.
+With the Dpdl API functions all java libraries defined in class definition configuration file can be accessed.
 The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82
 
-#### Dpdl API access documentation
+#### Dpdl API access documentation (default configuration)
 
 
 [Java 5 API](http://www.seesolutions.it/apidoc/Java_Platform_API_1_5.html)
@@ -140,11 +145,11 @@ The default configuration can be extended or updated to resolve additional java 
 
 ### Embedded C code
 
-Dpdl allows the embedding and execution of ANSI C code directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
-a very small footprint and includes all essential C libraries and language constructs (subset of ISO standard C90) with
-no external dependencies.
+Dpdl allows the embedding and execution of **ANSI C code** directly within Dpdl scripts. The C code is interpreted via a native Dpdl library that has
+a very small footprint and **includes all essential C libraries** and language constructs (subset of ISO standard C90 and **POSIX** compliant) with
+**no external dependencies**.
 
-Custom libraries can be integrated and linked via a straight forward implementation configuration approach.
+Custom libraries and functions can be integrated and linked via a straight forward implementation configuration approach.
 
 
 Example Dpdl script with embedded C code:
@@ -185,18 +190,15 @@ bool b = str.contains("C")
 println("Dpdl contains C: " + b)
 ```
 
-A list of 14 examples/tests can be found in the following script, as explained later:
+This is a more complete example of the usage of embedded C code within Dpdl:
 
-[dpdlLibExamples.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlLibExamples.h)
+[dpdlEmbeddedC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbeddedC.h)
 
 
 ### Embedding of other programming languages
 
-
-Currently OCaml (https://ocaml.org/) functional programming language is supported, and can be embedded directly within Dpdl scripts.
-
-Other programming languages may also be supported in future.
-
+Currently the functional programming language 'OCaml' (https://ocaml.org/) is supported, and can be embedded
+directly within Dpdl scripts.
 
 Example Dpdl script with embedded 'OCaml' code:
 ```python
@@ -237,6 +239,9 @@ println("embedded OCaml exit code: " + exit_code);
 
 ```
 
+Other programming languages may also be supported in future. Please feel free to suggest your opinion on the
+Discussion section on the DpdlEngine GitHub repository
+
 ## Supported Platforms
 
 Dpdl runs on a wide range of platforms and provides also a small footprint java virtual machine,
@@ -258,6 +263,7 @@ DpdlEngine V1.0 has been tested on:
 	* Linux x86_64
 	* Raspberry PI (arm)
 	* Windows 64-bit
+	* Android
 	* JavaME
 	* J2ME (MIDP 2.0)
 		
@@ -265,11 +271,11 @@ DpdlEngine V1.0 has been tested on:
 	
 ## Roadmap
 
-Dpdl is currently developed by SEE Solutions and defined the following integrations:
+Dpdl is currently developed by SEE Solutions and the following integrations has been defined: 
 
 * Native API support for Tensorflow and Tensorflow lite
 * OpenAI integration
-* Blockchain integration
+* Blockchain integration (Bitcoin and Ethereum smart contracts)
 * Nostr client API
 
 
@@ -315,35 +321,12 @@ deallocated when data is not used.
 ![DpdlPacket](http://www.seesolutions.it/images/app/thumb/Dpdl_Framework_FlowChart_thumb.jpg)
 
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
-and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
+and the corresponding Dpdl code definition file [dpdl_PHONEBOOK.c](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlScripts/dpdl_PHONEBOOK_BZ.c) used to encode
 the DpdlPacket. Refer to the [Dpdl_documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
 for how to allocate, execute and perform queries on a DpdlPacket.
 
 Example of DpdlPacket code definiiton (dpdl_PHONEBOOK.c)
 ```cpp
-/*######################################################
-                    Dpdl
-                    
-     Dynamic Packet Definition Language
-             www.seesolutions.it
-
-  This is a sample script written in Dpdl
-  (Dynamic Packet Definition Language) showing
-  how services can be implemented on the Dpdl platform.
-  
-  The script is compiled into an executable DpdlPacket
-  that can be installed, allocated and queried efficiently
-  on memory constrained devices.
-
-  (c)opyright 2003
-  SEE Solutions
-  
-  contact: info@seesolutions.it
-  
-  -----------------------------------------------------
-  Example:        Phone-Book
-  #######################################################
-**/
 call(dpdlInterpreter)
 ::module dpdl_PHONEBOOK
 ::module_SPEC 23452
@@ -467,7 +450,7 @@ A set of examples implemented with Dpdl scripting language can be found in the s
 where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
 i.e. @TEST1 .....@TEST14
 
-To execute the indivitual examples enter DpdlClient console:
+To execute the individual examples enter DpdlClient console:
 ```
 -load
 enter the Dpdl script name to execute:
@@ -591,6 +574,8 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 * CoAP (client/server):
 
 	Client server application that implements PUT, GET, OBSERVE requests via CoAP (Constrained Application Protocol).
+	The clients can create resources and perform PUT, GET or OBSERVE requests on the resources created.
+	
 	Once the dpdlCoAPServer.h is started, the observe client (dpdlCoAPClient.h) can be initialized in a 2nd console,
 	and a second client (dpdlCoAPClient2.h) that performs PUT requests can be initialized in a 3rd console by starting
 	it in a dedicated thread via the script 'startClientThread.h'
@@ -619,7 +604,7 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 The 'DpdlEngine lite' release software package is available for Free and has the following limitations/restrictions:
 
 * At startup, the DpdlEngine requires the execution of a validation script.
-The script simply accesses a html website at www.seesolutions.it for validation (no data is collected, it's a siple get html)
+The script simply accesses a html website at www.seesolutions.it for validation (NO data is collected, it's a simple get html.
 	  
 The validation script can be inspected here: 
 [./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h)
@@ -638,14 +623,14 @@ The validation script can be inspected here:
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
 
-**NOTE:** The native Dpdl library for embedded C within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
+**NOTE:** The native Dpdl library for embedded C support within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
 More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform.
 Contact us if this is the case.
 
 
 ## How to buy a full DpdlEngine license?
 
-To buy a full DpdlEngine license with no restrictions, regular updates and support,
+To buy a full DpdlEngine license with no limitations/restrictions, regular updates and support,
 please write to the following e-mail address: 
 
 info@seesolutions.it

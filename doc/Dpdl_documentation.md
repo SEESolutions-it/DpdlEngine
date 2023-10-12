@@ -554,7 +554,41 @@ on Windows
 		   For random vs. sequential queries comment or uncomment the following line of code in the script
 		   -> i #abs(search_rand_int) 
 		
-		
+
+## DpdlEngine configuration
+
+Dpdl provides the following configuration options for the DpdlEngine, through the 'DpdlEngine.ini' config file
+
+'DpdlEngine.ini' example:
+```
+[DpdlBase]
+MAX_SCRIPT_THREADS=3
+MAX_BTCLIENTS=1
+MAX_DATA_STRUCTURES=10
+MAX_GUI_DEFINITIONS=10
+MAX_RESULT_SET=100
+MAX_CONSTRAINTS=2
+MAX_VAR=50
+POINTERS=10
+MAX_MENU_ENTRIES=10
+MAX_MULTIPLE_DECOMP_STORES=4
+DPDL_STORAGE_PATH=./DpdlServices/data/
+DPDL_SCRIPT_REPOSITORY=./DpdlScripts/
+DPDL_LIBRARY_PATH=./DpdlLibs/
+IS_BTREE_CACHE_ACTIVE=true
+IS_PAGER_CACHE_ACTIVE=false
+PRELOAD_CACHE_PAGER=4096
+MAX_SPACE=32000000
+[DpdlConfig]
+EXEC_STARTUP_CODE=false
+DPDL_NATIVE_LIB=dpdlnativeapi
+[DpdlExtensions]
+mytestext=dpdl.dpdlDpdlEngine.extensions.MyTestDpdlExt
+
+```
+Note: This file can be edited only i the registered version of Dpdl
+
+	
 ## Performance Benchmarks
 
 ### Embedded C
@@ -633,3 +667,5 @@ Average execution time for 48877 random queries: 2 milliseconds
 #### RecordStore queries
 
 Average execution time for 48877 random queries: 
+
+
