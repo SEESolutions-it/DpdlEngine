@@ -14,16 +14,16 @@ developed by
 
 Dpdl is a **constrained device programming language** framework that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint 
-devices to support rapid application development. Dpdl comes with a very compact and portable
+devices and to support rapid application development. Dpdl comes with a very compact and portable
 **Scripting Engine** and an **extensible API interface** for the development of mobile
 applications and embedded system software.
 
 The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
 enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
 
-Standard **ANSI C code** ( asubset of C90) and the **OCaml** functional programming language
+Standard **ANSI C code** (a subset of C90) and the **OCaml** functional programming language
 can be **embedded and executed directly within Dpdl scripts** (interpreted code).
-This makes Dpdl suitable for a wide variety of used cases and in particular also for hardware programming.
+This makes Dpdl suitable for a wide variety of use-cases and in particular also for hardware programming.
 
 **DpdlEngine stack overview**
 
@@ -90,7 +90,7 @@ Dpdl can be used:
 * **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
 * **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
 * **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries** via the loadObj(..) and getClass(..) methods
-* **ANSI C code can be embedded and executed** directly within Dpdl scripts (interpreted code), a subset of C90 standard
+* **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted code), a subset of C90 standard
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
 * **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
@@ -316,10 +316,10 @@ deallocated when data is not used.
 
 The DpdlEngine lite release package includes an encoded DpdlPacket (dpdl_PHONEBOOK.dpdl)
 and the corresponding Dpdl code definition file (dpdl_PHONEBOOK.c) used to encode
-the DpdlPacket. The next section 'DpdlPacket example' will describe how to 
-allocate, execute and perform queries on a DpdlPacket.
+the DpdlPacket. Refer to the [Dpdl_documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_documentation.md)
+for how to allocate, execute and perform queries on a DpdlPacket.
 
-Example: DpdlPacket code definiiton (dpdl_PHONEBOOK.c)
+Example of DpdlPacket code definiiton (dpdl_PHONEBOOK.c)
 ```cpp
 /*######################################################
                     Dpdl
@@ -441,7 +441,7 @@ Usage:
 ## What does the free 'DpdlEngine lite' version provide?
 
 
-The 'DpdlEngine lite' release is available for Free with some limitations,
+The 'DpdlEngine lite' release is available for Free with some limitations (see section below),
 and can be used to exploit the features of Dpdl and to develop small applications
 or utility tools. Some auxiliary Dpdl libraries are released under the open-source GNU
 license.
@@ -616,19 +616,19 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 ## 'DpdlEngine lite' release limitations/restrictions
 
 	
-The 'DpdlEngine lite' release software package has the following limitations/restrictions:
+The 'DpdlEngine lite' release software package is available for Free and has the following limitations/restrictions:
 
 * At startup, the DpdlEngine requires the execution of a validation script.
-The script simply accesses a html website at www.seesolutions.it for validation.
+The script simply accesses a html website at www.seesolutions.it for validation (no data is collected, it's a siple get html)
 	  
 The validation script can be inspected here: 
 [./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h)
 
-* The DpdlEngine parameters and configuration file 'DpdlEngine.ini' cannot be customized
+* The DpdlEngine parameters and configuration file 'DpdlEngine.ini' can be customized only in the registered version
 	
-* The class reference file (classes.txt), used for dynamic loading of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
+* The class definition file (classes.txt), used for dynamic loading and resolving of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
 	
-* The execution of Dpdl scripts is limited to 500 lines of code, embeddec C code limited to 100 lines of code
+* The execution of Dpdl scripts is limited to 500 lines of code, embeddec C code and OCaml is limited to 100 lines of code
 	
 * The Dpdl scripting API function 'systemExec' is available only in the registered version of Dpdl
 	
@@ -636,10 +636,11 @@ The validation script can be inspected here:
 	
 * The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
-* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is available)
+* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
 
 **NOTE:** The native Dpdl library for embedded C within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
-More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform. Contact us if this is the case.
+More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform.
+Contact us if this is the case.
 
 
 ## How to buy a full DpdlEngine license?
@@ -649,7 +650,7 @@ please write to the following e-mail address:
 
 info@seesolutions.it
 
-We will propose an appropriate license plan tailored for your needs.
+We will propose an appropriate license plan tailored for your needs and budget.
 
 
 
