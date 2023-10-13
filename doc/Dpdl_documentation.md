@@ -96,84 +96,6 @@ endwhile
 
 [Dpdl scripting API Documentation](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_API.md)
 
-### Dpdl embedded C code
-
-Dpdl allows the embedding and execution of ANSI C code (a minimal subset of C90) directly within Dpdl scripts. The C code is interpreted at runtime.
-
-Data and parameters can be passed to the interpreted C code, and from C code to the calling Dpdl runtime, via dedicated API functions.
-
-The C interpreter included  by default (in 'DpdlEngine' and DpdlEngine lite') is very compact (only ca. 400 Kb on Raspberry Pi) with no dependencies and includes only a minimal subset of the C library. Custom libraries can added if needed.
-
-Alternatively, more advanced C/C++ interpreters can be invoked from the Dpdl runtime, for example the Ch C/C++ interpreter from SoftIntegration or the C interpreter from CompCert. More languages will be supported in future.
-
-To embed C code within Dpdl scripts use the keyword '**>>c**' to start the embedded code, and the keyword '**<<**' to end the embedded code.
-
-Example:
-```python
-println("executing embedded C code..")
->>c
-	#include <stdio.h>
-	
-	int main(int argc, char **argv){
-		printf("Hello C from Dpdl!\n");
-		printf("\n");
-	    return 0;
-	}
-<<
-int exit_code = dpdl_exit_code()
-
-println("ebedded C exit code: " + exit_code);
-```
-
-Parameters and data can be passed to the interpreter via th '**dpdl_stack_push(..)**' API function.
-Data can be written to and read from to the dpdl stack using the '**dpdl_stack_buf_put(..)**' and '**dpdl_stack_buf_get()**' API functions.
-
-Pushing a variable 'dpdlbuf_*" onto the dpdl stack, allows to later retrieve the data buffer that has been written
-in the C code via the '**dpdl_stack_buf_put**' function (for example the result of a calculation)
-
-Example:
-```python
-println("testing embedded C code in Dpdl")
-
-int n = 6
-double x = 10.0d
-string a = "test"
-
-dpdl_stack_push("dpdlbuf_var1",n, x, a)
-
->>c
-	#include <stdio.h>
-	#include <dpdl.h>
-	
-	int main(int argc, char **argv){
-		printf("Hello C from Dpdl!\n");
-		printf("\n");
-		printf("num params: %d\n", argc);
-		int cnt;
-	    for (cnt = 0; cnt < argc; cnt++){
-	        printf("	param %d: %s\n", cnt, argv[cnt]);
-	    }
-	    	char *buf = "My result";
-		dpdl_stack_buf_put(buf);
-	    return 0;
-	}
-<<
-int exit_code = dpdl_exit_code()
-
-println("ebedded C exit code: " + exit_code);
-string buf = dpdl_stack_buf_get("dpdlbuf_var1")
-println("response buffer: " + buf)
-```
-
-The default memory stack size for the C interpreter is kept small and is configured to be 128 Kb.
-
-The stack size can be customized by setting the environment variable 'DPDL_STACK_SIZE_C'
-
-eg. setting (increasing) to 256 Kb (256*1024)
-```
-export DPDL_STACK_SIZE_C=262144
-```
-
 
 ### DpdlObject and Java bindings
 
@@ -222,6 +144,130 @@ println("done")
 ```
 
 
+### Dpdl embedded C code
+
+Dpdl allows the embedding and execution of ANSI C code (a minimal subset of C90) directly within Dpdl scripts.
+The C code is interpreted at runtime and includes only a minimal subset of the C library, POSIX compliant.
+
+The C interpreter included  by default (in 'DpdlEngine' and DpdlEngine lite') is very compact (only ca. 400 Kb on Raspberry Pi)
+and has no extra dependencies. Custom libraries can be implemented and added if needed via api functions.
+
+To embed C code within Dpdl scripts use the keyword '**>>c**' to start the embedded code, and the keyword '**<<**' to end the embedded code.
+
+Example:
+```python
+println("executing embedded C code..")
+>>c
+	#include <stdio.h>
+	
+	int main(int argc, char **argv){
+		printf("Hello C from Dpdl!\n");
+		printf("\n");
+	    return 0;
+	}
+<<
+int exit_code = dpdl_exit_code()
+
+println("ebedded C exit code: " + exit_code);
+```
+
+Parameters and data can be passed to the interpreter via the '**dpdl_stack_push(..)**' API function.
+Data can be written to and read from to the dpdl stack using the '**dpdl_stack_buf_put(..)**' and '**dpdl_stack_buf_get()**' API functions.
+
+Pushing a variable 'dpdlbuf_*" on the dpdl stack, allows to later retrieve by the data buffer that has been written
+in the C code via the '**dpdl_stack_buf_put**' function (for example the result of a calculation)
+
+Example:
+```python
+println("testing embedded C code in Dpdl")
+
+int n = 6
+double x = 10.0d
+string a = "test"
+
+dpdl_stack_push("dpdlbuf_var1",n, x, a)
+
+>>c
+	#include <stdio.h>
+	#include <dpdl.h>
+	
+	int main(int argc, char **argv){
+		printf("Hello C from Dpdl!\n");
+		printf("\n");
+		printf("num params: %d\n", argc);
+		int cnt;
+	    for (cnt = 0; cnt < argc; cnt++){
+	        printf("	param %d: %s\n", cnt, argv[cnt]);
+	    }
+	    	char *buf = "My result";
+		dpdl_stack_buf_put(buf);
+	    return 0;
+	}
+<<
+int exit_code = dpdl_exit_code()
+
+println("ebedded C exit code: " + exit_code);
+string buf = dpdl_stack_buf_get("dpdlbuf_var1")
+println("response buffer: " + buf)
+```
+
+The default memory stack size for the C interpreter is kept small and is configured to be 128 Kb.
+
+The stack size can be customized by applying configurable settings.
+
+### Embedded OCaml code
+
+Dpdl supports the embedding of OCaml code directly within Dpdl scripts through the OCaml-java project (http://www.ocamljava.org/).
+
+Example Dpdl script with embedded 'OCaml' code:
+```python
+println("testing Dpdl embedded OCaml..")
+
+
+# parameter to instruct the Dpdl runtime to compile the embedded code (faster execution). Without this option the code is interpreted
+dpdl_stack_push("compile")
+
+# we add a variable to the dpdl stack so that we can access it in the embedded OCaml
+dpdl_stack_var_put("mydpdlvar", "Dpdl interacts with OCaml")
+
+>>ocaml
+external get_binding
+
+let dpdl_var = get_binding "mydpdlvar"
+print_endline "mydpdlvar:"
+print_endline dpdl_var 
+
+let string_of_float f =
+  let s = format_float "%.12g" f in
+  let l = string_length s in
+  let rec loop i =
+    if i >= l then s ^ "."
+    else if s.[i] = '.' || s.[i] = 'e' then s
+    else loop (i + 1)
+  in
+    loop 0
+    
+    print_endline "Output:"
+    print_string f 
+    print_string "\n";
+<<
+
+int exit_code = dpdl_exit_code()
+
+println("embedded OCaml exit code: " + exit_code);
+
+```
+
+In order to enable the execution of ocaml code via the keyword '**>>ocaml**', the following jar library
+located in the lib folder (./lib): 'ocamlrun.jar' is required (download from www.ocamljava.org)
+
+If the 'compile' option has been set (ocaml code is compiled at runtime to improve speed) --> dpdl_stack_push("compile"),
+also the 'ocamljava.jar' file needs to be present in the lib folder.
+
+Other programming languages may also be supported in future. Please feel free to suggest your opinion on the
+Discussion section on the DpdlEngine GitHub repository
+
+
 ### Extensions
 
 The Dpdl language can be extended by implementing specific interfaces for custom
@@ -241,6 +287,7 @@ public class MyTestDpdlExtension extends BasicDpdlExtension{
     }
 }
 ```
+
 
 ## DpdlClient
 
