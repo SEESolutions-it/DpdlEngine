@@ -623,6 +623,8 @@ The validation script can be inspected here:
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
 
+* The 'Thread(..)' API function is available only in the registered version of Dpdl (use createThread(..) instead, it provides similar functionality)
+
 **NOTE:** The native Dpdl library for embedded C support within Dpdl scripts is currently available for MacOS, Linux x86_64, Raspberry Pi. 
 More builds will follow. Eventually it might be necessary to recompile it for some versions of the platform.
 Contact us if this is the case.

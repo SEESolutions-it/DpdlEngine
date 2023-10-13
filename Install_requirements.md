@@ -23,6 +23,7 @@ The Dpdl native API library is platform dependant and is available for the follo
 	* MacOS 13.4 (ARM)
 	* Linux x86_64 (x84 64bit)
 	* Raspberry PI (ARM)
+	* Windows 64-bit
 	
 The native libraries are located in the corresponding platform/architecture folder under './lib/native/'
 
@@ -61,7 +62,7 @@ To use the Dpdl bluetooth API a compatible bluetooth stack needs to be available
 
 Currently the available bluetooth implementation (JSR-82 ) interfaces with the following BT stacks:
 	
-	*Linux BlueZ
+	* Linux BlueZ
 	* Mac OS X
 	* WIDCOMM
 	* BlueSoleil
@@ -104,6 +105,8 @@ The validation script can be inspected here:
 * The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
 * The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
+
+* The 'Thread(..)' API function is available only in the registered version of Dpdl (use createThread(..) instead, it provides similar functionality)
 
 
 
