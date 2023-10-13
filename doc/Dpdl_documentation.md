@@ -15,7 +15,7 @@
 * Record Store creation and access with virtual file system support
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
 * Support for custom function extensions
-* ANSI C code and OCaml language can be embedded directly within Dpdl scripts (interpreted/compiled code).
+* **ANSI C code** and **OCaml** functional programming language can be embedded directly within Dpdl scripts (interpreted/compiled code).
 
 
 ### Variable Type definition
@@ -99,17 +99,17 @@ endwhile
 
 ### DpdlObject and Java bindings
 
-Dpdl can access the underlying classes of a give JRE implementation or any other external java library.
+Dpdl can access the underlying classes of a given JRE implementation or any other external java library.
 
-The classes are loaded within a DpdlObject that is handled in the Dpdl runtime.
+The classes are loaded within a DpdlObject that is handled by the Dpdl runtime.
 
 Static classes can be accessed via '**getClass(..)**' method and instance classes via '**loadObj(..)**' method.
 
-The class references are resolved via the classes.tx file located in the folder ./DpdlLibs/libs/.
+The class references are resolved via the 'classes.txt' file located in the folder ./DpdlLibs/libs/.
 You may add your own class references here with the syntax: '$full_class_name $class_alias'
 
 NOTE: Only the full registered version of Dpdl allows editing of this file. The default 'DpdlEngine lite' configuration contains
-the class references of Java Platform JRE 1.5
+the class references of Java Platform JRE 1.5 and Bluetooth JSR-82 API.
 
 Example:
 ```python
@@ -258,11 +258,11 @@ println("embedded OCaml exit code: " + exit_code);
 
 ```
 
-In order to enable the execution of ocaml code via the keyword '**>>ocaml**', the following jar library
-located in the lib folder (./lib): 'ocamlrun.jar' is required (download from www.ocamljava.org)
+In order to enable the execution of OCaml code via the keyword '**>>ocaml**', the 'ocamlrun.jar' library jar file
+located in the lib folder (./lib) is required (download from www.ocamljava.org)
 
-If the 'compile' option has been set (ocaml code is compiled at runtime to improve speed) --> dpdl_stack_push("compile"),
-also the 'ocamljava.jar' file needs to be present in the lib folder.
+If the 'compile' option has been set (the OCaml code is compiled at runtime to improve speed) --> dpdl_stack_push("compile"),
+also the 'ocamljava.jar' file needs to be present in the './lib' folder.
 
 Other programming languages may also be supported in future. Please feel free to suggest your opinion on the
 Discussion section on the DpdlEngine GitHub repository
