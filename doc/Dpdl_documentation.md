@@ -15,7 +15,7 @@
 * Record Store creation and access with virtual file system support
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
 * Support for custom function extensions
-* Embeddable ANSI C code directly within Dpdl scripts (interpreted code).
+* ANSI C code and OCaml language can be embedded directly within Dpdl scripts (interpreted/compiled code).
 
 
 ### Variable Type definition
@@ -175,7 +175,7 @@ export DPDL_STACK_SIZE_C=262144
 ```
 
 
-### DpdlObject and JRE bindings
+### DpdlObject and Java bindings
 
 Dpdl can access the underlying classes of a give JRE implementation or any other external java library.
 
@@ -204,6 +204,23 @@ string substr = str.substring(idx)
 println(substr)
 ```
 
+### Load Dpdl script as DpdlObject
+
+Dpdl scripts can be loaded as an ordinary DpdlObject
+
+```python
+println("test loadCode(..) with dpdl script testLoadCodeFunc.h")
+
+object mycode = loadCode("testLoadCodeFunc.h")
+
+string mystr1 = "Test"
+object mystr2 = loadObj("String", "MEGA")
+
+mycode.testFunc("testLoadCodeFunc.h", mystr1, mystr2)
+
+println("done")
+```
+
 
 ### Extensions
 
@@ -211,7 +228,7 @@ The Dpdl language can be extended by implementing specific interfaces for custom
 function and variable declarations.
 
 The implemented extensions can be registered via settings in the "Extensions" section
-defined in the DpdlEngine.ini configuration file.
+defined in the 'DpdlEngine.ini' configuration file.
 
 Example of a custom print function, myprintln(..):
 ```java
@@ -663,9 +680,5 @@ sequentially i.e 'armin 1', 'armin 2', etc.
 
 Average execution time for 48877 random queries: 2 milliseconds
 
-
-#### RecordStore queries
-
-Average execution time for 48877 random queries: 
 
 
