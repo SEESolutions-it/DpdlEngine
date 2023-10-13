@@ -13,7 +13,7 @@ developed by
 
 
 Dpdl is a **constrained device programming language** framework that can be used to encode,
-store, control, visualize and query data efficiently on small memory footprint 
+store, control, visualize and query data efficiently on small memory footprint
 devices and to support rapid application development. Dpdl comes with a very compact and portable
 **Scripting Engine** and an **extensible API interface** for the development of mobile
 applications and embedded system software.
@@ -98,7 +98,7 @@ on devices that have limited memory and storage capabilities.
 * **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted/compiled code), a subset of C90 standard, POSIX compliant
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
-* **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**
+* **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**.
 The speedup is x 25 times faster compared to a standard record store access
 * **Virtual filesystem** for record stores
 * **Double precision floating point emulation** layer
