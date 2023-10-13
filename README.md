@@ -205,7 +205,7 @@ Example Dpdl script with embedded 'OCaml' code:
 println("testing Dpdl embedded OCaml..")
 
 
-# parameter to instruct OCaml to compile the embedded code (faster). Without this option the code is interpreted
+# parameter to instruct the Dpdl runtime to compile the embedded code (faster execution). Without this option the code is interpreted
 dpdl_stack_push("compile")
 
 # we add a variable to the dpdl stack so that we can access it in the embedded OCaml
@@ -613,7 +613,7 @@ The validation script can be inspected here:
 	
 * The class definition file (classes.txt), used for dynamic loading and resolving of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
 	
-* The execution of Dpdl scripts is limited to 500 lines of code, embeddec C code and OCaml is limited to 100 lines of code
+* The execution of Dpdl scripts is limited to 500 lines of code, embedded C code and OCaml is limited to 100 lines of code
 	
 * The Dpdl scripting API function 'systemExec' is available only in the registered version of Dpdl
 	

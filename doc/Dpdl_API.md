@@ -13,7 +13,7 @@ DpdlEngine V1.0
 
 ```python
 [Native]
-include(string lib_path) return int
+include(string inc_path) return int
 currentTimeMillis() return long
 cast(object o) return object
 systemExec(string cmd, int wait_for, int verbose_output) return int status
@@ -55,8 +55,8 @@ getApi() return string api
 exit(int status)
 gc()
 getClass(string name) return object
-loadObj(string name, object params, ....) return object
 Thread(string func) return int status
+loadObj(string name, object params, ...) return object
 dpdl_stack_push(object params, ...)
 dpdl_stack_buf_put(string key, string value) return int status
 dpdl_stack_buf_get(string key) return string value

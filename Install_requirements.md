@@ -9,26 +9,35 @@ SEE Solutions
 
 # System requirements
 
-'DpdlEngine lite' V1.0 requires a compatible Java Runtime Environment (JRE) >= version 1.5 specification
+'DpdlEngine lite' V1.0 is available for Free, with some limitations/restrictions (see section below),
+under the license agreement included (see LICENSE.txt).
+
+The 'DpdlEngine lite' release requires a compatible Java Virtual Machine (JRE) >= version 1.5 specification to run.
 
 There are many java virtual machines available, the official Java JRE from Oracle can be downloaded from java.com website:
 https://www.java.com/en/download/manual.jsp
 
-Some Dpdl API functions (ex. embedded C code) make use of the native Dpdl library.
-The native Dpdl API library 'libdpdlnativeapi' is platform dependant and is available for the following platforms:
+Some Dpdl API functions (ex. embedded C code) make use of the Dpdl native API library (dpdlnativeapi).
+The Dpdl native API library is platform dependant and is available for the following platforms:
 
 	* MacOS 13.4 (ARM)
 	* Linux x86_64 (x84 64bit)
 	* Raspberry PI (ARM)
 	
-the native libraries are located in the corresponding platform/arch folder under './lib/native/'
+The native libraries are located in the corresponding platform/architecture folder under './lib/native/'
 
-Additional platforms can be compiled by us on your request by writing to info@seesolutions.it
+The library can be compiled for additional platforms by us on your request by writing to info@seesolutions.it
 
 
 # How to run
 
 To start the DpdlClient console application simply run the following command:
+
+```
+java -jar DpdlEngine_V1.0_release.jar
+```
+
+Or execute the following scripts:
 
 On Linux/MacOS/Unix
 ```
@@ -40,7 +49,7 @@ On Windows
 runDpdlClient.bat
 ```
 
-NOTE: If the latest version of Java has been installed use the following startup script:
+NOTE: If the latest version of Java has been installed, use the following startup script (due to novel java module handling):
 ```
 sh run_DpdlClient_java20.sh
 ```
@@ -48,13 +57,53 @@ sh run_DpdlClient_java20.sh
 
 # Bluetooth stack compatibility
 
-To use the Dpdl bluetooth API a compabible bluetooth stack needs to be available on the operating system.
+To use the Dpdl bluetooth API a compatible bluetooth stack needs to be available on the operating system.
 
-Currently the available bluetooth implementation (JSR-82 ) interfaces with the Linux BlueZ, J2ME, JavaME, Mac OS X,
-WIDCOMM, BlueSoleil and Microsoft Bluetooth stack found in Windows XP SP2 or Windows Vista and WIDCOMM and Microsoft Bluetooth stack on Windows Mobile.
+Currently the available bluetooth implementation (JSR-82 ) interfaces with the following BT stacks:
+	
+	*Linux BlueZ
+	* Mac OS X
+	* WIDCOMM
+	* BlueSoleil
+	* Microsoft Bluetooth stack found in Windows XP SP2 or Windows Vista
+	* WIDCOMM and Microsoft Bluetooth stack on Windows Mobile.
+	* J2ME
+	* JavaME
 
 
+# Embedded OCaml code
 
+The embedded OCaml code (via >>ocaml keyword) is executed through the ocamljava library (http://www.ocamljava.org/) and
+requires the following jar library located in the lib folder (./lib): 'ocamlrun.jar' 
+
+If the 'compile' option has been set (ocaml code is compiled at runtime to improve speed), also the 'ocamljava.jar'
+needs to be present in the lib folder.
+
+
+# 'DpdlEngine lite' release limitations/restrictions (compared to registered version)
+
+	
+The 'DpdlEngine lite' release software package is available for Free and has the following limitations/restrictions:
+
+* At startup, the DpdlEngine requires the execution of a validation script.
+The script simply accesses a html website at www.seesolutions.it for validation (NO data is collected, it's a simple get html.
+	  
+The validation script can be inspected here: 
+[./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h)
+
+* The DpdlEngine parameters and configuration file 'DpdlEngine.ini' can be customized only in the registered version
+	
+* The class definition file (classes.txt), used for dynamic loading and resolving of library classes via loadObj(..) and getClass(..) methods can be edited only in the registered version of Dpdl.
+	
+* The execution of Dpdl scripts is limited to 500 lines of code, embedded C code and OCaml is limited to 100 lines of code
+	
+* The Dpdl scripting API function 'systemExec' is available only in the registered version of Dpdl
+	
+* The interface API to develop custom API extensions (DpdlExtension) is available only in the registered version of Dpdl
+	
+* The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
+	
+* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
 
 
 
