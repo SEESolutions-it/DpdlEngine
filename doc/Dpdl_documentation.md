@@ -132,14 +132,14 @@ println(substr)
 Dpdl scripts can be loaded as an ordinary DpdlObject
 
 ```python
-println("test loadCode(..) with dpdl script testLoadCodeFunc.h")
+println("test loadCode(..) with dpdl script LoadCodeFunc.h")
 
-object mycode = loadCode("testLoadCodeFunc.h")
+object mycode = loadCode("LoadCodeFunc.h")
 
 string mystr1 = "Test"
 object mystr2 = loadObj("String", "MEGA")
 
-mycode.testFunc("testLoadCodeFunc.h", mystr1, mystr2)
+mycode.testFunc("LoadCodeFunc", mystr1, mystr2)
 
 println("done")
 ```
@@ -264,6 +264,40 @@ int exit_code = dpdl_exit_code()
 
 println("embedded OCaml exit code: " + exit_code);
 
+```
+
+### Exception handling using 'raise(..)'
+
+Exceptions can be handled with the 'raise(object condition)' function. 
+
+The following conditions are checked and an exception is raised if the conditions == false:
+
+	* string -> (condition != "null") ? true : false 
+	* int -> (condition != -1) : true : false
+	* bool -> (condition == true) ? true : false
+	* object -> (condition != null) ? true : false
+
+Example:
+```python
+string s1 = "nul(l)"
+raise(s1)
+
+println("testing int raise")
+int i = 1
+raise(i)
+
+println("testing bool raise")
+bool b = true
+raise(b)
+
+println("testing object raise")
+object o =  loadObj("String", "test")
+raise(o)
+
+println("testing bool expression raise")
+raise(o != null)
+
+dpdl_print_exception_table()
 ```
 
 In order to enable the execution of OCaml code via the keyword '**>>ocaml**', the 'ocamlrun.jar' library jar file
