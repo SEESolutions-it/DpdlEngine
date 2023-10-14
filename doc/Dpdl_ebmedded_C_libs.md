@@ -25,7 +25,7 @@ However more functions and libraries may be included in different distributions 
 
 ## Currently supported C Libraries and Functions
 
-```
+```c
 <stdio.h>
 <stdlib.h>
 <ctype.h>
