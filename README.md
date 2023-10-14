@@ -194,6 +194,12 @@ This is a more complete example of the usage of embedded C code within Dpdl:
 
 [dpdlEmbeddedC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbeddedC.h)
 
+The Dpdl native API library 'dpdlnativeapi' provides a Security check to guarantee that the library have not been compromised.
+Therefore the embedded C code execution cannot be mangled internally and guarantees the correct execution of C code.
+In the case the library is updated, the corresponding verification checksums needs to be adjusted in 'DpdlEngine.ini" config.
+
+**Dpdl embedded C library documentation:**
+[Dpdl_embedded_C_libs.md](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_embedded_C_libs.md)
 
 ### Embedding of other programming languages
 

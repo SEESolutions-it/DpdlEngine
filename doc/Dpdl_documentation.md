@@ -147,7 +147,7 @@ println("done")
 ### Dpdl embedded C code
 
 Dpdl allows the embedding and execution of ANSI C code (a minimal subset of C90) directly within Dpdl scripts.
-The C code is interpreted at runtime and includes only a minimal subset of the C library, POSIX compliant.
+The C code is interpreted at runtime and includes only a minimal subset of the C library, POSIX compliant (also on Windows OS)
 
 The C interpreter included  by default (in 'DpdlEngine' and DpdlEngine lite') is very compact (only ca. 400 Kb on Raspberry Pi)
 and has no extra dependencies. Custom libraries can be implemented and added if needed via api functions.
@@ -214,6 +214,13 @@ println("response buffer: " + buf)
 The default memory stack size for the C interpreter is kept small and is configured to be 128 Kb.
 
 The stack size can be customized by applying configurable settings.
+
+The Dpdl native API library 'dpdlnativeapi' provides a Security check to guarantee that the library have not been compromised.
+Therefore the embedded C code execution cannot be mangled internally and guarantees the correct execution of C code.
+In the case the library is updated, the corresponding verification checksums needs to be adjusted in 'DpdlEngine.ini" config.
+
+**Dpdl embedded C library documentation:**
+[Dpdl_embedded_C_libs.md](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_embedded_C_libs.md)
 
 ### Embedded OCaml code
 

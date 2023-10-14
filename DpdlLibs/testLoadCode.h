@@ -8,13 +8,13 @@
 #
 
 # main
-println("test loadCode(..) with dpdl script testLoadCodeFunc.h")
+println("test loadCode(..) with dpdl script LoadCodeFunc.h")
 
-object mycode = loadCode("testLoadCodeFunc.h")
+object mycode = loadCode("LoadCodeFunc.h")
 
 string mystr1 = "Test"
 object mystr2 = loadObj("String", "MEGA")
 
-mycode.testFunc("testLoadCodeFunc.h", mystr1, mystr2)
+mycode.testFunc("LoadCodeFunc", mystr1, mystr2)
 
 println("done")
