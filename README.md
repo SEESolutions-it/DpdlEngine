@@ -1,7 +1,7 @@
 
 # Dpdl - Dynamic Packet Definition Language
 
-				www.seesolutions.it
+				  www.dpdl.io
 
 
 
@@ -604,7 +604,7 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 The 'DpdlEngine lite' release software package is available for Free and has the following limitations/restrictions:
 
 * At startup, the DpdlEngine requires the execution of a validation script.
-The script simply accesses a html website at www.seesolutions.it for validation (NO data is collected, it's a simple get html.
+The script simply accesses a html website at www.seesolutions.it for validation (NO data is collected or stored, it's a simple get html).
 	  
 The validation script can be inspected here: 
 [./DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/DemoDpdl_validator/validateDpdlDemo.h)
