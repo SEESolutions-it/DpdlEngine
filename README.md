@@ -12,7 +12,7 @@ developed by
 ## What is Dpdl?
 
 
-Dpdl is a **constrained device programming language** framework that can be used to encode,
+Dpdl is a **constrained devic**e and **rapid prototyping** programming language framework that can be used to encode,
 store, control, visualize and query data efficiently on small memory footprint
 devices and to support rapid application development. Dpdl comes with a very compact and portable
 **Scripting Engine** and an **extensible API interface** for the development of mobile
@@ -38,7 +38,7 @@ applications, education and research.
 
 Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform.
 
-### Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
+## Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
 
 Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
 ```python
@@ -105,6 +105,7 @@ The speedup is x 25 times faster compared to a standard record store access
 * **XML** with XPath parser
 * **JSON**
 * **Fast Prototyping**
+* Tools for converting Dpdl scripts to Java and C/C++ code
 
 
 ### Access to the complete JRE Java platform API and external java libraries
@@ -477,6 +478,12 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	dpdlLibExamples.h @TEST2 etc..
 	
 	....
+
+* Load a Dpdl script object "LoadCodeFunc.h" via 'loadCode(..)' and call one of its functions
+
+	[testLoadCode.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/testLoadCode.h)
+	
+	[LoadCodeFunc.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/LoadCodeFunc.h)
 	
 * Compresses and de-compresses a string of data with zip
 
@@ -627,7 +634,9 @@ The validation script can be inspected here:
 	
 * The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
-* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
+* The Dpdl java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
+
+* DPDLAPI_*XPath* methods are implemented only in the registered version of Dpdl
 
 * The 'Thread(..)' API function is available only in the registered version of Dpdl (use createThread(..) instead, it provides similar functionality)
 

@@ -104,7 +104,9 @@ The validation script can be inspected here:
 	
 * The compilation/encoding of DpdlPackets via Dpdl code definition files (ex. dpdl_PHONEBOOK.c) is available only in the registered version of Dpdl
 	
-* The full Java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
+* The Dpdl java API is available only in the registered Dpdl version (but Dpdl scripting API is fully available)
+
+* DPDLAPI_*XPath* methods are implemented only in the registered version of Dpdl
 
 * The 'Thread(..)' API function is available only in the registered version of Dpdl (use createThread(..) instead, it provides similar functionality)
 

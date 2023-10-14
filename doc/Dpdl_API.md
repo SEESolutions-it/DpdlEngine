@@ -67,6 +67,7 @@ dpdl_stack_var_put(string key, string value) return int status
 dpdl_stack_var_get(string key) return string value
 dpdl_exit_code() return int exit_code
 dpdl_print_exception_table()
+raise(object condition) return int status
 
 [DPDLAPI]
 DPDLAPI_getVersion()  return string

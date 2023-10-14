@@ -16,6 +16,7 @@
 * Static script execution: static code declarations (*.h_static) are executed only once in a Thread
 * Support for custom function extensions
 * **ANSI C code** and **OCaml** functional programming language can be embedded directly within Dpdl scripts (interpreted/compiled code).
+* Tools for converting Dpdl scripts to Java and C/C++ code
 
 
 ### Variable Type definition
