@@ -153,7 +153,7 @@ The C code is interpreted at runtime and includes only a minimal subset of the C
 The C interpreter included  by default (in 'DpdlEngine' and DpdlEngine lite') is very compact (only ca. 400 Kb on Raspberry Pi)
 and has no extra dependencies. Custom libraries can be implemented and added if needed via api functions.
 
-To embed C code within Dpdl scripts use the keyword '**>>c**' to start the embedded code, and the keyword '**<<**' to end the embedded code.
+To embed C code within Dpdl scripts use the keyword '**>>c**' to start the embedded code, and the keyword '**<<**' to end the embedded code (Note: The keyword has to be on a single line)
 
 Example:
 ```python
