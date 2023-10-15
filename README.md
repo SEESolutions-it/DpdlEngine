@@ -204,7 +204,7 @@ In the case the library is updated, the corresponding verification checksums nee
 
 ### Embedding of other programming languages
 
-Currently the functional programming language '**OCaml**' (https://ocaml.org/) is supported, and can be embedded
+Currently the functional programming language '**OCaml**' (https://ocaml.org/, via package http://www.ocamljava.org/) is supported, and can be embedded
 directly within Dpdl scripts with the keyword '**>>ocaml**'
 
 Example Dpdl script with embedded 'OCaml' code:
