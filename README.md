@@ -219,7 +219,7 @@ dpdl_stack_push("compile")
 dpdl_stack_var_put("mydpdlvar", "Dpdl interacts with OCaml")
 
 >>ocaml
-external get_binding
+external get_binding : string -> 'a = "script_get_binding";;
 
 let dpdl_var = get_binding "mydpdlvar"
 print_endline "mydpdlvar:"
