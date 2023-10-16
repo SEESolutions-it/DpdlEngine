@@ -14,7 +14,7 @@ include("dpdllib.h")
 
 #main
 string host = "127.0.0.1"
-int port = 6666
+int port = 8023
 int PTR_SERVER = 0
 
 println("starting server on port: " + port)

@@ -225,7 +225,13 @@ In the case the library is updated, the corresponding verification checksums nee
 
 ### Embedded OCaml code
 
-Dpdl supports the embedding of OCaml code directly within Dpdl scripts through the OCaml-java project (http://www.ocamljava.org/).
+Dpdl supports the embedding of OCaml code directly within Dpdl scripts through the **'>>ocaml'** keyword.
+
+The embedded OCaml code is executed by the Dpdl runtime through the 'ocamljava' library (http://www.ocamljava.org/) and
+requires the following jar library located in the lib folder './lib': 'ocamlrun-scripting.jar' 
+
+If the 'compile' option has been set (OCaml code is compiled at runtime to improve speed), also the 'ocamljava.jar'
+needs to be present in the lib folder.
 
 Example Dpdl script with embedded 'OCaml' code:
 ```python
@@ -236,28 +242,15 @@ println("testing Dpdl embedded OCaml..")
 dpdl_stack_push("compile")
 
 # we add a variable to the dpdl stack so that we can access it in the embedded OCaml
-dpdl_stack_var_put("mydpdlvar", "Dpdl interacts with OCaml")
-
+dpdl_stack_var_put("var1", "Hello OCaml from Dpdl")
+dpdl_stack_var_put("nr_iter", "Dpdl")
 >>ocaml
-external get_binding
+external get_binding : string -> 'a = "script_get_binding";;
 
-let dpdl_var = get_binding "mydpdlvar"
-print_endline "mydpdlvar:"
-print_endline dpdl_var 
+let s : string = get_binding "var1";;
+let n = Int32.to_int (get_binding "nr_iter");;
 
-let string_of_float f =
-  let s = format_float "%.12g" f in
-  let l = string_length s in
-  let rec loop i =
-    if i >= l then s ^ "."
-    else if s.[i] = '.' || s.[i] = 'e' then s
-    else loop (i + 1)
-  in
-    loop 0
-    
-    print_endline "Output:"
-    print_string f 
-    print_string "\n";
+for i = 1 to n do print_endline s done;;
 <<
 
 int exit_code = dpdl_exit_code()
@@ -266,6 +259,8 @@ println("embedded OCaml exit code: " + exit_code);
 
 ```
 
+NOTE: The 'ocamljava' library can be downloaded from http://www.ocamljava.org/downloads/
+	
 ### Exception handling using 'raise(..)'
 
 Exceptions can be handled with the 'raise(object condition)' function. 

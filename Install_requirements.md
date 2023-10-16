@@ -74,10 +74,10 @@ Currently the available bluetooth implementation (JSR-82 ) interfaces with the f
 
 # Embedded OCaml code
 
-The embedded OCaml code (via >>ocaml keyword) is executed through the ocamljava library (http://www.ocamljava.org/) and
-requires the following jar library located in the lib folder (./lib): 'ocamlrun.jar' 
+The embedded OCaml code (via >>ocaml keyword) is executed by the Dpdl runtime through the ocamljava library (http://www.ocamljava.org/) and
+requires the following jar library located in the lib folder (./lib): 'ocamlrun-scripting.jar' 
 
-If the 'compile' option has been set (ocaml code is compiled at runtime to improve speed), also the 'ocamljava.jar'
+If the 'compile' option has been set (OCaml code is compiled at runtime to improve speed), also the 'ocamljava.jar'
 needs to be present in the lib folder.
 
 
