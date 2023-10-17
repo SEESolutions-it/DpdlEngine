@@ -14,7 +14,9 @@ under the license agreement included (see LICENSE.txt).
 
 The 'DpdlEngine lite' release requires a compatible Java Virtual Machine (JRE) >= version 1.5 specification to run.
 
-There are many java virtual machines available, the official Java JRE from Oracle can be downloaded from java.com website:
+There are many java virtual machines available, the official Java JRE from Oracle can be downloaded from 
+www.java.com or www.oracle.com website:
+
 https://www.java.com/en/download/manual.jsp
 
 Some Dpdl API functions (ex. embedded C code) make use of the Dpdl native API library (dpdlnativeapi).
@@ -70,6 +72,11 @@ Currently the available bluetooth implementation (JSR-82 ) interfaces with the f
 	* WIDCOMM and Microsoft Bluetooth stack on Windows Mobile.
 	* J2ME
 	* JavaME
+
+
+## Linux BlueZ
+
+Ensure the BlueZ library 'libbluetooth.so' is available on the path, eventually create a symbolic link (from libbluetooth.so.*)
 
 
 # Embedded OCaml code

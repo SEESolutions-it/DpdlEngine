@@ -35,6 +35,7 @@ However more functions and libraries may be included in different distributions 
 <math.h>
 <string.h>
 <time.h>
+<dpdl.h>
 ```
 
 ### <stdio.h>
@@ -278,4 +279,10 @@ struct tm *gmtime_r(int *, struct tm *);
 int timegm(struct tm *);
 struct tm *gmtime(int *);" },
 struct tm *localtime(int *);
+```
+
+### <dpdl.h>
+
+```c
+void dpdl_stack_buf_put(char*);
 ```

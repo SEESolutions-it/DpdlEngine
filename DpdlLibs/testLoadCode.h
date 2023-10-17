@@ -10,7 +10,7 @@
 # main
 println("test loadCode(..) with dpdl script LoadCodeFunc.h")
 
-object mycode = loadCode("LoadCodeFunc.h")
+object mycode = loadCode("LoadCodeFunc.h", "myparam")
 
 string mystr1 = "Test"
 object mystr2 = loadObj("String", "MEGA")

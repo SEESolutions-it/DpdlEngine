@@ -9,8 +9,9 @@
 #
 
 # constructor
-func LoadCodeFunc()
+func LoadCodeFunc(string param)
 	println("object LoadCodeFunc loaded")
+	println("param: " + param)
 end
 
 func testFunc(string s, object o)

@@ -12,18 +12,23 @@ developed by
 ## What is Dpdl?
 
 
-Dpdl is a **constrained devic**e and **rapid prototyping** programming language framework that can be used to encode,
-store, control, visualize and query data efficiently on small memory footprint
-devices and to support rapid application development. Dpdl comes with a very compact and portable
-**Scripting Engine** and an **extensible API interface** for the development of mobile
+Dpdl is a **constrained device** and **rapid prototyping** programming language framework with built-in database technology.
+Dpdl enables access to the Java platform API and external java libraries and supports the embedding and execution
+of ANSI C code and OCaml language directly within Dpdl scripts. 
+
+## Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
+
+Dpdl can be used to encode, store, control, visualize and query data efficiently especially on small memory footprint
+devices and to foster rapid application development. Dpdl comes with a very compact and portable
+**scripting engine** and an **extensible API interface** for the development of mobile
 applications and embedded system software.
 
 The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
-enabling to access the full Java platform API and external java libraries directly within Dpdl scripts.
+interoperable with the Java platform API and external java libraries.
 
 Standard **ANSI C code** (a subset of C90) and the **OCaml** functional programming language
-can be **embedded and executed directly within Dpdl scripts** (interpreted and compiled code).
-This makes Dpdl suitable for a wide variety of use-cases and in particular also for hardware programming.
+can be **embedded and executed on-the-fly directly within Dpdl scripts** (interpreted and compiled code).
+This makes Dpdl suitable for a wide range of use-cases and in particular also for hardware programming.
 
 **DpdlEngine stack overview**
 
@@ -38,7 +43,6 @@ applications, education and research.
 
 Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform.
 
-## Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
 
 Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
 ```python
@@ -77,9 +81,9 @@ A list of 14 examples/tests can be found in the following Dpdl script, as explai
 ## Why Dpdl?
 
 Dpdl can be used to implement applications in various domains, in particular for small
-memory footprint devices, and is very suitable for rapid applications development, teaching and research.
+memory footprint devices and for rapid application development, teaching and research.
 
-The DpdlPacket data container is a highly optimized way to store, search and access data
+The DpdlPacket data container is a highly optimized way to store, query and access data
 on devices that have limited memory and storage capabilities. 
 
 **Dpdl can be used:**
@@ -94,7 +98,7 @@ on devices that have limited memory and storage capabilities.
 
 * **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
 * **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
-* **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries** via the loadObj(..) and getClass(..) methods
+* **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries**
 * **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted/compiled code), a subset of C90 standard, POSIX compliant
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
@@ -130,8 +134,10 @@ s=map.get(4)
 println(s)
 ```
 
-With the Dpdl API functions all java libraries defined in class definition configuration file can be accessed.
-The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82
+In this way java libraries defined in class definition configuration file (./DpdlLibs/libs/classes.txt) can be accessed.
+The default configuration includes Java 5 Platform API (1.5), and bluecove Bluetooth JSR-82.
+
+The default configuration can be extended or updated to resolve additional java APIs (editing of class definition configuration file)
 
 #### Dpdl API access documentation (default configuration)
 
@@ -139,9 +145,6 @@ The default configuration includes Java 5 Platform API (1.5), and bluecove Bluet
 [Java 5 API](http://www.seesolutions.it/apidoc/Java_Platform_API_1_5.html)
 
 [Bluetooth JSR-82 API](http://www.seesolutions.it/apidoc/Bluetooth_JSR82_API.html)
-
-
-The default configuration can be extended or updated to resolve additional java APIs (editing of class definition configuration file)
 
 
 ### Embedded C code
@@ -204,8 +207,9 @@ In the case the library is updated, the corresponding verification checksums nee
 
 ### Embedding of other programming languages
 
-Currently the functional programming language '**OCaml**' (https://ocaml.org/, via package http://www.ocamljava.org/) is supported, and can be embedded
-directly within Dpdl scripts with the keyword '**>>ocaml**'
+Currently the functional programming language '**OCaml**' (https://ocaml.org/) is supported, via package (http://www.ocamljava.org/),
+and can be embedded directly within Dpdl scripts with the keyword '**>>ocaml**'
+The library allows also to compile on the fly OCaml code in order to speedup execution.
 
 Example Dpdl script with embedded 'OCaml' code:
 ```python
