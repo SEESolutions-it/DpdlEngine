@@ -223,7 +223,37 @@ In the case the library is updated, the corresponding verification checksums nee
 **Dpdl embedded C library documentation:**
 [Dpdl_embedded_C_libs.md](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_embedded_C_libs.md)
 
-### Embedded OCaml code
+
+### Embedding of Python
+
+Python code can be embedded within Dpdl script by using the keyword '**>>python**'.
+
+Example Dpdl script with embedded 'Python' code:
+```python
+println("testing embedding python code")
+println("")
+
+>>python
+
+languages = ['Dpdl', 'C', 'Python', 'OCaml']
+
+for language in languages:
+	print(language)
+	
+<<
+println("")
+
+int exit_code = dpdl_exit_code()
+
+println("ebedded python exit code: " + exit_code);
+```
+
+Note: Currenly the 'DpdlEngine lite' release includes only the libraries for MacOS (arm64) and Linux (x86_64).
+
+Support for more platforms will be released soon
+
+
+### Embedded OCaml code (experimental)
 
 Dpdl supports the embedding of OCaml code directly within Dpdl scripts through the **'>>ocaml'** keyword.
 

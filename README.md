@@ -14,9 +14,9 @@ developed by
 
 Dpdl is a **constrained device** and **rapid prototyping** programming language framework with built-in database technology.
 Dpdl enables access to the Java platform API and external java libraries and supports the embedding and execution
-of ANSI C code and OCaml language directly within Dpdl scripts. 
+of ANSI C code, Python and OCaml language directly within Dpdl scripts. 
 
-## Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
+## Dpdl ( Java API + Embedded C + Python + OCaml) = Powerful and Versatile
 
 Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
 are integrated by default and third party libraries and functions can be added as extensions.
@@ -99,7 +99,7 @@ on devices that have limited memory and storage capabilities.
 * **DpdlEngine is optimized to run on a vast range of platforms** (J2ME, JavaME, J2SE, any other JVM >= 1.4 Spec, compiled DpdlVM for target platform)
 * **Built-in Dpdl scripting engine with support for custom function extensions** (DpdlExtension interface)
 * **Dpdl scripting API provides access to the complete underlying Java JRE platform and to API libraries**
-* **ANSI C code and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted/compiled code), a subset of C90 standard, POSIX compliant
+* **ANSI C code, Python and OCaml language can be embedded and executed** directly within Dpdl scripts (interpreted/compiled code), a subset of C90 standard, POSIX compliant
 * **Support for common IoT protocol stacks such as Bluetooth(tm)** (JSR-82) and
 **CoAP (Constrained Application Protocol)** (IETF standard RFC 7252)
 * **Packing data in a DpdlPacket is a convenient way to optimize and speedup access to data**.
@@ -205,7 +205,37 @@ In the case the library is updated, the corresponding verification checksums nee
 **Dpdl embedded C library documentation:**
 [Dpdl_embedded_C_libs.md](https://github.com/SEESolutions-it/DpdlEngine/blob/main/doc/Dpdl_embedded_C_libs.md)
 
-### Embedding of other programming languages
+
+### Embedding of Python
+
+Python code can be embedded within Dpdl script by using the keyword '**>>python**'.
+
+Example Dpdl script with embedded 'Python' code:
+```python
+println("testing embedding python code")
+println("")
+
+>>python
+
+languages = ['Dpdl', 'C', 'Python', 'OCaml']
+
+for language in languages:
+	print(language)
+	
+<<
+println("")
+
+int exit_code = dpdl_exit_code()
+
+println("ebedded python exit code: " + exit_code);
+```
+
+Note: Currenly the 'DpdlEngine lite' release includes only the libraries for MacOS (arm64) and Linux (x86_64).
+
+Support for more platforms will be released soon
+
+
+### Embedding of OCaml (experimental)
 
 Currently the functional programming language '**OCaml**' (https://ocaml.org/) is supported, via package (http://www.ocamljava.org/),
 and can be embedded directly within Dpdl scripts with the keyword '**>>ocaml**'
