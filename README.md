@@ -529,9 +529,10 @@ The Dpdl script examples files are located in the folder ./DpdlLibs/
 	
 	[dpdlSimpleC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlSimpleC.h)
 		
-* Extended Embedded C code execution within Dpdl scripts
+
+* Embedded Python code execution within Dpdl script
 	
-	[dpdlEmbeddedC.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbeddedC.h)
+	[dpdlEmbedPython.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlEmbedPython.h)
 	
 * Performs a discovery of bluetooth devices and saves the device addresses discovered in a record store
   
