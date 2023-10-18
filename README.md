@@ -18,6 +18,13 @@ of ANSI C code and OCaml language directly within Dpdl scripts.
 
 ## Dpdl ( Java API + OCaml + Embedded C ) = Powerful and Versatile
 
+Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
+are integrated by default and third party libraries and functions can be added as extensions.
+
+**DpdlEngine stack overview**
+
+![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
+
 Dpdl can be used to encode, store, control, visualize and query data efficiently especially on small memory footprint
 devices and to foster rapid application development. Dpdl comes with a very compact and portable
 **scripting engine** and an **extensible API interface** for the development of mobile
@@ -29,13 +36,6 @@ interoperable with the Java platform API and external java libraries.
 Standard **ANSI C code** (a subset of C90) and the **OCaml** functional programming language
 can be **embedded and executed on-the-fly directly within Dpdl scripts** (interpreted and compiled code).
 This makes Dpdl suitable for a wide range of use-cases and in particular also for hardware programming.
-
-**DpdlEngine stack overview**
-
-![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
-
-Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
-are integrated by default and third party libraries and functions can be added as extensions.
 
 By combining the portability and vast API availability of Java, the expressiveness of OCaml and
 the power of C programming language, Dpdl is provides a powerful development platform for industrial
