@@ -33,7 +33,7 @@ applications and embedded system software.
 The Dpdl language constructs and syntax is kept simple and follows an object oriented paradigm
 interoperable with the Java platform API and external java libraries.
 
-Standard **ANSI C code** (a subset of C90) and the **OCaml** functional programming language
+Standard **ANSI C code** (a subset of C90), Python and the **OCaml** functional programming language
 can be **embedded and executed on-the-fly directly within Dpdl scripts** (interpreted and compiled code).
 This makes Dpdl suitable for a wide range of use-cases and in particular also for hardware programming.
 
@@ -216,12 +216,10 @@ println("testing embedding python code")
 println("")
 
 >>python
-
 languages = ['Dpdl', 'C', 'Python', 'OCaml']
 
 for language in languages:
 	print(language)
-	
 <<
 println("")
 
