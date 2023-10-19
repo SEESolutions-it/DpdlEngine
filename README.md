@@ -323,7 +323,7 @@ Dpdl is currently developed by SEE Solutions and the following integrations has 
 
 * Native API support for Tensorflow and Tensorflow lite
 * OpenAI integration
-* Blockchain integration (Bitcoin and Ethereum smart contracts)
+* Blockchain integration (smart contracts)
 * Nostr client API
 
 
