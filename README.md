@@ -18,7 +18,7 @@ of ANSI C code, Python and OCaml language directly within Dpdl scripts.
 
 ## Dpdl ( Java API + Embedded C + Python + OCaml) = Powerful and Versatile
 
-**Dpdl is for:**
+**Dpdl is useful for:**
 
 * developing faster your ideas
 * on all platforms
