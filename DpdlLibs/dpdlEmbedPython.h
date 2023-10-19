@@ -13,12 +13,10 @@ println("testing embedding python code")
 println("")
 
 >>python
-
 languages = ['Dpdl', 'C', 'Python', 'OCaml']
 
 for language in languages:
 	print(language)
-	
 <<
 println("")
 

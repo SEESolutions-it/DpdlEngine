@@ -246,9 +246,15 @@ int exit_code = dpdl_exit_code()
 println("ebedded python exit code: " + exit_code);
 ```
 
-Note: Currenly the 'DpdlEngine lite' release includes only the libraries for MacOS (arm64) and Linux (x86_64).
 
+Note: Currently the 'DpdlEngine lite' release includes only the native python library 'libdpdlpython' for MacOS (arm64)
+
+IMPORTANT: The Library for Linux needs to be downloaded separately from:
+
+http://www.seesolutions.it/downloads/dpdlpython.zip
+ 
 Support for more platforms will be released soon
+
 
 
 ### Embedded OCaml code (experimental)

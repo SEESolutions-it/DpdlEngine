@@ -18,12 +18,55 @@ of ANSI C code, Python and OCaml language directly within Dpdl scripts.
 
 ## Dpdl ( Java API + Embedded C + Python + OCaml) = Powerful and Versatile
 
-Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
-are integrated by default and third party libraries and functions can be added as extensions.
+**Dpdl is for:**
+
+* developing faster your ideas
+* on all platforms
+* using the power of multiple programming languages
+* without wasting time on installing, compiling and configuring environments
+* designed for running on constrained devices
+
+Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform.
 
 **DpdlEngine stack overview**
 
-![Dpdl stack](http://www.seesolutions.it/images/app/thumb/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
+![Dpdl stack](http://www.dpdl.io/images/platform/Dpdl_Dynamic_Packet_Definition_Language_components_thumb.jpg)
+
+By combining the portability and vast API availability of Java and Python, the expressiveness of OCaml and
+the power of C programming language, Dpdl is provides a powerful development platform for industrial
+applications, education and research.
+
+Common IoT protocol stacks such as **Bluetooth(tm)** and **CoAP** (Constrained Application Protocol)
+are integrated by default and third party libraries and functions can be added as extensions.
+
+Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
+```python
+ int status = DPDLAPI_searchClientsOnServer()
+ int status_discovery = dpdlFalse
+ int service_discovery = dpdlFalse
+ int counter = 0
+ if(status == dpdlTrue)
+     while (status_discovery != dpdlTrue) && (service_discovery != dpdlTrue)
+         status_discovery = DPDLAPI_discoveryServerFinished()
+         service_discovery = DPDLAPI_serviceDiscoveryServerFinished()
+         print(".")
+         counter = counter+1
+         sleep(3000)
+     endwhile
+	 string dev = "n"
+	 int dev_found = 0
+     while(dev != "null")
+          dev = DPDLAPI_getServerVisibleBTAddr()
+          if(dev != "null")
+              println("bluetooth device visible: " + dev)
+              saveData(dev)
+			  dev_found = dev_found + 1
+          fi
+     endwhile
+ else
+ 	println("No working Bluetooth stack found")
+ fi
+```
 
 Dpdl can be used to encode, store, control, visualize and query data efficiently especially on small memory footprint
 devices and to foster rapid application development. Dpdl comes with a very compact and portable
@@ -37,41 +80,6 @@ Standard **ANSI C code** (a subset of C90), Python and the **OCaml** functional 
 can be **embedded and executed on-the-fly directly within Dpdl scripts** (interpreted and compiled code).
 This makes Dpdl suitable for a wide range of use-cases and in particular also for hardware programming.
 
-By combining the portability and vast API availability of Java, the expressiveness of OCaml and
-the power of C programming language, Dpdl is provides a powerful development platform for industrial
-applications, education and research.
-
-Dpdl is designed to be simple, very compact, robust, extendible and portable to almost every platform.
-
-
-Sample Dpdl script (Bluetooth device discovery using Dpdl high level BT API):
-```python
-     int status = DPDLAPI_searchClientsOnServer()
-     int status_discovery = dpdlFalse
-     int service_discovery = dpdlFalse
-     int counter = 0
-     if(status == dpdlTrue)
-	     while (status_discovery != dpdlTrue) && (service_discovery != dpdlTrue)
-	         status_discovery = DPDLAPI_discoveryServerFinished()
-	         service_discovery = DPDLAPI_serviceDiscoveryServerFinished()
-	         print(".")
-	         counter = counter+1
-	         sleep(3000)
-	     endwhile
-		 string dev = "n"
-		 int dev_found = 0
-	     while(dev != "null")
-	          dev = DPDLAPI_getServerVisibleBTAddr()
-	          if(dev != "null")
-	              println("bluetooth device visible: " + dev)
-	              saveData(dev)
-				  dev_found = dev_found + 1
-	          fi
-	     endwhile
-     else
-     	println("No working Bluetooth stack found")
-     fi
-```
 
 A list of 14 examples/tests can be found in the following Dpdl script, as explained later:
 
@@ -170,18 +178,18 @@ string a = "test"
 dpdl_stack_push(n, x, a)
 
 >>c
-	#include <stdio.h>
-	
-	int main(int argc, char **argv){
-		printf("Hello C from Dpdl!\n");
-		printf("\n");
-		printf("num params: %d\n", argc);
-		int cnt;
-	    for (cnt = 0; cnt < argc; cnt++){
-	        printf("	param %d: %s\n", cnt, argv[cnt]);
-	    }
-	    return 0;
-	}
+#include <stdio.h>
+
+int main(int argc, char **argv){
+	printf("Hello C from Dpdl!\n");
+	printf("\n");
+	printf("num params: %d\n", argc);
+	int cnt;
+    for (cnt = 0; cnt < argc; cnt++){
+        printf("	param %d: %s\n", cnt, argv[cnt]);
+    }
+    return 0;
+}
 <<
 int exit_code = dpdl_exit_code()
 
@@ -228,9 +236,10 @@ int exit_code = dpdl_exit_code()
 println("ebedded python exit code: " + exit_code);
 ```
 
-Note: Currenly the 'DpdlEngine lite' release includes only the libraries for MacOS (arm64) and Linux (x86_64).
+Note: Currently the 'DpdlEngine lite' release includes the native Python library '**libdpdlpython**' for **MacOS (arm64)** and **Linux (x86_64)**
 
-Support for more platforms will be released soon
+	* **on Linux:** Python version 3.2m (gcc version 4.4.7)
+	* **on MacOS:** Python version 3.12 (Apple clang version 14.0.3)
 
 
 ### Embedding of OCaml (experimental)
@@ -329,10 +338,10 @@ The Dpdl framework and API documentation are available via the following links:
 
 ## Download 'DpdlEngine lite' release package (Free version)
 
-The 'DpdlEngine lite' release (V1.0) can be downloaded and used for Free (with some limitations),
-from the following download link form:
+The 'DpdlEngine lite' release (v1.0) can be downloaded and used for Free (with some limitations),
+from the dpdl.io donload page:
 
-[DpdlEngine lite DOWNLOAD form](http://www.seesolutions.it/lang_en/index_download.html)
+[DpdlEngine lite DOWNLOAD form](https://www.dpdl.io/index_download.html)
 
 Documentation and Updates are updated regularly on the official DpdlEngine GitHub repository:
 [DpdlEngine GitHub](https://github.com/SEESolutions-it/DpdlEngine)

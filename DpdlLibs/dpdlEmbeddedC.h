@@ -39,11 +39,7 @@ func testEmbeddedC(int n, double x, string a)
     	a = 3,
     	b = 6,
     	c = 9,
-    	d,
-    	e = 11,
-    	f = 23,
-    	g,
-    	h
+    	e = 11
 	};
 
 	struct data mydata;
@@ -51,7 +47,6 @@ func testEmbeddedC(int n, double x, string a)
 	
 	int testEmbeddedC(double x, int n, int *a) {
 	    int i;
-	
 	    printf("x = %f\n", x);
 	    for(i=0; i<n; i++){
 	       printf("a[%d] = %d\n", i, a[i]);
@@ -72,12 +67,12 @@ func testEmbeddedC(int n, double x, string a)
 		
 		u32 myint = 3;
 		
-		mydata.id = 23;
+		mydata.id = 22;
 		mydata.node = 369;
 		
 		printf("id: %d\n", mydata.id);
 		printf("node: %d\n", mydata.node);
-		printf("keys: %d %d %d %d %d %d %d %d\n", a, b, c, d, e, f, g, h);
+		printf("keys: %d %d %d %d\n", a, b, c, e);
 		printf("myint: %d\n", myint);
 		
 		struct data *ptr_data = &mydata;
@@ -85,8 +80,7 @@ func testEmbeddedC(int n, double x, string a)
 		printf("ptr_data->id = %d\n", ptr_data->id);
 		printf("ptr_data->node = %d\n\n", ptr_data->node);
 		
-	    int cnt;
-	
+	    int cnt;	
 	    printf("num params: %d\n", argc);
 	    for (cnt = 0; cnt < argc; cnt++){
 	        printf("	param %d: %s\n", cnt, argv[cnt]);
@@ -102,35 +96,23 @@ func testEmbeddedC(int n, double x, string a)
 		printf("myparam: %s\n", &param); 
 		int mynum[6] = {1, 2, 3, 4, 5, 6};
 		
-		testEmbeddedC(x, n, &mynum);
 		x = 23.0;
 		testEmbeddedC(x, n, &mynum);
 		printf("\n");
 		
 		goto math_operations;
-		
  		{
         	int b;
         	
 			math_operations:
 			printf("Math operations:\n\n");
 			printf("%f\n", sin(0.12));
-			printf("%f\n", cos(0.12));
-			printf("%f\n", tan(0.12));
-			printf("%f\n", asin(0.12));
-			printf("%f\n", log(0.12));
-			printf("%f\n", pow(0.12, 0.12));
-			printf("%f\n", sqrt(0.12));
-			printf("%f\n", round(12.34));
-			printf("%f\n", ceil(12.34));
-			printf("%f\n", floor(12.34));    
 			printf("\n");
 			
 			goto finish;
     	}
     	
    	finish:
-    	
     	sleep(1);
     	time_t time_end;
     	time(&time_end);

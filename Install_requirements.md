@@ -20,7 +20,7 @@ www.java.com or www.oracle.com website:
 https://www.java.com/en/download/manual.jsp
 
 Some Dpdl API functions (ex. embedded C code) make use of the Dpdl native API library (dpdlnativeapi).
-The Dpdl native API library is platform dependant and is available for the following platforms:
+The Dpdl native API library is platform dependent and is available for the following platforms:
 
 	* MacOS 13.4 (ARM)
 	* Linux x86_64 (x84 64bit)
@@ -31,6 +31,27 @@ The native libraries are located in the corresponding platform/architecture fold
 
 The library can be compiled for additional platforms by us on your request by writing to info@seesolutions.it
 
+You may delete the libraries for platforms that you do not use (e.g. ./lib/native/someplatform )
+
+## Embedded 'Python' code
+
+Note: Currently the 'DpdlEngine lite' release includes the native Python library '**libdpdlpython**' for **MacOS (arm64)** and **Linux (x86_64)**
+
+	* **on Linux:** Python version 3.2m (gcc version 4.4.7)
+	* **on MacOS:** Python version 3.12 (Apple clang version 14.0.3)
+	
+	
+Support for more platforms will be released soon. MicroPython will also be available as option.
+
+
+## Embedded 'OCaml' code
+
+The embedding of OCaml code is still experimental, but works.
+
+See the official OCaml-java documentation at http://www.ocamljava.org/documentation/
+	
+Eventually update the 'ocamlrun-scripting.jar' in the ./lib folder with the newest release downloaded from ocamljava.org
+	
 
 # How to run
 
@@ -52,7 +73,8 @@ On Windows
 runDpdlClient.bat
 ```
 
-NOTE: If the latest version of Java has been installed, use the following startup script (due to novel java module handling):
+NOTE: If a newer version of Java has been installed, use the following startup script (due to novel java module handling, This will
+be fixed in the next release):
 ```
 sh run_DpdlClient_java20.sh
 ```
