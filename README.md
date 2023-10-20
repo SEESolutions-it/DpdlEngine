@@ -492,26 +492,25 @@ license.
 	
 
 
-## Dpdl Scripting examples
+## Dpdl scripting Examples
 
-A set of examples implemented with Dpdl scripting language can be found in the script './DpdlLibs/dpdlLibExamples.h',
-where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
-i.e. @TEST1 .....@TEST14
 
-To execute the individual examples enter DpdlClient console:
+To execute the examples enter DpdlClient console and use the '-load' command:
 ```
 -load
 enter the Dpdl script name to execute:
-dpdlLibExamples.h @TEST1
+arraylistExample.h @TEST1
 ```
 
+A set of examples/Tests can be found in the script './DpdlLibs/dpdlLibExamples.h',
+where different Tests/Examples can be executed individually via tagged execution, by supplying the @TAG attribute along with the filename.
+i.e. arraylistExample.h @TEST1
 
 
-The Dpdl script examples files are located in the folder ./DpdlLibs/
-
-* Example that shows how C and Python can be embedded and executed directly within Dpdl scripts
+* Example that shows how <ins>C</ins> and <ins>Python</ins> can be embedded and executed directly within Dpdl scripts
 
 	[dpdlFullExample.h](https://github.com/SEESolutions-it/DpdlEngine/blob/main/DpdlLibs/dpdlFullExample.h)
+	
 
 * Set of 14 examples/tests. The examples make use of @TAG execution to allow execution of each individual example.
 	
